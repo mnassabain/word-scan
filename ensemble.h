@@ -1,10 +1,19 @@
 #ifndef __ENSEMBLE_H__
 #define __ENSEMBLE_H__
 
+#include "erreur.h"
 #include <stdbool.h>
 
 // structure
+#define SIZE_TAB 10
 
+typedef struct s_set
+{
+    int * elements;
+    int max_elt;    // nombre max d'elements
+    int n_elt;      // nombre d'elements
+
+} * OrderedSet;     // pour eviter copie de données
 
 // fonctions
 OrderedSet initOrderedSet();
