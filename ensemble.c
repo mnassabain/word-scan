@@ -30,7 +30,7 @@ OrderedSet insertValue(OrderedSet os, int element)
 {
     int debut   = 0;
     int fin     = os->n_elt - 1;
-    bool inf = false, sup = false;
+    //bool inf = false, sup = false;
 
     // si element deja dans l'ensemble
     if (contains(os, element))
@@ -40,58 +40,36 @@ OrderedSet insertValue(OrderedSet os, int element)
 
     int milieu;
 
-    // recherche dichotomique
-    while(!sup || !inf)
-    {
-        if (debut > fin)
-        {
-            sup = true;
-            inf = true;
-            break;
-        }
-
-        milieu = (debut + fin) / 2;
+   while(debut <= fin)
+   {
+       milieu = (debut + fin) / 2;
 
         if (element < os->elements[milieu])
         {
-            inf = true;
+            fin = milieu - 1;
         }
         else
         {
-            sup = true;
-        }
-
-        if (inf)
-        {
-            fin = milieu - 1;
-        }
-
-        if (sup)
-        {
             debut = milieu + 1;
         }
-    }
+   }
 
-    // insertion
     int position;
-    if (getNumberElt(os) == 0)
+    if (element < os->elements[milieu])
     {
-        position = 0;
-    }
-    else if (element < os->elements[milieu])
-    {
-        position = milieu - 1;
+        position = milieu;
     }
     else
     {
         position = milieu + 1;
     }
+    
 
     // decalage du tableau
     if (os->n_elt == os->max_elt)
     {
         os->max_elt += SIZE_TAB;
-        os->elements = (int *)realloc(os->elements, os->max_elt);
+        os->elements = (int *)realloc(os->elements, os->max_elt * sizeof(int));
         if (os->elements == NULL)
         {
             raler(1, "Erreur lors realloc");
