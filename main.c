@@ -1,14 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "liste.h"
+#include "ensemble.h"
 
 
 
 int main()
 {
     OrderedSet test = initOrderedSet();
-
 
     test = insertValue(test, 1);
     test = insertValue(test, 2);

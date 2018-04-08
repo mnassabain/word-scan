@@ -1,0 +1,203 @@
+        -:    0:Source:ensemble.c
+        -:    0:Graph:ensemble.gcno
+        -:    0:Data:ensemble.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include "ensemble.h"
+        -:    2:
+        3:    3:OrderedSet initOrderedSet()
+        -:    4:{
+        3:    5:    OrderedSet newSet = (OrderedSet)malloc(sizeof(struct s_set));
+        3:    6:    if (newSet == NULL)
+        -:    7:    {
+    #####:    8:        raler(1, "Erreur lors malloc");
+        -:    9:    }
+        -:   10:
+        3:   11:    newSet->max_elt = SIZE_TAB;
+        3:   12:    newSet->n_elt   = 0;
+        3:   13:    newSet->elements = (int *)malloc(SIZE_TAB * sizeof(int));
+        -:   14:
+        3:   15:    return newSet;
+        -:   16:}
+        -:   17:
+        1:   18:void freeOrderedSet(OrderedSet os)
+        -:   19:{
+        1:   20:    free(os->elements);
+        1:   21:    free(os);
+        1:   22:}
+        -:   23:
+       19:   24:int getNumberElt(OrderedSet os)
+        -:   25:{
+       19:   26:    return os->n_elt;
+        -:   27:}
+        -:   28:
+       17:   29:OrderedSet insertValue(OrderedSet os, int element)
+        -:   30:{
+       17:   31:    int debut   = 0;
+       17:   32:    int fin     = os->n_elt - 1;
+       17:   33:    bool inf = false, sup = false;
+        -:   34:
+        -:   35:    // si element deja dans l'ensemble
+       17:   36:    if (contains(os, element))
+        -:   37:    {
+        1:   38:        return os;
+        -:   39:    }
+        -:   40:
+        -:   41:    int milieu;
+        -:   42:
+        -:   43:    // recherche dichotomique
+       59:   44:    while(!sup || !inf)
+        -:   45:    {
+       42:   46:        if (debut > fin)
+        -:   47:        {
+       15:   48:            sup = true;
+       15:   49:            inf = true;
+       15:   50:            break;
+        -:   51:        }
+        -:   52:
+       27:   53:        milieu = (debut + fin) / 2;
+        -:   54:
+       27:   55:        if (element < os->elements[milieu])
+        -:   56:        {
+        1:   57:            inf = true;
+        -:   58:        }
+        -:   59:        else
+        -:   60:        {
+       26:   61:            sup = true;
+        -:   62:        }
+        -:   63:
+       27:   64:        if (inf)
+        -:   65:        {
+        1:   66:            fin = milieu - 1;
+        -:   67:        }
+        -:   68:
+       27:   69:        if (sup)
+        -:   70:        {
+       27:   71:            debut = milieu + 1;
+        -:   72:        }
+        -:   73:    }
+        -:   74:
+        -:   75:    // insertion
+        -:   76:    int position;
+       16:   77:    if (getNumberElt(os) == 0)
+        -:   78:    {
+        3:   79:        position = 0;
+        -:   80:    }
+       13:   81:    else if (element < os->elements[milieu])
+        -:   82:    {
+        1:   83:        position = milieu - 1;
+        -:   84:    }
+        -:   85:    else
+        -:   86:    {
+       12:   87:        position = milieu + 1;
+        -:   88:    }
+        -:   89:
+        -:   90:    // decalage du tableau
+       16:   91:    if (os->n_elt == os->max_elt)
+        -:   92:    {
+    #####:   93:        os->max_elt += SIZE_TAB;
+    #####:   94:        os->elements = (int *)realloc(os->elements, os->max_elt);
+    #####:   95:        if (os->elements == NULL)
+        -:   96:        {
+    #####:   97:            raler(1, "Erreur lors realloc");
+        -:   98:        }
+        -:   99:    }
+        -:  100:
+       16:  101:    int tmp = os->n_elt;
+       19:  102:    for(; tmp > position; tmp--)
+        -:  103:    {
+        3:  104:        os->elements[tmp] = os->elements[tmp - 1];
+        -:  105:    }
+        -:  106:
+        -:  107:    // insertion
+       16:  108:    os->elements[position] = element;
+       16:  109:    os->n_elt++;
+        -:  110:
+       16:  111:    return os;
+        -:  112:}
+        -:  113:
+       27:  114:bool contains(OrderedSet os, int element)
+        -:  115:{
+       27:  116:    int debut   = 0;
+       27:  117:    int fin     = os->n_elt;
+       27:  118:    bool trouve = false;
+        -:  119:
+      101:  120:    while (!trouve)
+        -:  121:    {
+       70:  122:        int milieu = (debut + fin) / 2;
+       70:  123:        int eltMilieu = os->elements[milieu];
+        -:  124:
+       70:  125:        if (eltMilieu == element)
+        -:  126:        {
+        4:  127:            trouve = true;
+        -:  128:        }
+        -:  129:        else
+        -:  130:        {
+       66:  131:            if (element > eltMilieu)
+        -:  132:            {
+       48:  133:                debut = milieu + 1;
+        -:  134:            }
+        -:  135:            else
+        -:  136:            {
+       18:  137:                fin = milieu - 1;
+        -:  138:            }
+        -:  139:        }
+        -:  140:
+        -:  141:        // debordement
+       70:  142:        if (debut > fin)
+        -:  143:        {
+       23:  144:            break;
+        -:  145:        }
+        -:  146:    }
+        -:  147:
+       27:  148:    return trouve;
+        -:  149:
+        -:  150:}
+        -:  151:
+        6:  152:void printOrderedSet(OrderedSet os)
+        -:  153:{
+        -:  154:    int i;
+        6:  155:    printf("[ ");
+       36:  156:    for (i = 0; i < os->n_elt - 1; i++)
+        -:  157:    {
+       30:  158:        printf("%d, ", os->elements[i]);
+        -:  159:    }
+        6:  160:    printf("%d ]\n", os->elements[i]);
+        6:  161:}
+        -:  162:
+        1:  163:OrderedSet intersect(OrderedSet os1, OrderedSet os2)
+        -:  164:{
+        1:  165:    OrderedSet intersection = initOrderedSet();
+        -:  166:
+        -:  167:    int i;
+        -:  168:    int max_elt;
+        1:  169:    OrderedSet tab[] = {os1, os2};
+        -:  170:    int tab_src, tab_dest;
+        1:  171:    if(getNumberElt(os1) < getNumberElt(os2))
+        -:  172:    {
+    #####:  173:        max_elt = os1->max_elt;
+    #####:  174:        tab_src = 0;
+    #####:  175:        tab_dest = 1;
+        -:  176:
+        -:  177:    }
+        -:  178:    else
+        -:  179:    {
+        1:  180:        max_elt = os2->max_elt;
+        1:  181:        tab_src = 1;
+        1:  182:        tab_dest = 0;
+        -:  183:    }
+        -:  184:
+        -:  185:
+        -:  186:
+        -:  187:
+       11:  188:    for (i = 0; i < max_elt; i++)
+        -:  189:    {
+        -:  190:        //tab[tab_src]->elements[i] dans tab[tab_dest] ?
+       10:  191:        if (contains(tab[tab_dest], tab[tab_src]->elements[i]))
+        -:  192:        {
+        3:  193:            intersection = insertValue(intersection, tab[tab_src]->elements[i]);
+        -:  194:        }
+        -:  195:    }
+        -:  196:
+        1:  197:    return intersection;
+        -:  198:}

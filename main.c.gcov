@@ -1,0 +1,56 @@
+        -:    0:Source:main.c
+        -:    0:Graph:main.gcno
+        -:    0:Data:main.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:
+        -:    4:#include "ensemble.h"
+        -:    5:
+        -:    6:
+        -:    7:
+        1:    8:int main()
+        -:    9:{
+        1:   10:    OrderedSet test = initOrderedSet();
+        -:   11:
+        1:   12:    test = insertValue(test, 1);
+        1:   13:    test = insertValue(test, 2);
+        1:   14:    test = insertValue(test, 3);
+        1:   15:    test = insertValue(test, 7);
+        1:   16:    test = insertValue(test, 10);
+        1:   17:    test = insertValue(test, 21);
+        -:   18:
+        1:   19:    printOrderedSet(test);
+        -:   20:
+        1:   21:    test = insertValue(test, 5);
+        -:   22:
+        1:   23:    printOrderedSet(test);
+        -:   24:
+        1:   25:    printf("L'ensemble a %d elements\n", getNumberElt(test));
+        -:   26:
+        1:   27:    test = insertValue(test, 7);
+        1:   28:    printOrderedSet(test);
+        -:   29:
+        -:   30:    //------------------
+        -:   31:
+        1:   32:    OrderedSet test2 = initOrderedSet();
+        1:   33:    test2 = insertValue(test2, 3);
+        1:   34:    test2 = insertValue(test2, 7);
+        1:   35:    test2 = insertValue(test2, 8);
+        1:   36:    test2 = insertValue(test2, 11);
+        1:   37:    test2 = insertValue(test2, 21);
+        1:   38:    test2 = insertValue(test2, 30);
+        -:   39:
+        1:   40:    printf("\n\nTest d'intersection:\nEnsemble 1:\n");
+        1:   41:    printOrderedSet(test);
+        1:   42:    printf("\nEnsemble 2:\n");
+        1:   43:    printOrderedSet(test2);
+        1:   44:    printf("\nIntersection:\n");
+        1:   45:    OrderedSet intersection = intersect(test, test2);
+        1:   46:    printOrderedSet(intersection);
+        -:   47:
+        1:   48:    freeOrderedSet(test);
+        -:   49:
+        1:   50:    return 0;
+        -:   51:}

@@ -3,15 +3,16 @@
 
 #include <stdbool.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 // structure
 typedef struct s_elt {
     int val;
     struct s_elt * suiv;
-} elemListe;
+} *elemListe;
 
 typedef struct s_OrderedSet {
-    elemListe * first;
+    elemListe first;
     int n_elt;
 } *OrderedSet;
 
@@ -30,6 +31,6 @@ void printOrderedSet(OrderedSet os);
 
 OrderedSet intersect(OrderedSet os1, OrderedSet os2);
 
-OrderedSet searchPos(OrderedSet os, int element);
+elemListe searchPos(elemListe liste, int element);
 
 #endif
