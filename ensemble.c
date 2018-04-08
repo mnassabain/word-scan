@@ -29,8 +29,8 @@ int getNumberElt(OrderedSet os)
 OrderedSet insertValue(OrderedSet os, int element)
 {
     int debut   = 0;
-    int fin     = os->n_elt;
-    bool inf, sup;
+    int fin     = os->n_elt - 1;
+    bool inf = false, sup = false;
 
     // si element deja dans l'ensemble
     if (contains(os, element))
@@ -43,6 +43,13 @@ OrderedSet insertValue(OrderedSet os, int element)
     // recherche dichotomique
     while(!sup || !inf)
     {
+        if (debut > fin)
+        {
+            sup = true;
+            inf = true;
+            break;
+        }
+
         milieu = (debut + fin) / 2;
 
         if (element < os->elements[milieu])
@@ -67,7 +74,11 @@ OrderedSet insertValue(OrderedSet os, int element)
 
     // insertion
     int position;
-    if (element < os->elements[milieu])
+    if (getNumberElt(os) == 0)
+    {
+        position = 0;
+    }
+    else if (element < os->elements[milieu])
     {
         position = milieu - 1;
     }
@@ -81,16 +92,20 @@ OrderedSet insertValue(OrderedSet os, int element)
     {
         os->max_elt += SIZE_TAB;
         os->elements = (int *)realloc(os->elements, os->max_elt);
+        if (os->elements == NULL)
+        {
+            raler(1, "Erreur lors realloc");
+        }
     }
 
     int tmp = os->n_elt;
-    while(tmp-- > position)
+    for(; tmp > position; tmp--)
     {
         os->elements[tmp] = os->elements[tmp - 1];
     }
 
     // insertion
-    os->elements[milieu] = element;
+    os->elements[position] = element;
     os->n_elt++;
 
     return os;
@@ -142,7 +157,7 @@ void printOrderedSet(OrderedSet os)
     {
         printf("%d, ", os->elements[i]);
     }
-    printf("%d ]", os->elements[i]);
+    printf("%d ]\n", os->elements[i]);
 }
 
 OrderedSet intersect(OrderedSet os1, OrderedSet os2)
