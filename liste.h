@@ -2,6 +2,7 @@
 #define __LISTE_H__
 
 #include <stdbool.h>
+#include <stdlib.h>
 
 // structure
 typdef struct s_elt {
@@ -9,10 +10,10 @@ typdef struct s_elt {
     struct s_elt * suiv;
 } elemListe;
 
-typedef struct {
+typedef struct s_OrderedSet {
     elemListe * first;
     int n_elt;
-} OrderedSet;
+} *OrderedSet;
 
 // fonctions
 OrderedSet initOrderedSet();
@@ -21,12 +22,14 @@ void freeOrderedSet(OrderedSet os);
 
 int getNumberElt(OrderedSet os);
 
-void insertValue(OrderedSet os, int element);
+OrderedSet insertValue(OrderedSet os, int element);
 
 bool contains(OrderedSet os, int element);
 
 void printOrderedSet(OrderedSet os);
 
 OrderedSet intersect(OrderedSet os1, OrderedSet os2);
+
+OrderedSet searchPos(OrderedSet os, int element);
 
 #endif
