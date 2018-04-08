@@ -1,0 +1,7 @@
+# fichiers pour compilation
+*.o
+
+# fichier pour gcov
+*.gcov
+*.gcda
+*.gcno
