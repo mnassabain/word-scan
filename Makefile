@@ -1,7 +1,7 @@
 TARGET = main
-LIBS = -lm
+LIBS = -lm -lgcov
 CC = gcc
-CFLAGS = -g -Wall
+CFLAGS = -g -Wall -Werror -Wextra --coverage
 
 .PHONY: default all clean
 
