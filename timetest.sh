@@ -1,11 +1,11 @@
 #!/bin/sh
 
 
-first=$(date +%s)
+first=$(date +%s%N)
 
 ./main > /dev/null
 
-last=$(date +%s)
+last=$(date +%s%N)
 
 delay=$((last - first))
 
