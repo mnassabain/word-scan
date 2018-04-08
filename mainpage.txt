@@ -1,0 +1,27 @@
+/**
+ * \mainpage
+ *
+ * \section Infos Partie 1 - Informations générales
+ *
+ * \authors Quentin Christoffel
+ * \authors Marco Nassabain
+ *
+ * \section Introduction Partie 2 - Introduction
+ *
+ * Arbre binaire bla blac
+ *
+ * \section Implementation Partie 3 - Implementaion
+ *
+ * \subsection Ensemble 3.1 - Ensemble ordonné
+ *
+ * abc abc abc abc
+ *
+ * \subsection Arbre 3.2 - Arbre binaire
+ *
+ * abc abc
+ *
+ * Exemple
+ * Exemple
+ *
+ */
+
