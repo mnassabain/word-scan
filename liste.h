@@ -5,7 +5,7 @@
 #include <stdlib.h>
 
 // structure
-typdef struct s_elt {
+typedef struct s_elt {
     int val;
     struct s_elt * suiv;
 } elemListe;

@@ -22,7 +22,7 @@ void freeOrderedSet(OrderedSet os);
 
 int getNumberElt(OrderedSet os);
 
-void insertValue(OrderedSet os, int element);
+OrderedSet insertValue(OrderedSet os, int element);
 
 bool contains(OrderedSet os, int element);
 
