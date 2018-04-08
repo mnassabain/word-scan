@@ -35,15 +35,17 @@ OrderedSet insertValue(OrderedSet os, int element)
     // si element deja dans l'ensemble
     if (contains(os, element))
     {
-        return;
+        return os;
     }
+
+    int milieu;
 
     // recherche dichotomique
     while(!sup || !inf)
     {
-        int milieu = (debut + fin) / 2;
+        milieu = (debut + fin) / 2;
 
-        if (element < os->elements[milieu]);
+        if (element < os->elements[milieu])
         {
             inf = true;
         }
@@ -100,7 +102,7 @@ bool contains(OrderedSet os, int element)
     int fin     = os->n_elt;
     bool trouve = false;
 
-    while (!trouve && nontrouve)
+    while (!trouve)
     {
         int milieu = (debut + fin) / 2;
         int eltMilieu = os->elements[milieu];
@@ -153,14 +155,14 @@ OrderedSet intersect(OrderedSet os1, OrderedSet os2)
     int tab_src, tab_dest;
     if(getNumberElt(os1) < getNumberElt(os2))
     {
-        max_elt = os1;
+        max_elt = os1->max_elt;
         tab_src = 0;
         tab_dest = 1;
 
     }
     else
     {
-        max_elt = os2;
+        max_elt = os2->max_elt;
         tab_src = 1;
         tab_dest = 0;
     }
