@@ -1,0 +1,201 @@
+\hypertarget{ensemble_8h}{}\section{ensemble.\+h File Reference}
+\label{ensemble_8h}\index{ensemble.\+h@{ensemble.\+h}}
+{\ttfamily \#include \char`\"{}erreur.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$stdbool.\+h$>$}\\*
+Include dependency graph for ensemble.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structs__set}{s\+\_\+set}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{ensemble_8h_a50040449cfd70ddcc80870c3fbf8fb0f}{S\+I\+Z\+E\+\_\+\+T\+AB}~10
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structs__set}{s\+\_\+set} $\ast$ \hyperlink{ensemble_8h_aaaccd0a5a3eec060c270e18a1f546fcb}{Ordered\+Set}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{ensemble_8h_aaaccd0a5a3eec060c270e18a1f546fcb}{Ordered\+Set} \hyperlink{ensemble_8h_ad05e82c19615c4726ce49ebcd14f1b20}{init\+Ordered\+Set} ()
+\begin{DoxyCompactList}\small\item\em Initialise un ensemble ordonné. \end{DoxyCompactList}\item 
+void \hyperlink{ensemble_8h_acbbc519e6181b870ae0e957315a53d71}{free\+Ordered\+Set} (\hyperlink{ensemble_8h_aaaccd0a5a3eec060c270e18a1f546fcb}{Ordered\+Set} os)
+\begin{DoxyCompactList}\small\item\em Libération de mémoire occupé par l\textquotesingle{}ensemble ordonné \end{DoxyCompactList}\item 
+int \hyperlink{ensemble_8h_a67cdbe552e9de41b9187f6c5df5f944a}{get\+Number\+Elt} (\hyperlink{ensemble_8h_aaaccd0a5a3eec060c270e18a1f546fcb}{Ordered\+Set} os)
+\begin{DoxyCompactList}\small\item\em Renvoie le nombre d\textquotesingle{}éléments dans l\textquotesingle{}ensemble. \end{DoxyCompactList}\item 
+\hyperlink{ensemble_8h_aaaccd0a5a3eec060c270e18a1f546fcb}{Ordered\+Set} \hyperlink{ensemble_8h_abcfc1c401b5fc05e502db8a84f324563}{insert\+Value} (\hyperlink{ensemble_8h_aaaccd0a5a3eec060c270e18a1f546fcb}{Ordered\+Set} os, int element)
+\begin{DoxyCompactList}\small\item\em Insere l\textquotesingle{}élément element dans l\textquotesingle{}ensemble os. \end{DoxyCompactList}\item 
+bool \hyperlink{ensemble_8h_a5771e4f0d1f54a93beccd7d0d35a8c69}{contains} (\hyperlink{ensemble_8h_aaaccd0a5a3eec060c270e18a1f546fcb}{Ordered\+Set} os, int element)
+\begin{DoxyCompactList}\small\item\em Teste si un ensemble contient un élément. \end{DoxyCompactList}\item 
+void \hyperlink{ensemble_8h_a1e30e87b913ffcb3605ed52b5750d571}{print\+Ordered\+Set} (\hyperlink{ensemble_8h_aaaccd0a5a3eec060c270e18a1f546fcb}{Ordered\+Set} os)
+\begin{DoxyCompactList}\small\item\em Affiche un ensemble ordonné \end{DoxyCompactList}\item 
+\hyperlink{ensemble_8h_aaaccd0a5a3eec060c270e18a1f546fcb}{Ordered\+Set} \hyperlink{ensemble_8h_a686bb865332759a8eda3e2347ee6c21c}{intersect} (\hyperlink{ensemble_8h_aaaccd0a5a3eec060c270e18a1f546fcb}{Ordered\+Set} os1, \hyperlink{ensemble_8h_aaaccd0a5a3eec060c270e18a1f546fcb}{Ordered\+Set} os2)
+\begin{DoxyCompactList}\small\item\em Cherche l\textquotesingle{}intersection de deux ensembles. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Fichier qui définit la structure d\textquotesingle{}ensemble ordonné et les prototypes des fonctions sur cette structure 
+
+\subsection{Macro Definition Documentation}
+\index{ensemble.\+h@{ensemble.\+h}!S\+I\+Z\+E\+\_\+\+T\+AB@{S\+I\+Z\+E\+\_\+\+T\+AB}}
+\index{S\+I\+Z\+E\+\_\+\+T\+AB@{S\+I\+Z\+E\+\_\+\+T\+AB}!ensemble.\+h@{ensemble.\+h}}
+\subsubsection[{\texorpdfstring{S\+I\+Z\+E\+\_\+\+T\+AB}{SIZE_TAB}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+I\+Z\+E\+\_\+\+T\+AB~10}\hypertarget{ensemble_8h_a50040449cfd70ddcc80870c3fbf8fb0f}{}\label{ensemble_8h_a50040449cfd70ddcc80870c3fbf8fb0f}
+Nombre d\textquotesingle{}éléments d\textquotesingle{}un ensemble par défaut. Si débordement, on rajoute de la place pour encore S\+I\+Z\+E\+\_\+\+T\+AB éléments 
+
+\subsection{Typedef Documentation}
+\index{ensemble.\+h@{ensemble.\+h}!Ordered\+Set@{Ordered\+Set}}
+\index{Ordered\+Set@{Ordered\+Set}!ensemble.\+h@{ensemble.\+h}}
+\subsubsection[{\texorpdfstring{Ordered\+Set}{OrderedSet}}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf s\+\_\+set} $\ast$  {\bf Ordered\+Set}}\hypertarget{ensemble_8h_aaaccd0a5a3eec060c270e18a1f546fcb}{}\label{ensemble_8h_aaaccd0a5a3eec060c270e18a1f546fcb}
+Structure d\textquotesingle{}ensemble ordonné Ordered\+Set 
+
+\subsection{Function Documentation}
+\index{ensemble.\+h@{ensemble.\+h}!contains@{contains}}
+\index{contains@{contains}!ensemble.\+h@{ensemble.\+h}}
+\subsubsection[{\texorpdfstring{contains(\+Ordered\+Set os, int element)}{contains(OrderedSet os, int element)}}]{\setlength{\rightskip}{0pt plus 5cm}bool contains (
+\begin{DoxyParamCaption}
+\item[{{\bf Ordered\+Set}}]{os, }
+\item[{int}]{element}
+\end{DoxyParamCaption}
+)}\hypertarget{ensemble_8h_a5771e4f0d1f54a93beccd7d0d35a8c69}{}\label{ensemble_8h_a5771e4f0d1f54a93beccd7d0d35a8c69}
+
+
+Teste si un ensemble contient un élément. 
+
+Recherche l\textquotesingle{}élément par recherche dichotomique
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & L\textquotesingle{}ensemble ordonné \\
+\hline
+{\em element} & L\textquotesingle{}élément qu\textquotesingle{}on cherche\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vrai si l\textquotesingle{}élément est présent dans l\textquotesingle{}ensemble, faux sinon 
+\end{DoxyReturn}
+\index{ensemble.\+h@{ensemble.\+h}!free\+Ordered\+Set@{free\+Ordered\+Set}}
+\index{free\+Ordered\+Set@{free\+Ordered\+Set}!ensemble.\+h@{ensemble.\+h}}
+\subsubsection[{\texorpdfstring{free\+Ordered\+Set(\+Ordered\+Set os)}{freeOrderedSet(OrderedSet os)}}]{\setlength{\rightskip}{0pt plus 5cm}void free\+Ordered\+Set (
+\begin{DoxyParamCaption}
+\item[{{\bf Ordered\+Set}}]{os}
+\end{DoxyParamCaption}
+)}\hypertarget{ensemble_8h_acbbc519e6181b870ae0e957315a53d71}{}\label{ensemble_8h_acbbc519e6181b870ae0e957315a53d71}
+
+
+Libération de mémoire occupé par l\textquotesingle{}ensemble ordonné 
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & Ensemble ordonné dont la mémoire on veut liberer \\
+\hline
+\end{DoxyParams}
+\index{ensemble.\+h@{ensemble.\+h}!get\+Number\+Elt@{get\+Number\+Elt}}
+\index{get\+Number\+Elt@{get\+Number\+Elt}!ensemble.\+h@{ensemble.\+h}}
+\subsubsection[{\texorpdfstring{get\+Number\+Elt(\+Ordered\+Set os)}{getNumberElt(OrderedSet os)}}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Number\+Elt (
+\begin{DoxyParamCaption}
+\item[{{\bf Ordered\+Set}}]{os}
+\end{DoxyParamCaption}
+)}\hypertarget{ensemble_8h_a67cdbe552e9de41b9187f6c5df5f944a}{}\label{ensemble_8h_a67cdbe552e9de41b9187f6c5df5f944a}
+
+
+Renvoie le nombre d\textquotesingle{}éléments dans l\textquotesingle{}ensemble. 
+
+Consulte le champ n\+\_\+elt qui contient le nombre d\textquotesingle{}éléments actuel au lieu de faire un parcours de complexité n
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & Ensemble ordonné dont on veut savoir la taille\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Le cardinal de l\textquotesingle{}ensemble passé en argument 
+\end{DoxyReturn}
+\index{ensemble.\+h@{ensemble.\+h}!init\+Ordered\+Set@{init\+Ordered\+Set}}
+\index{init\+Ordered\+Set@{init\+Ordered\+Set}!ensemble.\+h@{ensemble.\+h}}
+\subsubsection[{\texorpdfstring{init\+Ordered\+Set()}{initOrderedSet()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ordered\+Set} init\+Ordered\+Set (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{ensemble_8h_ad05e82c19615c4726ce49ebcd14f1b20}{}\label{ensemble_8h_ad05e82c19615c4726ce49ebcd14f1b20}
+
+
+Initialise un ensemble ordonné. 
+
+Alloue la zone de mémoire nécessaire pour l\textquotesingle{}ensemble On reserve S\+I\+Z\+E\+\_\+\+T\+AB entiers au début, et si on a besoin de plus de place on fait realloc de encore S\+I\+Z\+E\+\_\+\+T\+AB entiers. Gère les erreurs d\textquotesingle{}allocation de mémoire.
+
+\begin{DoxyReturn}{Returns}
+nouvelle instance d\textquotesingle{}ensemble ordonné vide. 
+\end{DoxyReturn}
+\index{ensemble.\+h@{ensemble.\+h}!insert\+Value@{insert\+Value}}
+\index{insert\+Value@{insert\+Value}!ensemble.\+h@{ensemble.\+h}}
+\subsubsection[{\texorpdfstring{insert\+Value(\+Ordered\+Set os, int element)}{insertValue(OrderedSet os, int element)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ordered\+Set} insert\+Value (
+\begin{DoxyParamCaption}
+\item[{{\bf Ordered\+Set}}]{os, }
+\item[{int}]{element}
+\end{DoxyParamCaption}
+)}\hypertarget{ensemble_8h_abcfc1c401b5fc05e502db8a84f324563}{}\label{ensemble_8h_abcfc1c401b5fc05e502db8a84f324563}
+
+
+Insere l\textquotesingle{}élément element dans l\textquotesingle{}ensemble os. 
+
+Cherche la position par recherche dichotomique. Teste s\textquotesingle{}il y a débordement de mémoire, si oui fait une reallocation. Teste si l\textquotesingle{}élément est déjà dans le tableau. Fait decalage du tableau pour rajouter l\textquotesingle{}élément au bon endroit.
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & Ensemble où on veut rajouter l\textquotesingle{}élément \\
+\hline
+{\em element} & L\textquotesingle{}élément qu\textquotesingle{}on veut ajouter dans l\textquotesingle{}ensemble\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ensemble ordonnée après l\textquotesingle{}ajout 
+\end{DoxyReturn}
+\index{ensemble.\+h@{ensemble.\+h}!intersect@{intersect}}
+\index{intersect@{intersect}!ensemble.\+h@{ensemble.\+h}}
+\subsubsection[{\texorpdfstring{intersect(\+Ordered\+Set os1, Ordered\+Set os2)}{intersect(OrderedSet os1, OrderedSet os2)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ordered\+Set} intersect (
+\begin{DoxyParamCaption}
+\item[{{\bf Ordered\+Set}}]{os1, }
+\item[{{\bf Ordered\+Set}}]{os2}
+\end{DoxyParamCaption}
+)}\hypertarget{ensemble_8h_a686bb865332759a8eda3e2347ee6c21c}{}\label{ensemble_8h_a686bb865332759a8eda3e2347ee6c21c}
+
+
+Cherche l\textquotesingle{}intersection de deux ensembles. 
+
+Parcours linéaire du tableau avec le plus petit cardinal puis teste si ces éléments sont présents dans le deuxième ensemble.
+
+
+\begin{DoxyParams}{Parameters}
+{\em os1} & Premier ensemble ordonné \\
+\hline
+{\em os2} & Deuxième ensemble ordonné\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Intersection des deux ensembles passés en argument 
+\end{DoxyReturn}
+\index{ensemble.\+h@{ensemble.\+h}!print\+Ordered\+Set@{print\+Ordered\+Set}}
+\index{print\+Ordered\+Set@{print\+Ordered\+Set}!ensemble.\+h@{ensemble.\+h}}
+\subsubsection[{\texorpdfstring{print\+Ordered\+Set(\+Ordered\+Set os)}{printOrderedSet(OrderedSet os)}}]{\setlength{\rightskip}{0pt plus 5cm}void print\+Ordered\+Set (
+\begin{DoxyParamCaption}
+\item[{{\bf Ordered\+Set}}]{os}
+\end{DoxyParamCaption}
+)}\hypertarget{ensemble_8h_a1e30e87b913ffcb3605ed52b5750d571}{}\label{ensemble_8h_a1e30e87b913ffcb3605ed52b5750d571}
+
+
+Affiche un ensemble ordonné 
+
+Parcours linéaire pour afficher chaque élément
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & Ensemble ordonné \\
+\hline
+\end{DoxyParams}
