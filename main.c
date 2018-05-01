@@ -8,6 +8,7 @@
 
 int main()
 {
+    /*
     OrderedSet test = initOrderedSet();
 
     test = insertValue(test, 1);
@@ -35,6 +36,8 @@ int main()
     test = insertValue(test, 20);
 
     printOrderedSet(test);
+
+    */
 /*
     test = insertValue(test, 5);
 
@@ -62,8 +65,22 @@ int main()
     printf("\nIntersection:\n");
     OrderedSet intersection = intersect(test, test2);
     printOrderedSet(intersection);
-*/
+
     freeOrderedSet(test);
+*/
+
+    SearchTree st = initBinarySearchTree();
+
+    char mot1[] = "caca";
+    //char mot2[] = "non";
+    //char mot3[] = "compiler";
+    //char mot4[] = "abc";
+
+    insert (st, mot1, 1);
+
+    printBinarySearchTree(st);
+
+    freeBinarySearchTree(st);
 
     return 0;
 }
