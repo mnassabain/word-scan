@@ -86,6 +86,14 @@ OrderedSet insertValue(OrderedSet os, int element)
     int debut   = 0;
     int fin     = os->n_elt - 1;
 
+    if(os->n_elt == 0)
+    {
+        os->elements[0] = element;
+        os->n_elt++;
+
+        return os;
+    }
+
     // si element deja dans l'ensemble
     if (contains(os, element))
     {

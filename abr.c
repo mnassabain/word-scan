@@ -133,7 +133,7 @@ void printBinarySearchTreeAux(SearchTree st, int niveau)
     if (vide(st))
         return;
 
-    printf("%*s%s", niveau, "", st->mot);
+    printf("%*s%s ", niveau, "", st->mot);
     printOrderedSet(st->positions);
     printf("\n");
 
