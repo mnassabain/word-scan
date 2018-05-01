@@ -43,20 +43,20 @@ SearchTree insert(SearchTree st, char *mot, int index)
     OrderedSet mot_os;
     if (st == NULL)
     {
-        st = (SearchTree) malloc (sizeof(struct s_arbre));
-        if (st == NULL)
+        SearchTree new = (SearchTree) malloc (sizeof(struct s_arbre));
+        if (new == NULL)
         {
             raler(1, "Erreur lors malloc");
         }
 
-        st->mot = mot;
-        st->positions = initOrderedSet();
-        st->positions = insertValue(st->positions, index);
+        new->mot = mot;
+        new->positions = initOrderedSet();
+        new->positions = insertValue(new->positions, index);
 
-        st->fg = NULL;
-        st->fd = NULL;
+        new->fg = NULL;
+        new->fd = NULL;
 
-        return st;
+        return new;
     }
 
     if ((mot_os = find(st, mot)) == NULL)
