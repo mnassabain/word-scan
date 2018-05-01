@@ -1,4 +1,4 @@
-#include "abr.c"
+#include "abr.h"
 
 SearchTree initBinarySearchTree()
 {
