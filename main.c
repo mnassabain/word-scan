@@ -77,7 +77,7 @@ int main()
     //char mot3[] = "compiler";
     //char mot4[] = "abc";
     char * mot2 = malloc(5);
-    strcpy(mot2,"hhaa");
+    strcpy(mot2,"aaaa");
 
     st = insert(st, mot1, 1);
     st = insert(st, mot2, 3);
