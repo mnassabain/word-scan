@@ -178,6 +178,6 @@ void coupure(SearchTree st, char *mot, SearchTree g, SearchTree d)
     else
     {
         coupure(st->fd, mot, g, d);
-        enraciner(st->mot, st->positions, st->fg, g);
+        g = enraciner(st->mot, st->positions, st->fg, g);
     }
 }
