@@ -35,7 +35,7 @@ OrderedSet findCooccurrences(SearchTree st, char ** mots, int nbMots);
 void printBinarySearchTree(SearchTree st);
 
 // fonction supplémentaires
-void printBinarySearchTreeAux(SearchTree st, int niveau);
+void printBinarySearchTreeAux(SearchTree st, int niveau, int position);
 
 bool vide(SearchTree st);
 

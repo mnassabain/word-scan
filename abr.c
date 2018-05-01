@@ -117,7 +117,7 @@ OrderedSet findCooccurrences(SearchTree st, char ** mots, int nbMots)
 
 void printBinarySearchTree(SearchTree st)
 {
-    printBinarySearchTreeAux(st, 0);
+    printBinarySearchTreeAux(st, 0, RACINE);
 }
 
 // fonctions supplémentaires
@@ -128,16 +128,30 @@ bool vide(SearchTree st)
 }
 
 
-void printBinarySearchTreeAux(SearchTree st, int niveau)
+#define RACINE 0
+#define GAUCHE 1
+#define DROIT  2
+
+void printBinarySearchTreeAux(SearchTree st, int niveau, int position)
 {
     if (vide(st))
         return;
 
+    if (position == GAUCHE)
+    {
+        printf("fils gauche: ");
+    }
+    else if (position == DROIT)
+    {
+        printf("fils droit: ");
+    }
     printf("%*s%s ", niveau, "", st->mot);
+
     printOrderedSet(st->positions);
 
-    printBinarySearchTreeAux(st->fg, niveau + 1);
-    printBinarySearchTreeAux(st->fd, niveau + 1);
+    printBinarySearchTreeAux(st->fg, niveau + 1, GAUCHE);
+
+    printBinarySearchTreeAux(st->fd, niveau + 1, DROIT);
 }
 
 
