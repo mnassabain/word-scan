@@ -48,20 +48,20 @@ SearchTree insert(SearchTree st, char *mot, int index)
     OrderedSet mot_os;
     if (vide(st))
     {
-        SearchTree new = (SearchTree) malloc (sizeof(struct s_arbre));
-        if (new == NULL)
+        st = (SearchTree) malloc (sizeof(struct s_arbre));
+        if (st == NULL)
         {
             raler(1, "Erreur lors malloc");
         }
 
-        new->mot = mot;
-        new->positions = initOrderedSet();
-        new->positions = insertValue(new->positions, index);
+        st->mot = mot;
+        st->positions = initOrderedSet();
+        st->positions = insertValue(st->positions, index);
 
-        new->fg = NULL;
-        new->fd = NULL;
+        st->fg = NULL;
+        st->fd = NULL;
 
-        return new;
+        return st;
     }
 
     if ((mot_os = find(st, mot)) == NULL)
@@ -75,6 +75,7 @@ SearchTree insert(SearchTree st, char *mot, int index)
     }
     else
     {
+        free(mot); // si le mot existe déjà on le libère
         mot_os = insertValue (mot_os, index);
     }
 
@@ -224,12 +225,10 @@ SearchTree construction_arbre(char * filename)
     while(fgets(buffer, LINE_MAX, fichier) != NULL)
     {
         int i = 0;
-        char *ptBuf = buffer;
         while(buffer[i] != '\n' && buffer[i] != '\0')
         {
             int longueur_mot = 0;
             char * mot;
-            ptBuf += i;
             for (; buffer[i] != ' ' && buffer[i] != '\n'; i++)
             {
                 longueur_mot++;
@@ -240,7 +239,7 @@ SearchTree construction_arbre(char * filename)
                 break;
             }
 
-            mot = malloc(longueur_mot + 1);
+            mot = malloc (longueur_mot + 1);
             strncpy(mot, buffer + i - longueur_mot, longueur_mot);
             mot[longueur_mot] = '\0';
 
@@ -258,25 +257,3 @@ SearchTree construction_arbre(char * filename)
 
     return st;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-///
