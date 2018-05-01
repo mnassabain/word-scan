@@ -69,7 +69,6 @@ SearchTree insert(SearchTree st, char *mot, int index)
         SearchTree g, d;
         g = d = NULL;
         coupure(st, mot, &g, &d);
-        free(st);
         OrderedSet os = initOrderedSet();
         os = insertValue(os, index);
         st = enraciner(mot, os, g, d);
@@ -116,7 +115,7 @@ OrderedSet findCooccurrences(SearchTree st, char ** mots, int nbMots)
     for (i = 1; i < nbMots; i++)
     {
         OrderedSet new_indices = intersect (indices, find (st, mots[i]));
-        freeOrderedSet(indices);
+        if (i!=1) freeOrderedSet(indices);
         indices = new_indices;
     }
 
@@ -195,10 +194,12 @@ void coupure(SearchTree st, char *mot, SearchTree * g, SearchTree * d)
     {
         coupure(st->fg, mot, g, d);
         *d = enraciner(st->mot, st->positions, *d, st->fd);
+        free(st); // car enraciner réalloue un sommet à partir du mot et des positions
     }
     else
     {
         coupure(st->fd, mot, g, d);
         *g = enraciner(st->mot, st->positions, st->fg, *g);
+        free(st); // car enraciner réalloue un sommet à partir du mot et des positions
     }
 }

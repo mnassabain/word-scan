@@ -87,12 +87,49 @@ int main()
     st = insert(st, mot2, 3);
     st = insert(st, mot1, 2);
     st = insert(st, mot3, 6);
+    st = insert(st, mot3, 4);
     st = insert(st, mot4, 4);
+    st = insert(st, mot2, 1);
+    st = insert(st, mot2, 4);
 
     printBinarySearchTree(st);
 
     printf("L'arbre contient %d mots differents\n", getNumberString(st));
     printf("L'arbre contient %d mots en total\n", getTotalNumberString(st));
+
+    char *mots[2];
+    mots[0] = mot1;
+    mots[1] = mot2;
+    OrderedSet cooccurences = findCooccurrences(st, mots, 2);
+    printf ("Les mots %s et %s apparaissent dans les phrases : ", mot1, mot2);
+    printOrderedSet(cooccurences);
+    freeOrderedSet(cooccurences);
+
+    mots[0] = mot4;
+    mots[1] = mot3;
+    cooccurences = findCooccurrences(st, mots, 2);
+    printf ("Les mots %s et %s apparaissent dans les phrases : ", mot4, mot3);
+    printOrderedSet(cooccurences);
+    freeOrderedSet(cooccurences);
+
+    char *mots2[3];
+    mots2[0] = mot4;
+    mots2[1] = mot2;
+    mots2[2] = mot3;
+    cooccurences = findCooccurrences(st, mots2, 3);
+    printf ("Les mots %s, %s et %s apparaissent dans les phrases : ", mot4, mot2, mot3);
+    printOrderedSet(cooccurences);
+    freeOrderedSet(cooccurences);
+
+    char *motRecherche = "abaa";
+    cooccurences = find(st, motRecherche);
+    if (cooccurences == NULL)
+        printf ("Le mot %s n'est pas dans une phrase.\n", motRecherche);
+    else
+    {
+        printf("Occurences du mot %s dans les phrases :", motRecherche);
+        printOrderedSet(cooccurences);
+    }
 
     freeBinarySearchTree(st);
 
