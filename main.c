@@ -71,6 +71,7 @@ int main(int argc, char * const argv[])
     freeOrderedSet(test);
 */
 
+/*
     SearchTree st = initBinarySearchTree();
 
     char * mot1 = malloc(5);
@@ -132,6 +133,13 @@ int main(int argc, char * const argv[])
         printf("Occurences du mot %s dans les phrases :", motRecherche);
         printOrderedSet(cooccurences);
     }
+
+    freeBinarySearchTree(st);
+*/
+
+    SearchTree st = construction_arbre("toto");
+
+    printBinarySearchTree(st);
 
     freeBinarySearchTree(st);
 
