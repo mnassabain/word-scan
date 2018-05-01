@@ -33,6 +33,8 @@ OrderedSet initOrderedSet()
         raler(1, "Erreur lors malloc");
     }
 
+    newSet->elements = memset(newSet->elements, 0, sizeof(newSet->elements));
+
     return newSet;
 }
 
@@ -130,12 +132,15 @@ OrderedSet insertValue(OrderedSet os, int element)
     // decalage du tableau
     if (os->n_elt == os->max_elt)
     {
+        int rempli = os->max_elt;
         os->max_elt += SIZE_TAB;
         os->elements = (int *)realloc(os->elements, os->max_elt * sizeof(int));
         if (os->elements == NULL)
         {
             raler(1, "Erreur lors realloc");
         }
+
+        memset(os->elements + rempli, 0, sizeof(int) * SIZE_TAB);
     }
 
     int tmp = os->n_elt;

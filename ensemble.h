@@ -1,9 +1,9 @@
 /**
  * \file ensemble.h
- * 
+ *
  * Fichier qui définit la structure d'ensemble ordonné
  * et les prototypes des fonctions sur cette structure
- * 
+ *
  */
 
 #ifndef __ENSEMBLE_H__
@@ -11,6 +11,8 @@
 
 #include "erreur.h"
 #include <stdbool.h>
+#include <stdlib.h>
+#include <string.h>
 
 // structure
 /**

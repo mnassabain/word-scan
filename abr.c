@@ -139,16 +139,17 @@ void printBinarySearchTreeAux(SearchTree st, int niveau, int position)
         return;
 
     printf("%*s%s ", niveau, "", st->mot);
-    printOrderedSet(st->positions);
 
     if (position == GAUCHE)
     {
-        printf(" fils gauche");
+        printf(" fils gauche ");
     }
     else if (position == DROIT)
     {
-        printf(" fils droit");
+        printf(" fils droit ");
     }
+
+    printOrderedSet(st->positions);
 
     printBinarySearchTreeAux(st->fg, niveau + 1, GAUCHE);
 
