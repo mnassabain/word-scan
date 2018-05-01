@@ -73,15 +73,21 @@ int main()
 
     char * mot1 = malloc(5);
     strcpy(mot1,"caca");
-    //char mot2[] = "non";
-    //char mot3[] = "compiler";
-    //char mot4[] = "abc";
+
     char * mot2 = malloc(5);
     strcpy(mot2,"aaaa");
+
+    char * mot3 = malloc(5);
+    strcpy("zzzz");
+
+    char * mot4 = malloc(5);
+    strcpy("gggg");
 
     st = insert(st, mot1, 1);
     st = insert(st, mot2, 3);
     st = insert(st, mot1, 2);
+    st = insert(st, mot3, 6);
+    st = insert(st, mot4, 4);
 
     printBinarySearchTree(st);
 

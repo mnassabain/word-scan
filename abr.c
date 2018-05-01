@@ -64,9 +64,9 @@ SearchTree insert(SearchTree st, char *mot, int index)
         SearchTree g, d;
         g = d = NULL;
         coupure(st, mot, &g, &d);
+        free(st);
         OrderedSet os = initOrderedSet();
         os = insertValue(os, index);
-        free(st);
         st = enraciner(mot, os, g, d);
     }
     else
