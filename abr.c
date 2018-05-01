@@ -45,6 +45,8 @@ int getTotalNumberString(SearchTree st)
 
 SearchTree insert(SearchTree st, char *mot, int index)
 {
+    SearchTree racine = st;
+    
     OrderedSet mot_os;
     if (vide(st))
     {

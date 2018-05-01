@@ -3,6 +3,7 @@
 
 #include "ensemble.h"
 #include "abr.h"
+#include "arbeq.h"
 
 char * prog;
 
@@ -137,11 +138,15 @@ int main(int argc, char * const argv[])
     freeBinarySearchTree(st);
 */
 
+/*
     SearchTree st = construction_arbre("toto");
 
     printBinarySearchTree(st);
 
+    printf("La hauteur est %d\n", getHeight(st));
+
     freeBinarySearchTree(st);
+*/
 
     return 0;
 }

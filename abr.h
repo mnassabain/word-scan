@@ -13,6 +13,8 @@ typedef struct s_arbre
     char * mot; // char mot[MAX_MOT]
     OrderedSet positions;
 
+    int eq; // indicateur de équilibre
+
     struct s_arbre *fg, *fd;
 
 } Noeud, *SearchTree;
