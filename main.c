@@ -71,7 +71,8 @@ int main()
 
     SearchTree st = initBinarySearchTree();
 
-    char mot1[] = "caca";
+    char * mot1 = malloc(sizeof(5));
+    strcpy(mot1,"caca");
     //char mot2[] = "non";
     //char mot3[] = "compiler";
     //char mot4[] = "abc";
