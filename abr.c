@@ -158,6 +158,12 @@ SearchTree enraciner(char *mot, OrderedSet positions, SearchTree st1, SearchTree
 
 void coupure(SearchTree st, char *mot, SearchTree g, SearchTree d)
 {
+    if (vide(st))
+    {
+        g = d = NULL;
+        return;
+    }
+    
     int comparaison = comp(mot, st->mot);
     if (comparaison == 0)
     {
