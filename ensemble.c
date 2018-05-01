@@ -8,14 +8,14 @@
 
 /**
  * \brief Initialise un ensemble ordonné.
- * 
+ *
  * Alloue la zone de mémoire nécessaire pour l'ensemble
  * On reserve SIZE_TAB entiers au début, et si on a besoin de plus
  * de place on fait realloc de encore SIZE_TAB entiers.
  * Gère les erreurs d'allocation de mémoire.
- * 
+ *
  * \return nouvelle instance d'ensemble ordonné vide.
- * 
+ *
  */
 OrderedSet initOrderedSet()
 {
@@ -39,9 +39,9 @@ OrderedSet initOrderedSet()
 
 /**
  * \brief Libération de mémoire occupé par l'ensemble ordonné
- * 
+ *
  * \param os Ensemble ordonné dont la mémoire on veut liberer
- * 
+ *
  */
 void freeOrderedSet(OrderedSet os)
 {
@@ -52,14 +52,14 @@ void freeOrderedSet(OrderedSet os)
 
 /**
  * \brief Renvoie le nombre d'éléments dans l'ensemble.
- * 
+ *
  * Consulte le champ n_elt qui contient le nombre d'éléments actuel
  * au lieu de faire un parcours de complexité n
- * 
+ *
  * \param os Ensemble ordonné dont on veut savoir la taille
- * 
+ *
  * \return Le cardinal de l'ensemble passé en argument
- * 
+ *
  */
 int getNumberElt(OrderedSet os)
 {
@@ -69,17 +69,17 @@ int getNumberElt(OrderedSet os)
 
 /**
  * \brief Insere l'élément element dans l'ensemble os
- * 
+ *
  * Cherche la position par recherche dichotomique.
  * Teste s'il y a débordement de mémoire, si oui fait une reallocation.
  * Teste si l'élément est déjà dans le tableau.
  * Fait decalage du tableau pour rajouter l'élément au bon endroit.
- * 
+ *
  * \param os Ensemble où on veut rajouter l'élément
  * \param element L'élément qu'on veut ajouter dans l'ensemble
- * 
+ *
  * \return Ensemble ordonnée après l'ajout
- * 
+ *
  */
 OrderedSet insertValue(OrderedSet os, int element)
 {
@@ -118,7 +118,7 @@ OrderedSet insertValue(OrderedSet os, int element)
     {
         position = milieu + 1;
     }
-    
+
 
     // decalage du tableau
     if (os->n_elt == os->max_elt)
@@ -147,14 +147,14 @@ OrderedSet insertValue(OrderedSet os, int element)
 
 /**
  * \brief Teste si un ensemble contient un élément
- * 
+ *
  * Recherche l'élément par recherche dichotomique
- * 
+ *
  * \param os L'ensemble ordonné
  * \param element L'élément qu'on cherche
- * 
+ *
  * \return vrai si l'élément est présent dans l'ensemble, faux sinon
- * 
+ *
  */
 bool contains(OrderedSet os, int element)
 {
@@ -197,11 +197,11 @@ bool contains(OrderedSet os, int element)
 
 /**
  * \brief Affiche un ensemble ordonné
- * 
+ *
  * Parcours linéaire pour afficher chaque élément
- * 
+ *
  * \param os Ensemble ordonné
- * 
+ *
  */
 void printOrderedSet(OrderedSet os)
 {
@@ -217,16 +217,16 @@ void printOrderedSet(OrderedSet os)
 
 /**
  * \brief Cherche l'intersection de deux ensembles
- * 
+ *
  * Parcours linéaire du tableau avec le plus petit cardinal
  * puis teste si ces éléments sont présents dans le deuxième
  * ensemble.
- * 
+ *
  * \param os1 Premier ensemble ordonné
  * \param os2 Deuxième ensemble ordonné
- * 
+ *
  * \return  Intersection des deux ensembles passés en argument
- * 
+ *
  */
 OrderedSet intersect(OrderedSet os1, OrderedSet os2)
 {

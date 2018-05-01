@@ -1,3 +1,8 @@
+/**
+ * \file erreur.h
+ * Fichier qui contient les fonctions et macros pour la gestion d'erreur
+ */
+
 #ifndef __ERREUR_H__
 #define __ERREUR_H__
 
