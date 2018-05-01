@@ -138,7 +138,7 @@ int main(int argc, char * const argv[])
     freeBinarySearchTree(st);
 */
 
-
+/*
     SearchTree st = construction_arbre("toto");
 
     printBinarySearchTree(st);
@@ -146,8 +146,7 @@ int main(int argc, char * const argv[])
     printf("La hauteur est %d\n", getHeight(st));
 
     freeBinarySearchTree(st);
-
-
+*/
 
     return 0;
 }
