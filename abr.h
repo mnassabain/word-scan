@@ -41,6 +41,6 @@ bool vide(SearchTree st);
 
 SearchTree enraciner(char *mot, OrderedSet positions, SearchTree st1, SearchTree st2);
 
-void coupure(SearchTree st, char *mot, SearchTree g, SearchTree d);
+void coupure(SearchTree st, char *mot, SearchTree * g, SearchTree * d);
 
 #endif

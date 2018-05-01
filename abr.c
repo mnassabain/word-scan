@@ -60,11 +60,10 @@ SearchTree insert(SearchTree st, char *mot, int index)
     {
         SearchTree g, d;
         g = d = NULL;
-        coupure(st, mot, g, d);
+        coupure(st, mot, &g, &d);
         OrderedSet os = initOrderedSet();
         os = insertValue(os, index);
         st = enraciner(mot, os, g, d);
-        return st;
     }
     else
     {
@@ -157,28 +156,28 @@ SearchTree enraciner(char *mot, OrderedSet positions, SearchTree st1, SearchTree
 }
 
 
-void coupure(SearchTree st, char *mot, SearchTree g, SearchTree d)
+void coupure(SearchTree st, char *mot, SearchTree * g, SearchTree * d)
 {
     if (vide(st))
     {
-        g = d = NULL;
+        *g = *d = NULL;
         return;
     }
 
     int comparaison = comp(mot, st->mot);
     if (comparaison == 0)
     {
-        g = enraciner(mot, st->positions, st->fg, initBinarySearchTree());
-        d = st->fd;
+        *g = enraciner(mot, st->positions, st->fg, initBinarySearchTree());
+        *d = st->fd;
     }
     else if(comparaison < 0)
     {
         coupure(st->fg, mot, g, d);
-        d = enraciner(st->mot, st->positions, d, st->fd);
+        *d = enraciner(st->mot, st->positions, *d, st->fd);
     }
     else
     {
         coupure(st->fd, mot, g, d);
-        g = enraciner(st->mot, st->positions, st->fg, g);
+        *g = enraciner(st->mot, st->positions, st->fg, *g);
     }
 }
