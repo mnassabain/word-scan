@@ -85,7 +85,6 @@ OrderedSet insertValue(OrderedSet os, int element)
 {
     int debut   = 0;
     int fin     = os->n_elt - 1;
-    //bool inf = false, sup = false;
 
     // si element deja dans l'ensemble
     if (contains(os, element))
@@ -95,9 +94,9 @@ OrderedSet insertValue(OrderedSet os, int element)
 
     int milieu;
 
-   while(debut <= fin)
-   {
-       milieu = (debut + fin) / 2;
+    while(debut <= fin)
+    {
+        milieu = (debut + fin) / 2;
 
         if (element < os->elements[milieu])
         {
@@ -107,7 +106,7 @@ OrderedSet insertValue(OrderedSet os, int element)
         {
             debut = milieu + 1;
         }
-   }
+    }
 
     int position;
     if (element < os->elements[milieu])

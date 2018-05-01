@@ -51,7 +51,7 @@ SearchTree insert(SearchTree st, char *mot, int index)
 
         st->mot = mot;
         st->positions = initOrderedSet();
-        insertValue(st->positions, index);
+        st->positions = insertValue(st->positions, index);
 
         return st;
     }
@@ -62,12 +62,12 @@ SearchTree insert(SearchTree st, char *mot, int index)
         g = d = NULL;
         coupure(st, mot, g, d);
         OrderedSet os = initOrderedSet();
-        insertValue(os, index);
+        os = insertValue(os, index);
         enraciner(mot, os, g, d);
     }
     else
     {
-        insertValue (mot_os, index);
+        mot_os = insertValue (mot_os, index);
     }
 
     return st;
@@ -136,8 +136,6 @@ void printBinarySearchTreeAux(SearchTree st, int niveau)
     printf("%*s%s", niveau, "", st->mot);
     printOrderedSet(st->positions);
     printf("\n");
-
-
 
     printBinarySearchTreeAux(st->fg, niveau + 1);
     printBinarySearchTreeAux(st->fd, niveau + 1);
