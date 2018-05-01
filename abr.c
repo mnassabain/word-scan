@@ -163,7 +163,7 @@ void coupure(SearchTree st, char *mot, SearchTree g, SearchTree d)
         g = d = NULL;
         return;
     }
-    
+
     int comparaison = comp(mot, st->mot);
     if (comparaison == 0)
     {
