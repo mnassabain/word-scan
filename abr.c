@@ -63,7 +63,8 @@ SearchTree insert(SearchTree st, char *mot, int index)
         coupure(st, mot, g, d);
         OrderedSet os = initOrderedSet();
         os = insertValue(os, index);
-        enraciner(mot, os, g, d);
+        st = enraciner(mot, os, g, d);
+        return st;
     }
     else
     {

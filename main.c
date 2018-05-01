@@ -71,12 +71,12 @@ int main()
 
     SearchTree st = initBinarySearchTree();
 
-    char * mot1 = malloc(sizeof(5));
+    char * mot1 = malloc(5);
     strcpy(mot1,"caca");
     //char mot2[] = "non";
     //char mot3[] = "compiler";
     //char mot4[] = "abc";
-    char * mot2 = malloc(sizeof(5));
+    char * mot2 = malloc(5);
     strcpy(mot2,"hhaa");
 
     st = insert(st, mot1, 1);
