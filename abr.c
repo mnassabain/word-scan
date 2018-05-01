@@ -114,6 +114,9 @@ OrderedSet findCooccurrences(SearchTree st, char ** mots, int nbMots)
     return indices;
 }
 
+#define RACINE 0
+#define GAUCHE 1
+#define DROIT  2
 
 void printBinarySearchTree(SearchTree st)
 {
@@ -126,11 +129,6 @@ bool vide(SearchTree st)
 {
     return st == NULL;
 }
-
-
-#define RACINE 0
-#define GAUCHE 1
-#define DROIT  2
 
 void printBinarySearchTreeAux(SearchTree st, int niveau, int position)
 {
