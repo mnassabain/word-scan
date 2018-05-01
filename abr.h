@@ -30,7 +30,7 @@ SearchTree insert(SearchTree st, char *mot, int index);
 
 OrderedSet find(SearchTree st, char *mot);
 
-OrderedSet findCooccurrences(SearchTree st, char ** mots);
+OrderedSet findCooccurrences(SearchTree st, char ** mots, int nbMots);
 
 void printBinarySearchTree(SearchTree st);
 

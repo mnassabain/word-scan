@@ -12,7 +12,7 @@ void freeBinarySearchTree(SearchTree st)
         return;
     }
 
-    free(mot);
+    free(st->mot);
     freeOrderedSet(st->positions);
 
     freeBinarySearchTree(st->fg);
@@ -34,6 +34,7 @@ int getNumberString(SearchTree st)
 
 int getTotalNumberString(SearchTree st)
 {
+    (void) st;
     return 0;
 }
 
@@ -42,6 +43,8 @@ SearchTree insert(SearchTree st, char *mot, int index)
     OrderedSet mot_os;
     if ((mot_os = find(st, mot)) == NULL)
     {
+        SearchTree g, d;
+        g = d = NULL;
         coupure(st, mot, g, d);
         OrderedSet os = initOrderedSet();
         insertValue(os, index);
