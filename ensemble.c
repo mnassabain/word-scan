@@ -33,7 +33,7 @@ OrderedSet initOrderedSet()
         raler(1, "Erreur lors malloc");
     }
 
-    newSet->elements = memset(newSet->elements, 0, sizeof(newSet->elements));
+    memset(newSet->elements, 0, sizeof(int) * SIZE_TAB);
 
     return newSet;
 }
