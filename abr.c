@@ -137,6 +137,8 @@ void printBinarySearchTreeAux(SearchTree st, int niveau)
     printOrderedSet(st->positions);
     printf("\n");
 
+
+
     printBinarySearchTreeAux(st->fg, niveau + 1);
     printBinarySearchTreeAux(st->fd, niveau + 1);
 }

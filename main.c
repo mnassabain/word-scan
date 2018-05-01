@@ -76,7 +76,7 @@ int main()
     //char mot3[] = "compiler";
     //char mot4[] = "abc";
 
-    insert (st, mot1, 1);
+    st = insert(st, mot1, 1);
 
     printBinarySearchTree(st);
 
