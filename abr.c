@@ -203,3 +203,70 @@ void coupure(SearchTree st, char *mot, SearchTree * g, SearchTree * d)
         free(st); // car enraciner réalloue un sommet à partir du mot et des positions
     }
 }
+
+// CONSTRUCTION DE L'ARBRE À PARTIR D'UN FICHIER
+
+SearchTree construction_arbre(char * filename)
+{
+    /** Ouverture du fichier **/
+    FILE * fichier = fopen(filename, "r");
+    if (fichier == NULL)
+    {
+        raler (1, "erreur fopen %s", filename);
+    }
+
+    /** Initlisation de l'arbre de recherche **/
+    SearchTree st = initBinarySearchTree();
+
+    /** Parcours du fichier **/
+    char buffer[LINE_MAX];
+    int phrase = 1;
+    while(fgets(buffer, LINE_MAX, fichier) != NULL)
+    {
+        int i = 0;
+        while(buffer[i] != '\0')
+        {
+            int longueur_mot = 0;
+            char * mot;
+            for (; buffer[i] != ' ' && buffer[i] != '\0'; i++)
+            {
+                longueur_mot++;
+            }
+            mot = malloc(sizeof(longueur_mot + 1));
+            strncpy(mot, buffer + i - longueur_mot, longueur_mot);
+            mot[longueur_mot] = '\0';
+
+            st = insert(st, mot, phrase);
+        }
+        phrase++;
+    }
+
+    if (fclose(fichier) == -1)
+    {
+        raler(1, "Erreur fclose %s", filename);
+    }
+
+    return st;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+///

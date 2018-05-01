@@ -4,10 +4,12 @@
 #include "ensemble.h"
 #include "abr.h"
 
+char * prog;
 
-
-int main()
+int main(int argc, char * const argv[])
 {
+    prog = argv[0];
+    (void) argc;
     /*
     OrderedSet test = initOrderedSet();
 

@@ -3,6 +3,7 @@
 
 #include <stdbool.h>
 #include <string.h>
+#include <limits.h>
 #include "ensemble.h"
 
 // structure
@@ -42,5 +43,8 @@ bool vide(SearchTree st);
 SearchTree enraciner(char *mot, OrderedSet positions, SearchTree st1, SearchTree st2);
 
 void coupure(SearchTree st, char *mot, SearchTree * g, SearchTree * d);
+
+// Construction à partir d'un fichier
+SearchTree construction_arbre(char * filename);
 
 #endif

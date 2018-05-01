@@ -1,15 +1,16 @@
 #include "erreur.h"
 
-void raler(int syserr, char * message)
+noreturn void raler (int syserr, const char *fmt, ...)
 {
-    if(syserr)
-    {
-        perror(message);
-    }
-    else
-    {
-        fprintf(stderr, "%s", message);
-    }
+    va_list ap ;
 
-    exit(EXIT_FAILURE);
+    va_start (ap, fmt) ;
+    fprintf (stderr, "%s: ", prog) ;
+    vfprintf (stderr, fmt, ap) ;
+    fprintf (stderr, "\n") ;
+    va_end (ap) ;
+    if (syserr)
+	perror ("") ;
+
+    exit (1) ;
 }
