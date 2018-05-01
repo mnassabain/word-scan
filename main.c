@@ -78,10 +78,10 @@ int main()
     strcpy(mot2,"aaaa");
 
     char * mot3 = malloc(5);
-    strcpy("zzzz");
+    strcpy(mot3, "zzzz");
 
     char * mot4 = malloc(5);
-    strcpy("gggg");
+    strcpy(mot4, "gggg");
 
     st = insert(st, mot1, 1);
     st = insert(st, mot2, 3);
