@@ -225,26 +225,23 @@ SearchTree construction_arbre(char * filename)
     while(fgets(buffer, LINE_MAX, fichier) != NULL)
     {
         int i = 0;
-        while(buffer[i] != '\n' && buffer[i] != '\0')
+        char *ptBuf = buffer; // pointeur sur le buffer
+        while(buffer[i] != '\0')
         {
             int longueur_mot = 0;
-            char * mot;
+            char *mot;
+
             for (; buffer[i] != ' ' && buffer[i] != '\n'; i++)
             {
                 longueur_mot++;
             }
 
-            if (longueur_mot == 0)
-            {
-                break;
-            }
-
-            mot = malloc (longueur_mot + 1);
-            strncpy(mot, buffer + i - longueur_mot, longueur_mot);
+            mot = (char*) malloc (longueur_mot + 1);
+            strncpy(mot, ptBuf, longueur_mot);
             mot[longueur_mot] = '\0';
 
             st = insert(st, mot, phrase);
-
+            ptBuf += longueur_mot+1;
             i++;
         }
         phrase++;
