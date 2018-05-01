@@ -91,7 +91,8 @@ int main()
 
     printBinarySearchTree(st);
 
-    printf("Le arbre contient %d mots differents\n", getNumberString(st));
+    printf("L'arbre contient %d mots differents\n", getNumberString(st));
+    printf("L'arbre contient %d mots en total\n", getTotalNumberString(st));
 
     freeBinarySearchTree(st);
 

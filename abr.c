@@ -34,8 +34,13 @@ int getNumberString(SearchTree st)
 
 int getTotalNumberString(SearchTree st)
 {
-    (void) st;
-    return 0;
+    if (vide(st))
+    {
+        return 0;
+    }
+
+    int nb = getTotalNumberString(st->fg) + getTotalNumberString(st->fd);
+    return nb + getNumberElt(st->positions);
 }
 
 SearchTree insert(SearchTree st, char *mot, int index)
