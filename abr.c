@@ -7,16 +7,16 @@ SearchTree initBinarySearchTree()
 
 void freeBinarySearchTree(SearchTree st)
 {
-    if (st == NULL)
+    if (vide(st))
     {
         return;
     }
 
-    free(st->mot);
-    freeOrderedSet(st->positions);
-
     freeBinarySearchTree(st->fg);
     freeBinarySearchTree(st->fd);
+
+    free(st->mot);
+    freeOrderedSet(st->positions);
 
     free(st);
 }
@@ -41,7 +41,7 @@ int getTotalNumberString(SearchTree st)
 SearchTree insert(SearchTree st, char *mot, int index)
 {
     OrderedSet mot_os;
-    if (st == NULL)
+    if (vide(st))
     {
         SearchTree new = (SearchTree) malloc (sizeof(struct s_arbre));
         if (new == NULL)
@@ -66,6 +66,7 @@ SearchTree insert(SearchTree st, char *mot, int index)
         coupure(st, mot, &g, &d);
         OrderedSet os = initOrderedSet();
         os = insertValue(os, index);
+        free(st);
         st = enraciner(mot, os, g, d);
     }
     else
