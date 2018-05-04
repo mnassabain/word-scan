@@ -141,8 +141,13 @@ bool vide(SearchTree st)
     return st == NULL;
 }
 
+
+#define ESPACE_HRZ  5
+#define ESPACE_VRT  2
+
 void printBinarySearchTreeAux(SearchTree st, int niveau, int position)
 {
+    /*
     if (vide(st))
         return;
 
@@ -162,6 +167,36 @@ void printBinarySearchTreeAux(SearchTree st, int niveau, int position)
     printBinarySearchTreeAux(st->fg, niveau + 1, GAUCHE);
 
     printBinarySearchTreeAux(st->fd, niveau + 1, DROIT);
+    */
+
+    if (!vide(st->fg))
+    {
+        printBinarySearchTreeAux(st->fg, niveau + 1, GAUCHE);
+    }
+
+    if (niveau == 0) // racine
+    {
+        printf("%s\n", st->mot);
+    }
+    else
+    {
+        printf("%*s", (niveau-1)*ESPACE_HRZ, "");
+        int i;
+        printf(" %c", (position == GAUCHE)? '/' : '\\');
+
+        for (i = 0; i < ESPACE_HRZ-2; i++)
+        {
+            printf("-");
+        }
+
+        printf("%s: ", st->mot);
+        printOrderedSet(st->positions);
+    }
+
+    if (!vide(st->fd))
+    {
+        printBinarySearchTreeAux(st->fd, niveau + 1, DROIT);
+    }
 }
 
 
