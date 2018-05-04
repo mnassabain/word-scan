@@ -46,9 +46,11 @@ SearchTree rotateRight(SearchTree st)
  */
 SearchTree rotateLeft(SearchTree st)
 {
-    SearchTree new_st = enraciner(st->fd->mot, st->fd->positions, 
-        enraciner(st->mot, st->positions, st->fd->fg, st->fg)
-        ,st->fd->fd);
+    SearchTree new_st = initBinarySearchTree();
+
+    new_st = enraciner(st->fd->mot, st->fd->positions, enraciner(st->mot, st->positions, st->fg, st->fd->fg),
+        st->fd->fd); 
+
 
     free(st);
 
@@ -68,7 +70,14 @@ SearchTree rotateLeftRight(SearchTree st)
 
 SearchTree rotateRightLeft(SearchTree st)
 {
-    SearchTree new_st = rotateLeft(enraciner(st->mot, st->positions, st->fg, rotateRight(st->fd)));
+    //SearchTree new_st = initBinarySearchTree(); //= rotateLeft(enraciner(st->mot, st->positions, st->fg, rotateRight(st->fd)));
+
+    st->fd = rotateRight(st->fd);
+
+    SearchTree new_st = enraciner(st->mot, st->positions, st->fg, st->fd);
+
+    new_st = rotateLeft(new_st);
+
 
     free(st);
 
