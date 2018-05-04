@@ -139,14 +139,31 @@ int main(int argc, char * const argv[])
 */
 
 /*
+    SearchTree st = initBinarySearchTree();
+
+    char * mot1 = malloc(5);
+    char * mot2 = malloc(5);
+    char * mot3 = malloc(5);
+
+    strcpy(mot1, "aaaa");
+    strcpy(mot2, "cccc");
+    strcpy(mot3, "bbbb");
+
+    st = insavl(st, mot1, 1);
+    st = insavl(st, mot2, 1);
+    st = insavl(st, mot3, 1);
+
+    printBinarySearchTree(st);
+*/
+
+    
     SearchTree st = construction_arbre("toto");
 
     printBinarySearchTree(st);
-
-    printf("La hauteur est %d\n", getHeight(st));
+    
 
     freeBinarySearchTree(st);
-*/
+
 
     return 0;
 }

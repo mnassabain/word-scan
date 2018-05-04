@@ -46,7 +46,6 @@ SearchTree enraciner(char *mot, OrderedSet positions, SearchTree st1, SearchTree
 
 void coupure(SearchTree st, char *mot, SearchTree * g, SearchTree * d);
 
-// Construction à partir d'un fichier
-SearchTree construction_arbre(char * filename);
+int comp(char * mot1, char * mot2);
 
 #endif

@@ -20,4 +20,13 @@ SearchTree rotateLeftRight(SearchTree st);
 
 SearchTree rotateRightLeft(SearchTree st);
 
+SearchTree balance(SearchTree st);
+
+SearchTree new_insert(SearchTree st, char * mot, int index);
+
+// construction
+SearchTree construction_arbre(char * filename);
+
+SearchTree insavl(SearchTree st, char * mot, int index);
+
 #endif
