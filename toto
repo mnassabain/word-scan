@@ -1,4 +1,3 @@
-foo bar grault baz
-corge bin boo.
-waldo. frault gaz.
-bin shell
+Tester si le programme marche bien, est le but de cette phrase.
+Elle teste si les separateurs (meme les parentheses) sont pris en
+compte par le programme! Alors?

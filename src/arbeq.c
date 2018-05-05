@@ -141,6 +141,22 @@ SearchTree balance(SearchTree st)
 
 // CONSTRUCTION DE L'ARBRE À PARTIR D'UN FICHIER
 
+char separateurs[] = ",:;!?()";
+
+bool contient(char x, char * mot)
+{
+    int i;
+    for (i = 0; i < 7; i++)
+    {
+        if (x == mot[i])
+        {
+            return true;
+        }
+    }
+
+    return false;
+}
+
 SearchTree construction_arbre(char * filename)
 {
     /** Ouverture du fichier **/
@@ -158,6 +174,15 @@ SearchTree construction_arbre(char * filename)
     int phrase = 1;
     while(fgets(buffer, LINE_MAX, fichier) != NULL)
     {
+    //    int k;
+    //    for (k = 0; buffer[k] = '\0'; k++)
+    //    {
+            //if (buffer[k] == 'é' || buffer[k] == 'è' || buffer[k] == 'ê')
+            //{
+            //    buffer[k] = 'e';
+            //}
+    //    }
+
         int i = 0;
         char *ptBuf = buffer; // pointeur sur le buffer
         while(buffer[i] != '\0')
@@ -165,8 +190,12 @@ SearchTree construction_arbre(char * filename)
             int longueur_mot = 0;
             char *mot;
 
-            for (; buffer[i] != ' ' && buffer[i] != '\n' && buffer[i] != '.'; i++)
+            for (; buffer[i] != ' ' && buffer[i] != '\n' && buffer[i] != '.' && !contient(buffer[i], separateurs); i++)
             {
+                if (buffer[i] >= 'A' && buffer[i] <= 'Z')
+                {
+                    buffer[i] += 32;
+                }
                 longueur_mot++;
             }
             if (buffer[i] == '.')
