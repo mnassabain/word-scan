@@ -174,6 +174,7 @@ SearchTree construction_arbre(char * filename)
             strncpy(mot, ptBuf, longueur_mot);
             mot[longueur_mot] = '\0';
 
+            
             //st = insert(st, mot, phrase);
             st = insavl(st, mot, phrase);
             ptBuf += longueur_mot+1;
