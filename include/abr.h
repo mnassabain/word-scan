@@ -39,6 +39,7 @@ void printBinarySearchTree(SearchTree st);
 
 // fonction supplémentaires
 void printBinarySearchTreeAux(SearchTree st, int niveau, int position);
+void printBinarySearchTreeQuentin(SearchTree st, int niveau, int position);
 
 bool vide(SearchTree st);
 

@@ -33,8 +33,9 @@ int getHeight (SearchTree st)
  */
 SearchTree rotateRight(SearchTree st)
 {
+    SearchTree new_fd = enraciner(st->mot, st->positions, st->fg->fd, st->fd);
     SearchTree new_st = enraciner(st->fg->mot, st->fg->positions, st->fg->fg,
-        enraciner(st->mot, st->positions, st->fg->fd, st->fd));
+        new_fd);
 
     free(st);
 
@@ -49,7 +50,7 @@ SearchTree rotateLeft(SearchTree st)
     SearchTree new_st = initBinarySearchTree();
 
     new_st = enraciner(st->fd->mot, st->fd->positions, enraciner(st->mot, st->positions, st->fg, st->fd->fg),
-        st->fd->fd); 
+        st->fd->fd);
 
 
     free(st);

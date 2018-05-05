@@ -241,3 +241,39 @@ void coupure(SearchTree st, char *mot, SearchTree * g, SearchTree * d)
         free(st); // car enraciner réalloue un sommet à partir du mot et des positions
     }
 }
+
+void printBinarySearchTreeQuentin(SearchTree st, int niveau, int position)
+{
+    if (niveau == 0) // racine
+    {
+        printf("%s ", st->mot);
+    }
+    else
+    {
+        int i;
+        for (i = 0; i < niveau - 1; i++)
+        {
+            printf("|%*s", 8, "");
+        }
+
+        if (position == GAUCHE)
+            printf("|-- fg: ");
+        else
+        {
+            printf("|-- fd: ");
+        }
+        printf("%s: ", st->mot);
+
+    }
+    printOrderedSet(st->positions);
+
+    if (!vide(st->fg))
+    {
+        printBinarySearchTreeQuentin(st->fg, niveau + 1, GAUCHE);
+    }
+
+    if (!vide(st->fd))
+    {
+        printBinarySearchTreeQuentin(st->fd, niveau + 1, DROIT);
+    }
+}
