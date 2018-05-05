@@ -190,7 +190,8 @@ SearchTree construction_arbre(char * filename)
             }
             else
             {
-                buffer_short[k] = (short)buffer[k];
+                short * tmp = (short*) &buffer[k];
+                buffer_short[k] = tmp[0];
                 k++;
             }
         }
