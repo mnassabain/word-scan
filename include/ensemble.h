@@ -50,5 +50,8 @@ void printOrderedSet(OrderedSet os);
 
 OrderedSet intersect(OrderedSet os1, OrderedSet os2);
 
+// pour l'affichage
+char * to_string(OrderedSet os);
+
 
 #endif

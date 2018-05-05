@@ -16,7 +16,7 @@ int deseq(SearchTree st)
         return 0;
     }
 
-    return getHeight(st->fg) - getHeight(st->fd);
+    return st->eq;
 }
 
 int getHeight (SearchTree st)
@@ -31,15 +31,16 @@ int getHeight (SearchTree st)
 /**
  * prec: fg non vide
  */
-SearchTree rotateRight(SearchTree st)
-{
-    SearchTree new_st = enraciner(st->fg->mot, st->fg->positions, st->fg->fg,
-        enraciner(st->mot, st->positions, st->fg->fd, st->fd));
+ SearchTree rotateRight(SearchTree st)
+ {
+     SearchTree new_st = enraciner(st->fg->mot, st->fg->positions, st->fg->fg,
+         enraciner(st->mot, st->positions, st->fg->fd, st->fd));
 
-    free(st);
+     free(st->fg);
+     free(st);
 
-    return new_st;
-}
+     return new_st;
+ }
 
 /**
  * prec: fd non vide
@@ -51,7 +52,7 @@ SearchTree rotateLeft(SearchTree st)
     new_st = enraciner(st->fd->mot, st->fd->positions, enraciner(st->mot, st->positions, st->fg, st->fd->fg),
         st->fd->fd);
 
-
+    free(st->fd);
     free(st);
 
     return new_st;
@@ -208,6 +209,7 @@ SearchTree insavl(SearchTree st, char * mot, int index)
     if (vide(st))
     {
         st = enraciner(mot, insertValue(initOrderedSet(), index), NULL, NULL);
+        st->eq = 0;
         return st;
     }
 
@@ -215,18 +217,23 @@ SearchTree insavl(SearchTree st, char * mot, int index)
     if (comparaison == 0)
     {
         st->positions = insertValue(st->positions, index);
+        free(mot);
     }
     else if (comparaison < 0)
     {
         st->fg = insavl(st->fg, mot, index);
+        st->fg->eq = getHeight (st->fg->fg) - getHeight (st->fg->fd);
+        st->eq++;
         st = balance(st);
-        //st = balance(enraciner(st->mot, st->positions, insavl(st->fg, mot, index), st->fd));
+        st->eq = getHeight (st->fg) - getHeight (st->fd);
     }
     else
     {
         st->fd = insavl(st->fd, mot, index);
+        st->fd->eq = getHeight (st->fd->fg) - getHeight (st->fd->fd);
+        st->eq--;
         st = balance(st);
-        //st = balance(enraciner(st->mot, st->positions, st->fg, insavl(st->fd, mot, index)));
+        st->eq = getHeight (st->fg) - getHeight (st->fd);
     }
 
     return st;

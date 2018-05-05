@@ -125,13 +125,117 @@ OrderedSet findCooccurrences(SearchTree st, char ** mots, int nbMots)
     return indices;
 }
 
-#define RACINE 0
+
 #define GAUCHE 1
 #define DROIT  2
 
+
+char * slash;
+char * backslash;
+char * tiret;
+char * lignel;
+
+
+typedef char* String;
+
+
 void printBinarySearchTree(SearchTree st)
 {
-    printBinarySearchTreeAux(st, 0, RACINE);
+    if (vide(st))
+    {
+        return;
+    }
+
+    slash = malloc(2);
+    strcpy(slash, "/");
+
+    backslash = malloc(2);
+    strcpy(backslash, "\\");
+
+    tiret = malloc(2);
+    strcpy(tiret, "-");
+
+    lignel = malloc(2);
+    strcpy(lignel, "|");
+
+
+    int nb_lignes = getNumberString(st);
+
+    String ** display = (String**)malloc(nb_lignes * sizeof(String*));
+    int i;
+    for (i = 0; i < nb_lignes; i++)
+    {
+        display[i] = (String*)malloc(nb_lignes * sizeof(String));
+        int j;
+        for (j = 0; j < nb_lignes; j++)
+        {
+            display[i][j] = NULL;
+        }
+    }
+    int ligne = 0;
+    printBinarySearchTreeAux(st, 0, 0, display, &ligne);
+
+    /** liens **/
+
+    int j;
+    for (i = 0; i < nb_lignes - 1; i++)
+    {
+        for (j = 0; j < nb_lignes; j++)
+        {
+            if (display[i][j] == slash && display[i + 1][j] == NULL)
+            {
+                int k;
+                for (k = i + 1; display[k][j] == NULL; k++)
+                {
+                    display[k][j] = lignel;
+                }
+            }
+        }
+    }
+
+    for (i = 1; i < nb_lignes; i++)
+    {
+        for (j = 0; j < nb_lignes; j++)
+        {
+            if (display[i][j] == backslash && display[i - 1][j] == NULL)
+            {
+                int k;
+                for (k = i - 1; display[k][j] == NULL; k--)
+                {
+                    display[k][j] = lignel;
+                }
+            }
+        }
+    }
+
+    /** affichage **/
+    for (i = 0; i < nb_lignes; i++)
+    {
+        for (j = 0; j < nb_lignes; j++)
+        {
+            if (display[i][j] == NULL)
+            {
+                printf(" ");
+            }
+            else
+            {
+                printf("%s", display[i][j]);
+            }
+        }
+        printf("\n");
+    }
+
+    free(lignel);
+    free(slash);
+    free(backslash);
+    free(tiret);
+
+    for (i = 0; i < nb_lignes; i++)
+    {
+        free(display[i]);
+    }
+    free(display);
+
 }
 
 // fonctions supplémentaires
@@ -142,61 +246,40 @@ bool vide(SearchTree st)
 }
 
 
-#define ESPACE_HRZ  5
-#define ESPACE_VRT  2
-
-void printBinarySearchTreeAux(SearchTree st, int niveau, int position)
+void printBinarySearchTreeAux(SearchTree st, int niveau, int position, String ** display, int * ligne)
 {
-    /*
     if (vide(st))
+    {
         return;
-
-    printf("%*s%s ", niveau, "", st->mot);
-
-    if (position == GAUCHE)
-    {
-        printf(" fils gauche ");
-    }
-    else if (position == DROIT)
-    {
-        printf(" fils droit ");
     }
 
-    printOrderedSet(st->positions);
+    printBinarySearchTreeAux(st->fd, niveau + 1, DROIT, display, ligne);
 
-    printBinarySearchTreeAux(st->fg, niveau + 1, GAUCHE);
 
-    printBinarySearchTreeAux(st->fd, niveau + 1, DROIT);
-    */
-
-    if (!vide(st->fg))
+    if (niveau == 0)
     {
-        printBinarySearchTreeAux(st->fg, niveau + 1, GAUCHE);
-    }
-
-    if (niveau == 0) // racine
-    {
-        printf("%s\n", st->mot);
+        display[*ligne][0] = st->mot;
+        // display[*ligne][1] = to_string(st->positions);
     }
     else
     {
-        printf("%*s", (niveau-1)*ESPACE_HRZ, "");
-        int i;
-        printf(" %c", (position == GAUCHE)? '/' : '\\');
-
-        for (i = 0; i < ESPACE_HRZ-2; i++)
+        if (position == DROIT)
         {
-            printf("-");
+            display[*ligne][3*niveau - 3] = slash;
+        }
+        else
+        {
+            display[*ligne][3*niveau - 3] = backslash;
         }
 
-        printf("%s: ", st->mot);
-        printOrderedSet(st->positions);
+        display[*ligne][3*niveau - 2] = tiret;
+        display[*ligne][3*niveau - 1] = tiret;
+        display[*ligne][3*niveau] = st->mot;
     }
 
-    if (!vide(st->fd))
-    {
-        printBinarySearchTreeAux(st->fd, niveau + 1, DROIT);
-    }
+    (*ligne)++;
+
+    printBinarySearchTreeAux(st->fg, niveau + 1, GAUCHE, display, ligne);
 }
 
 
