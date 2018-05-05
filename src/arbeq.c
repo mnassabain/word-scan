@@ -1,5 +1,7 @@
 #include "arbeq.h"
 
+#include <wchar.h>
+
 
 #define ABS(x) ((x)<0 ? -(x) : (x))
 
@@ -157,6 +159,8 @@ bool contient(char x, char * mot)
     return false;
 }
 
+#define E_ACC_EGU '\303'
+
 SearchTree construction_arbre(char * filename)
 {
     /** Ouverture du fichier **/
@@ -171,17 +175,44 @@ SearchTree construction_arbre(char * filename)
 
     /** Parcours du fichier **/
     char buffer[LINE_MAX];
+    //short* pt = (short*) buffer;
+    short buffer_short[LINE_MAX];
     int phrase = 1;
     while(fgets(buffer, LINE_MAX, fichier) != NULL)
     {
-    //    int k;
-    //    for (k = 0; buffer[k] = '\0'; k++)
-    //    {
-            //if (buffer[k] == 'é' || buffer[k] == 'è' || buffer[k] == 'ê')
-            //{
-            //    buffer[k] = 'e';
-            //}
-    //    }
+
+        int k;
+        for (k = 0; buffer[k] != '\0'; k++)
+        {
+            if (buffer[k] >= 0)
+            {
+                buffer_short[k] = buffer[k];
+            }
+            else
+            {
+                buffer_short[k] = (short)buffer[k];
+                k++;
+            }
+        }
+        buffer_short[k] = '\0';
+
+        //char a[2] = "é";
+        //printf("%d\n", a[0]);
+        //printf("%d\n", a[1]);
+
+
+        for (k = 0; buffer[k] != '\0'; k++)
+        {
+            if (buffer[k] == E_ACC_EGU)
+            {
+                buffer[k] = 'e';
+            }
+        }
+
+        for (k = 0; buffer_short[k] != '\0'; k++)
+        {
+            buffer[k] = buffer_short[k];
+        }
 
         int i = 0;
         char *ptBuf = buffer; // pointeur sur le buffer
@@ -190,7 +221,8 @@ SearchTree construction_arbre(char * filename)
             int longueur_mot = 0;
             char *mot;
 
-            for (; buffer[i] != ' ' && buffer[i] != '\n' && buffer[i] != '.' && !contient(buffer[i], separateurs); i++)
+            for (; buffer[i] != ' ' && buffer[i] != '\n' && buffer[i] != '.'
+                && !contient(buffer[i], separateurs); i++)
             {
                 if (buffer[i] >= 'A' && buffer[i] <= 'Z')
                 {

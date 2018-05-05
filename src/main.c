@@ -156,14 +156,12 @@ int main(int argc, char * const argv[])
     printBinarySearchTree(st);
 */
 
-
     SearchTree st = construction_arbre("toto");
 
     printBinarySearchTree(st);
     //printBinarySearchTreeQuentin(st, 0, 0);
 
     freeBinarySearchTree(st);
-
 
     return 0;
 }
