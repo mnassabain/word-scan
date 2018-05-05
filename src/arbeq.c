@@ -1,11 +1,29 @@
-#include "arbeq.h"
+/**
+ * \file arbeq.c
+ *
+ * Fichier qui implémente les fonctions d'équilibrage de l'arbre, les rotaions
+ * et des calculs de hauteur. Il implémente aussi la fonction qui construit
+ * l'arbre à partir d'un fichier et l'insertion dans un arbre binaire de
+ * recherche équilibré, c'est à dire un AVL.
+ *
+ */
 
-#include <wchar.h>
+#include "arbeq.h"
 
 
 #define ABS(x) ((x)<0 ? -(x) : (x))
 
-
+/**
+ * \brief Détermine si l'arbre est équilibré où non
+ *
+ * Vérifie si pour chacun des noeuds de l'arbre, le facteur d'équilibrage
+ * vaut 1, 0 ou -1.
+ *
+ * \param st AVL
+ *
+ * \return Booléen qui vaut true si l'arbre est équilibré, false sinon
+ *
+ */
 bool isBalanced(SearchTree st)
 {
     if (vide(st))
@@ -13,7 +31,17 @@ bool isBalanced(SearchTree st)
     return (st->eq == 0 || st->eq == -1 || st->eq == 1) && isBalanced(st->fg) && isBalanced (st->fd);
 }
 
-int deseq(SearchTree st)
+/**
+ * \brief Renvoie l'équilibre d'un noeud
+ *
+ * Renvoie le facteur d'équilibrage d'un noeud.
+ *
+ * \param st AVL
+ *
+ * \return Facteur d'équilibrage du noeud
+ *
+ */
+int getEq(SearchTree st)
 {
     if (st == NULL)
     {
@@ -23,6 +51,15 @@ int deseq(SearchTree st)
     return st->eq;
 }
 
+/**
+ * \brief Renvoie la hauteur de l'arbre
+ *
+ * Renvoie la hauteur de l'arbre passé en argument.
+ * \param st AVL
+ *
+ * \return Hauteur de l'arbre
+ *
+ */
 int getHeight (SearchTree st)
 {
     if (vide (st)) return 0;
@@ -33,7 +70,14 @@ int getHeight (SearchTree st)
 }
 
 /**
- * prec: fg non vide
+ * \brief Rotation droite
+ *
+ * Effectue une rotation simple droite de l'arbre passé en argument.
+ * \pre Le fils gauche de l'arbre ne doit pas être vide
+ * \param st AVL
+ *
+ * \return Arbre ayant subit une rotation simple droite
+ *
  */
  SearchTree rotateRight(SearchTree st)
  {
@@ -47,7 +91,14 @@ int getHeight (SearchTree st)
  }
 
 /**
- * prec: fd non vide
+ * \brief Rotation gauche
+ *
+ * Effectue une rotation simple gauche de l'arbre passé en argument.
+ * \pre Le fils droit de l'arbre ne doit pas être vide
+ * \param st AVL
+ *
+ * \return Arbre ayant subit une rotation simple gauche
+ *
  */
 SearchTree rotateLeft(SearchTree st)
 {
@@ -60,7 +111,17 @@ SearchTree rotateLeft(SearchTree st)
     return new_st;
 }
 
-
+/**
+ * \brief Rotation gauche droite
+ *
+ * Effectue une rotation double gauche-droite de l'arbre passé en argument.
+ * \pre Le fils gauche de l'arbre ne doit pas être vide, et le fils droit du
+ * fils gauche non plus
+ * \param st AVL
+ *
+ * \return Arbre ayant subit une rotation double gauche-droite
+ *
+ */
 SearchTree rotateLeftRight(SearchTree st)
 {
     SearchTree new_st = rotateRight(enraciner(st->mot, st->positions,
@@ -71,6 +132,17 @@ SearchTree rotateLeftRight(SearchTree st)
     return new_st;
 }
 
+/**
+ * \brief Rotation droite gauche
+ *
+ * Effectue une rotation double droite-gauche de l'arbre passé en argument.
+ * \pre Le fils droit de l'arbre ne doit pas être vide, et le fils gauche du
+ * fils droit non plus
+ * \param st AVL
+ *
+ * \return Arbre ayant subit une rotation double droite-gauche
+ *
+ */
 SearchTree rotateRightLeft(SearchTree st)
 {
     st->fd = rotateRight(st->fd);
@@ -85,7 +157,15 @@ SearchTree rotateRightLeft(SearchTree st)
     return new_st;
 }
 
-
+/**
+ * \brief Equilibre l'arbre
+ *
+ * Equilibre l'arbre passé en argument en effectuant les rotations nécessaires
+ * \param st AVL
+ *
+ * \return Arbre équilibré
+ *
+ */
 SearchTree balance(SearchTree st)
 {
     if (st == NULL)
@@ -98,7 +178,7 @@ SearchTree balance(SearchTree st)
         return st;
     }
 
-    int d = deseq(st);
+    int d = getEq(st);
 
     if (d == 0 || ABS(d) == 1)
     {
@@ -106,8 +186,8 @@ SearchTree balance(SearchTree st)
         st->fd = balance(st->fd);
     }
 
-    int dg = deseq(st->fg);
-    int dd = deseq(st->fd);
+    int dg = getEq(st->fg);
+    int dd = getEq(st->fd);
 
     if (d == 2 && dg == 1)
     {
@@ -143,8 +223,17 @@ SearchTree balance(SearchTree st)
 
 // CONSTRUCTION DE L'ARBRE À PARTIR D'UN FICHIER
 
-char separateurs[] = ",:;!?()";
-
+/**
+ * \brief Teste si un mot contient un caractère
+ *
+ * Teste si la chaine de caractères mot contient le caractère x
+ * \param x un caractère
+ * \param mot une chaine de caractères
+ *
+ * \return Booléen qui vaut true si la chaine contient le caractère x,
+ * false sinon
+ *
+ */
 bool contient(char x, char * mot)
 {
     int i;
@@ -159,10 +248,23 @@ bool contient(char x, char * mot)
     return false;
 }
 
-#define E_ACC_EGU '\303'
-
+/**
+ * \brief Construction de l'arbre binaire de recherché équilibré
+ *
+ * Lit le fichier passé en argument et sépare chaque mot pour le stocker
+ * dans un arbre binaire de recherche équilibré. Un équilibrage est effectué
+ * après chaque insertion si nécéssaire.
+ * On considère qu'on mot a été trouvé quand on rencontre un des séparateurs
+ * suivants : ",:;!?()" ou un espace.
+ * \param filename un nom de fichier
+ *
+ * \return Arbre binaire de recherche équilibré
+ *
+ */
 SearchTree construction_arbre(char * filename)
 {
+    /** Séparateurs utilisés lors de la lecture du fichier **/
+    char separateurs[] = ",:;!?()";
     /** Ouverture du fichier **/
     FILE * fichier = fopen(filename, "r");
     if (fichier == NULL)
@@ -184,16 +286,18 @@ SearchTree construction_arbre(char * filename)
         int k;
         for (k = 0; buffer[k] != '\0'; k++)
         {
-            if (buffer[k] >= 0)
-            {
-                buffer_short[k] = buffer[k];
-            }
+            //if (buffer[k] >= 0)
+            //{
+            //    buffer_short[k] = buffer[k];
+            //}
+            /*
             else
             {
                 short * tmp = (short*) &buffer[k];
                 buffer_short[k] = tmp[0];
                 k++;
             }
+            */
         }
         buffer_short[k] = '\0';
 
@@ -259,7 +363,20 @@ SearchTree construction_arbre(char * filename)
     return st;
 }
 
-
+/**
+ * \brief Insère un mot dans un AVL
+ *
+ * Insère un mot à la bonne position dans un AVL s'il n'y est pas déjà et crée
+ * un ensemble ordonné qui contient le numéro de la phrase dans laquelle le mot
+ * a été trouvé. Si le mot était déjà dans l'arbre alors le numéro de la phrase
+ * contenant le mot est rajouté dans l'ensemble ordonné des numéros de phrase.
+ * \param st AVL
+ * \param mot Le mot que l'on veut insérer dans l'arbres
+ * \param index Le numéro de phrase dans laquelle se trouve le mot
+ *
+ * \return Arbre binaire de recherche équilibré
+ *
+ */
 SearchTree insavl(SearchTree st, char * mot, int index)
 {
     if (vide(st))

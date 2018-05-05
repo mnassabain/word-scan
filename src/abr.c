@@ -1,10 +1,33 @@
+/**
+ * \file abr.c
+ *
+ * Fichier qui implémente les fonctions basiques pour la structure de l'arbre
+ * binaire de recherche.
+ *
+ */
+
 #include "abr.h"
 
+/**
+ * \brief Intialise un arbre binaire de recherche.
+ *
+ * \return  Arbre binaire vide.
+ *
+ */
 SearchTree initBinarySearchTree()
 {
     return (SearchTree)NULL;
 }
 
+
+/**
+ * \brief Libère un arbre binaire de recherche.
+ *
+ * Parcours l'arbre binaire et ses fils pour libérer la mémoire occupée par eux.
+ *
+ * \param st Arbre binaire à libérer.
+ *
+ */
 void freeBinarySearchTree(SearchTree st)
 {
     if (vide(st))
@@ -21,6 +44,18 @@ void freeBinarySearchTree(SearchTree st)
     free(st);
 }
 
+
+/**
+ * \brief Trouver le nombre de mots dans l'arbre (noeuds)
+ *
+ * Fonction récursive qui calcule le nombre de mots en comptant les noueds de
+ * l'arbre.
+ *
+ * \param st Arbre binaire dont on veut savoir le nombre de mots
+ *
+ * \return  Nombre de mots contenus dans l'arbre binaire.
+ *
+ */
 int getNumberString(SearchTree st)
 {
     if (vide(st))
@@ -32,6 +67,18 @@ int getNumberString(SearchTree st)
     return nb + 1;
 }
 
+
+/**
+ * \brief Cherche le nombre de mots total dans l'arbre
+ *
+ * Parcours l'arbre et compte le nombre de mots ainsi que leur nombre
+ * d'occurences pour calculer le nombre de mots dans le texte source.
+ *
+ * \param st Arbre binaire
+ *
+ * \return  Nombre de mots total dans l'arbre binaire
+ *
+ */
 int getTotalNumberString(SearchTree st)
 {
     if (vide(st))
@@ -44,11 +91,34 @@ int getTotalNumberString(SearchTree st)
 }
 
 
+/**
+ * \brief Comparaison de deux chaînes de caractères.
+ *
+ * \param mot1
+ * \param mot2
+ *
+ * \return  Résultat de la comparaison.
+ *
+ */
 int comp(char *mot1, char *mot2)
 {
     return strcmp(mot1, mot2);
 }
 
+
+/**
+ * \brief Cherche un mot dans un arbre binaire de recherche
+ *
+ * Parcours l'arbre binaire de recherche. Si on trouve le mot on renvoie un
+ * pointeur sur son ensemble ordonné de positions. Si on ne le trouve pas la
+ * fonction renvoie NULL.
+ *
+ * \param st Arbre binaire
+ * \param mot Mot qu'on cherche dans l'arbre binaire
+ *
+ * \return Ensemble de positions de l'élément si trouvé, NULL sinon.
+ *
+ */
 OrderedSet find(SearchTree st, char *mot)
 {
     if (vide(st))
@@ -71,6 +141,20 @@ OrderedSet find(SearchTree st, char *mot)
     }
 }
 
+
+/**
+ * \brief Cherche les positions communes des mots données en argument
+ *
+ * Parcours l'arbre binaire pour trouver le mots cherchés. Pour chaque mot
+ * trouvé fait l'intersection de leurs occurences.
+ *
+ * \param st Arbre binaire
+ * \param mots Liste des mots
+ * \param nbMots Nombre de mots dans la liste de mots
+ *
+ * \return Un ensemble ordonné de les occurences communes des mots données.
+ *
+ */
 OrderedSet findCooccurrences(SearchTree st, char ** mots, int nbMots)
 {
     OrderedSet indices = find (st, mots[0]);
@@ -83,6 +167,20 @@ OrderedSet findCooccurrences(SearchTree st, char ** mots, int nbMots)
     }
 
     return indices;
+}
+
+
+/**
+ * \brief Teste si l'arbre binaire est vide
+ *
+ * \param st Arbre binaire
+
+ * \return true si l'arbre est vide, false sinon
+ *
+ */
+bool vide(SearchTree st)
+{
+    return st == NULL;
 }
 
 
@@ -100,6 +198,17 @@ char * deuxpt;
 typedef char* String;
 
 
+/**
+ * \brief Affiche l'arbre binaire donné
+ *
+ * Parcours infixé de l'arbre binaire. Crée un tableau de deux dimensions de
+ * chaînes de caractères. Remplit ce tableau avec soit NULL (espace), soit
+ * un mot ou un caractère à affichier. Permet un affichage clair et plus
+ * visible.
+ *
+ * \param st Arbre binaire à afficher
+ *
+ */
 void printBinarySearchTree(SearchTree st)
 {
     if (vide(st))
@@ -206,14 +315,21 @@ void printBinarySearchTree(SearchTree st)
 
 }
 
-// fonctions supplémentaires
-
-bool vide(SearchTree st)
-{
-    return st == NULL;
-}
 
 
+/**
+ * \brief Fonction auxiliaire de l'affichage
+ *
+ * Remplit le tableau (display) mentionné précedamment par les mots dans
+ * l'arbre.
+ *
+ * \param st Arbre binaire à afficher
+ * \param niveau ou la profondeur à afficher (racine est au niveau 0)
+ * \param position Racine, gauche ou droit
+ * \param display Le tableau d'affichage à remplir
+ * \param ligne Le nombre de ligne dans le display actuel
+ *
+ */
 void printBinarySearchTreeAux(SearchTree st, int niveau, int position, String ** display, int * ligne)
 {
     if (vide(st))
@@ -254,6 +370,15 @@ void printBinarySearchTreeAux(SearchTree st, int niveau, int position, String **
     printBinarySearchTreeAux(st->fg, niveau + 1, GAUCHE, display, ligne);
 }
 
+
+/**
+ * \brief Affiche le mot et l'équilibre.
+ *
+ * Fonction sert à tester l'équilibraque de l'arbre binaire de recherche.
+ *
+ * \param st Arbre binaire à afficher
+ *
+ */
 void printEquilibre (SearchTree st, int niveau, int pos)
 {
     if (vide(st))
@@ -281,6 +406,21 @@ void printEquilibre (SearchTree st, int niveau, int pos)
     printEquilibre(st->fd, niveau + 1, DROIT);
 }
 
+
+/**
+ * \brief Constructeur de base de l'arbre binaire
+ *
+ * Crée un nouveau noeud, le remplit avec les données passées en argument et le
+ * lie aux deux arbres données en argument.
+ *
+ * \param mot Mot à rajouter dans la structure de noeud
+ * \param positions Ensemble ordonné des occurences à rajouter dans le noeud
+ * \param st1 Arbre binaire qui devient le fils gauche du nouveau noeud
+ * \param st2 Arbre binaire qui devient le fils droit du noveau noeud
+ *
+ * \return L'arbre binaire nouveau
+ *
+ */
 SearchTree enraciner(char *mot, OrderedSet positions, SearchTree st1, SearchTree st2)
 {
     SearchTree racine = (SearchTree)malloc(sizeof(*racine));

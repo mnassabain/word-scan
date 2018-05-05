@@ -1,3 +1,12 @@
+/**
+ * \file arbeq.h
+ *
+ * Fichier qui contient les structures et prototypes de l'arbre binaire
+ * de recherche équilibré.
+ *
+ */
+
+
 #ifndef __ARBEQ_H__
 #define __ARBEQ_H__
 
@@ -23,6 +32,8 @@ SearchTree rotateRightLeft(SearchTree st);
 SearchTree balance(SearchTree st);
 
 // construction
+int getEq(SearchTree st);
+
 SearchTree construction_arbre(char * filename);
 
 SearchTree insavl(SearchTree st, char * mot, int index);

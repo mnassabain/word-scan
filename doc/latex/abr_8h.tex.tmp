@@ -1,0 +1,327 @@
+\hypertarget{abr_8h}{}\section{include/abr.h File Reference}
+\label{abr_8h}\index{include/abr.\+h@{include/abr.\+h}}
+{\ttfamily \#include $<$stdbool.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$limits.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}ensemble.\+h\char`\"{}}\\*
+Include dependency graph for abr.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structs__arbre}{s\+\_\+arbre}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structs__arbre}{s\+\_\+arbre} {\bfseries Noeud}\hypertarget{abr_8h_a5586979136ca03e7951b78cb8b2cfd26}{}\label{abr_8h_a5586979136ca03e7951b78cb8b2cfd26}
+
+\item 
+typedef struct \hyperlink{structs__arbre}{s\+\_\+arbre} $\ast$ {\bfseries Search\+Tree}\hypertarget{abr_8h_a0ee7fd50fbc593554348842e8f968715}{}\label{abr_8h_a0ee7fd50fbc593554348842e8f968715}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structs__arbre}{Search\+Tree} \hyperlink{abr_8h_a4414a6bb3be9f626aa0fe423b35c6981}{init\+Binary\+Search\+Tree} ()
+\begin{DoxyCompactList}\small\item\em Intialise un arbre binaire de recherche. \end{DoxyCompactList}\item 
+void \hyperlink{abr_8h_a6ad1d8fa5b86e8dca7313405f1c2868e}{free\+Binary\+Search\+Tree} (\hyperlink{structs__arbre}{Search\+Tree} st)
+\begin{DoxyCompactList}\small\item\em Libère un arbre binaire de recherche. \end{DoxyCompactList}\item 
+int \hyperlink{abr_8h_a6f23425df7acb231970ddeebb4a72338}{get\+Number\+String} (\hyperlink{structs__arbre}{Search\+Tree} st)
+\begin{DoxyCompactList}\small\item\em Trouver le nombre de mots dans l\textquotesingle{}arbre (noeuds) \end{DoxyCompactList}\item 
+int \hyperlink{abr_8h_a8eb5575a4eb5f2c432a89fbceec746d1}{get\+Total\+Number\+String} (\hyperlink{structs__arbre}{Search\+Tree} st)
+\begin{DoxyCompactList}\small\item\em Cherche le nombre de mots total dans l\textquotesingle{}arbre. \end{DoxyCompactList}\item 
+\hyperlink{ensemble_8h_aaaccd0a5a3eec060c270e18a1f546fcb}{Ordered\+Set} \hyperlink{abr_8h_a53aaae73c1d65cf477b1e41c926a308f}{find} (\hyperlink{structs__arbre}{Search\+Tree} st, char $\ast$mot)
+\begin{DoxyCompactList}\small\item\em Cherche un mot dans un arbre binaire de recherche. \end{DoxyCompactList}\item 
+\hyperlink{ensemble_8h_aaaccd0a5a3eec060c270e18a1f546fcb}{Ordered\+Set} \hyperlink{abr_8h_abaf566de66217dff3629ac4bfe07af59}{find\+Cooccurrences} (\hyperlink{structs__arbre}{Search\+Tree} st, char $\ast$$\ast$mots, int nb\+Mots)
+\begin{DoxyCompactList}\small\item\em Cherche les positions communes des mots données en argument. \end{DoxyCompactList}\item 
+void \hyperlink{abr_8h_a697cd9722461aeacd7ba990a59d8eacf}{print\+Binary\+Search\+Tree} (\hyperlink{structs__arbre}{Search\+Tree} st)
+\begin{DoxyCompactList}\small\item\em Affiche l\textquotesingle{}arbre binaire donné \end{DoxyCompactList}\item 
+bool \hyperlink{abr_8h_a58c93e14d13eab6db8b5ec6dbe068847}{vide} (\hyperlink{structs__arbre}{Search\+Tree} st)
+\begin{DoxyCompactList}\small\item\em Teste si l\textquotesingle{}arbre binaire est vide. \end{DoxyCompactList}\item 
+\hyperlink{structs__arbre}{Search\+Tree} \hyperlink{abr_8h_a42d0d849b5e10660e9cf9c4ac7fe4b1a}{enraciner} (char $\ast$mot, \hyperlink{ensemble_8h_aaaccd0a5a3eec060c270e18a1f546fcb}{Ordered\+Set} positions, \hyperlink{structs__arbre}{Search\+Tree} st1, \hyperlink{structs__arbre}{Search\+Tree} st2)
+\begin{DoxyCompactList}\small\item\em Constructeur de base de l\textquotesingle{}arbre binaire. \end{DoxyCompactList}\item 
+void \hyperlink{abr_8h_aad70fc1cffb36e4e60e957be026cd020}{print\+Binary\+Search\+Tree\+Aux} (\hyperlink{structs__arbre}{Search\+Tree} st, int niveau, int position, char $\ast$$\ast$$\ast$mot, int $\ast$ligne)
+\begin{DoxyCompactList}\small\item\em Fonction auxiliaire de l\textquotesingle{}affichage. \end{DoxyCompactList}\item 
+void \hyperlink{abr_8h_a92241cf9e96ba3bd8b83dffa7a303d66}{print\+Equilibre} (\hyperlink{structs__arbre}{Search\+Tree} st, int niveau, int pos)
+\begin{DoxyCompactList}\small\item\em Affiche le mot et l\textquotesingle{}équilibre. \end{DoxyCompactList}\item 
+int \hyperlink{abr_8h_a011464173a74592ad73223b37ad2d245}{comp} (char $\ast$mot1, char $\ast$mot2)
+\begin{DoxyCompactList}\small\item\em Comparaison de deux chaînes de caractères. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Fichier qui contient les structures et prototypes de l\textquotesingle{}arbre binaire. 
+
+\subsection{Function Documentation}
+\index{abr.\+h@{abr.\+h}!comp@{comp}}
+\index{comp@{comp}!abr.\+h@{abr.\+h}}
+\subsubsection[{\texorpdfstring{comp(char $\ast$mot1, char $\ast$mot2)}{comp(char *mot1, char *mot2)}}]{\setlength{\rightskip}{0pt plus 5cm}int comp (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{mot1, }
+\item[{char $\ast$}]{mot2}
+\end{DoxyParamCaption}
+)}\hypertarget{abr_8h_a011464173a74592ad73223b37ad2d245}{}\label{abr_8h_a011464173a74592ad73223b37ad2d245}
+
+
+Comparaison de deux chaînes de caractères. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mot1} & \\
+\hline
+{\em mot2} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Résultat de la comparaison. 
+\end{DoxyReturn}
+\index{abr.\+h@{abr.\+h}!enraciner@{enraciner}}
+\index{enraciner@{enraciner}!abr.\+h@{abr.\+h}}
+\subsubsection[{\texorpdfstring{enraciner(char $\ast$mot, Ordered\+Set positions, Search\+Tree st1, Search\+Tree st2)}{enraciner(char *mot, OrderedSet positions, SearchTree st1, SearchTree st2)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Search\+Tree} enraciner (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{mot, }
+\item[{{\bf Ordered\+Set}}]{positions, }
+\item[{{\bf Search\+Tree}}]{st1, }
+\item[{{\bf Search\+Tree}}]{st2}
+\end{DoxyParamCaption}
+)}\hypertarget{abr_8h_a42d0d849b5e10660e9cf9c4ac7fe4b1a}{}\label{abr_8h_a42d0d849b5e10660e9cf9c4ac7fe4b1a}
+
+
+Constructeur de base de l\textquotesingle{}arbre binaire. 
+
+Crée un nouveau noeud, le remplit avec les données passées en argument et le lie aux deux arbres données en argument.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mot} & Mot à rajouter dans la structure de noeud \\
+\hline
+{\em positions} & Ensemble ordonné des occurences à rajouter dans le noeud \\
+\hline
+{\em st1} & Arbre binaire qui devient le fils gauche du nouveau noeud \\
+\hline
+{\em st2} & Arbre binaire qui devient le fils droit du noveau noeud\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+L\textquotesingle{}arbre binaire nouveau 
+\end{DoxyReturn}
+\index{abr.\+h@{abr.\+h}!find@{find}}
+\index{find@{find}!abr.\+h@{abr.\+h}}
+\subsubsection[{\texorpdfstring{find(\+Search\+Tree st, char $\ast$mot)}{find(SearchTree st, char *mot)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ordered\+Set} find (
+\begin{DoxyParamCaption}
+\item[{{\bf Search\+Tree}}]{st, }
+\item[{char $\ast$}]{mot}
+\end{DoxyParamCaption}
+)}\hypertarget{abr_8h_a53aaae73c1d65cf477b1e41c926a308f}{}\label{abr_8h_a53aaae73c1d65cf477b1e41c926a308f}
+
+
+Cherche un mot dans un arbre binaire de recherche. 
+
+Parcours l\textquotesingle{}arbre binaire de recherche. Si on trouve le mot on renvoie un pointeur sur son ensemble ordonné de positions. Si on ne le trouve pas la fonction renvoie N\+U\+LL.
+
+
+\begin{DoxyParams}{Parameters}
+{\em st} & Arbre binaire \\
+\hline
+{\em mot} & Mot qu\textquotesingle{}on cherche dans l\textquotesingle{}arbre binaire\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ensemble de positions de l\textquotesingle{}élément si trouvé, N\+U\+LL sinon. 
+\end{DoxyReturn}
+\index{abr.\+h@{abr.\+h}!find\+Cooccurrences@{find\+Cooccurrences}}
+\index{find\+Cooccurrences@{find\+Cooccurrences}!abr.\+h@{abr.\+h}}
+\subsubsection[{\texorpdfstring{find\+Cooccurrences(\+Search\+Tree st, char $\ast$$\ast$mots, int nb\+Mots)}{findCooccurrences(SearchTree st, char **mots, int nbMots)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ordered\+Set} find\+Cooccurrences (
+\begin{DoxyParamCaption}
+\item[{{\bf Search\+Tree}}]{st, }
+\item[{char $\ast$$\ast$}]{mots, }
+\item[{int}]{nb\+Mots}
+\end{DoxyParamCaption}
+)}\hypertarget{abr_8h_abaf566de66217dff3629ac4bfe07af59}{}\label{abr_8h_abaf566de66217dff3629ac4bfe07af59}
+
+
+Cherche les positions communes des mots données en argument. 
+
+Parcours l\textquotesingle{}arbre binaire pour trouver le mots cherchés. Pour chaque mot trouvé fait l\textquotesingle{}intersection de leurs occurences.
+
+
+\begin{DoxyParams}{Parameters}
+{\em st} & Arbre binaire \\
+\hline
+{\em mots} & Liste des mots \\
+\hline
+{\em nb\+Mots} & Nombre de mots dans la liste de mots\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un ensemble ordonné de les occurences communes des mots données. 
+\end{DoxyReturn}
+\index{abr.\+h@{abr.\+h}!free\+Binary\+Search\+Tree@{free\+Binary\+Search\+Tree}}
+\index{free\+Binary\+Search\+Tree@{free\+Binary\+Search\+Tree}!abr.\+h@{abr.\+h}}
+\subsubsection[{\texorpdfstring{free\+Binary\+Search\+Tree(\+Search\+Tree st)}{freeBinarySearchTree(SearchTree st)}}]{\setlength{\rightskip}{0pt plus 5cm}void free\+Binary\+Search\+Tree (
+\begin{DoxyParamCaption}
+\item[{{\bf Search\+Tree}}]{st}
+\end{DoxyParamCaption}
+)}\hypertarget{abr_8h_a6ad1d8fa5b86e8dca7313405f1c2868e}{}\label{abr_8h_a6ad1d8fa5b86e8dca7313405f1c2868e}
+
+
+Libère un arbre binaire de recherche. 
+
+Parcours l\textquotesingle{}arbre binaire et ses fils pour libérer la mémoire occupée par eux.
+
+
+\begin{DoxyParams}{Parameters}
+{\em st} & Arbre binaire à libérer. \\
+\hline
+\end{DoxyParams}
+\index{abr.\+h@{abr.\+h}!get\+Number\+String@{get\+Number\+String}}
+\index{get\+Number\+String@{get\+Number\+String}!abr.\+h@{abr.\+h}}
+\subsubsection[{\texorpdfstring{get\+Number\+String(\+Search\+Tree st)}{getNumberString(SearchTree st)}}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Number\+String (
+\begin{DoxyParamCaption}
+\item[{{\bf Search\+Tree}}]{st}
+\end{DoxyParamCaption}
+)}\hypertarget{abr_8h_a6f23425df7acb231970ddeebb4a72338}{}\label{abr_8h_a6f23425df7acb231970ddeebb4a72338}
+
+
+Trouver le nombre de mots dans l\textquotesingle{}arbre (noeuds) 
+
+Fonction récursive qui calcule le nombre de mots en comptant les noueds de l\textquotesingle{}arbre.
+
+
+\begin{DoxyParams}{Parameters}
+{\em st} & Arbre binaire dont on veut savoir le nombre de mots\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nombre de mots contenus dans l\textquotesingle{}arbre binaire. 
+\end{DoxyReturn}
+\index{abr.\+h@{abr.\+h}!get\+Total\+Number\+String@{get\+Total\+Number\+String}}
+\index{get\+Total\+Number\+String@{get\+Total\+Number\+String}!abr.\+h@{abr.\+h}}
+\subsubsection[{\texorpdfstring{get\+Total\+Number\+String(\+Search\+Tree st)}{getTotalNumberString(SearchTree st)}}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Total\+Number\+String (
+\begin{DoxyParamCaption}
+\item[{{\bf Search\+Tree}}]{st}
+\end{DoxyParamCaption}
+)}\hypertarget{abr_8h_a8eb5575a4eb5f2c432a89fbceec746d1}{}\label{abr_8h_a8eb5575a4eb5f2c432a89fbceec746d1}
+
+
+Cherche le nombre de mots total dans l\textquotesingle{}arbre. 
+
+Parcours l\textquotesingle{}arbre et compte le nombre de mots ainsi que leur nombre d\textquotesingle{}occurences pour calculer le nombre de mots dans le texte source.
+
+
+\begin{DoxyParams}{Parameters}
+{\em st} & Arbre binaire\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nombre de mots total dans l\textquotesingle{}arbre binaire 
+\end{DoxyReturn}
+\index{abr.\+h@{abr.\+h}!init\+Binary\+Search\+Tree@{init\+Binary\+Search\+Tree}}
+\index{init\+Binary\+Search\+Tree@{init\+Binary\+Search\+Tree}!abr.\+h@{abr.\+h}}
+\subsubsection[{\texorpdfstring{init\+Binary\+Search\+Tree()}{initBinarySearchTree()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Search\+Tree} init\+Binary\+Search\+Tree (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{abr_8h_a4414a6bb3be9f626aa0fe423b35c6981}{}\label{abr_8h_a4414a6bb3be9f626aa0fe423b35c6981}
+
+
+Intialise un arbre binaire de recherche. 
+
+P\+R\+O\+T\+O\+T\+Y\+P\+ES
+
+\begin{DoxyReturn}{Returns}
+Arbre binaire vide. 
+\end{DoxyReturn}
+\index{abr.\+h@{abr.\+h}!print\+Binary\+Search\+Tree@{print\+Binary\+Search\+Tree}}
+\index{print\+Binary\+Search\+Tree@{print\+Binary\+Search\+Tree}!abr.\+h@{abr.\+h}}
+\subsubsection[{\texorpdfstring{print\+Binary\+Search\+Tree(\+Search\+Tree st)}{printBinarySearchTree(SearchTree st)}}]{\setlength{\rightskip}{0pt plus 5cm}void print\+Binary\+Search\+Tree (
+\begin{DoxyParamCaption}
+\item[{{\bf Search\+Tree}}]{st}
+\end{DoxyParamCaption}
+)}\hypertarget{abr_8h_a697cd9722461aeacd7ba990a59d8eacf}{}\label{abr_8h_a697cd9722461aeacd7ba990a59d8eacf}
+
+
+Affiche l\textquotesingle{}arbre binaire donné 
+
+Parcours infixé de l\textquotesingle{}arbre binaire. Crée un tableau de deux dimensions de chaînes de caractères. Remplit ce tableau avec soit N\+U\+LL (espace), soit un mot ou un caractère à affichier. Permet un affichage clair et plus visible.
+
+
+\begin{DoxyParams}{Parameters}
+{\em st} & Arbre binaire à afficher \\
+\hline
+\end{DoxyParams}
+liens
+
+affichage \index{abr.\+h@{abr.\+h}!print\+Binary\+Search\+Tree\+Aux@{print\+Binary\+Search\+Tree\+Aux}}
+\index{print\+Binary\+Search\+Tree\+Aux@{print\+Binary\+Search\+Tree\+Aux}!abr.\+h@{abr.\+h}}
+\subsubsection[{\texorpdfstring{print\+Binary\+Search\+Tree\+Aux(\+Search\+Tree st, int niveau, int position, char $\ast$$\ast$$\ast$mot, int $\ast$ligne)}{printBinarySearchTreeAux(SearchTree st, int niveau, int position, char ***mot, int *ligne)}}]{\setlength{\rightskip}{0pt plus 5cm}void print\+Binary\+Search\+Tree\+Aux (
+\begin{DoxyParamCaption}
+\item[{{\bf Search\+Tree}}]{st, }
+\item[{int}]{niveau, }
+\item[{int}]{position, }
+\item[{String $\ast$$\ast$}]{display, }
+\item[{int $\ast$}]{ligne}
+\end{DoxyParamCaption}
+)}\hypertarget{abr_8h_aad70fc1cffb36e4e60e957be026cd020}{}\label{abr_8h_aad70fc1cffb36e4e60e957be026cd020}
+
+
+Fonction auxiliaire de l\textquotesingle{}affichage. 
+
+F\+O\+N\+C\+T\+I\+ON S\+U\+P\+P\+LÉ\+M\+E\+N\+T\+A\+I\+R\+ES
+
+Remplit le tableau (display) mentionné précedamment par les mots dans l\textquotesingle{}arbre.
+
+
+\begin{DoxyParams}{Parameters}
+{\em st} & Arbre binaire à afficher \\
+\hline
+{\em niveau} & ou la profondeur à afficher (racine est au niveau 0) \\
+\hline
+{\em position} & Racine, gauche ou droit \\
+\hline
+{\em display} & Le tableau d\textquotesingle{}affichage à remplir \\
+\hline
+{\em ligne} & Le nombre de ligne dans le display actuel \\
+\hline
+\end{DoxyParams}
+\index{abr.\+h@{abr.\+h}!print\+Equilibre@{print\+Equilibre}}
+\index{print\+Equilibre@{print\+Equilibre}!abr.\+h@{abr.\+h}}
+\subsubsection[{\texorpdfstring{print\+Equilibre(\+Search\+Tree st, int niveau, int pos)}{printEquilibre(SearchTree st, int niveau, int pos)}}]{\setlength{\rightskip}{0pt plus 5cm}void print\+Equilibre (
+\begin{DoxyParamCaption}
+\item[{{\bf Search\+Tree}}]{st, }
+\item[{int}]{niveau, }
+\item[{int}]{pos}
+\end{DoxyParamCaption}
+)}\hypertarget{abr_8h_a92241cf9e96ba3bd8b83dffa7a303d66}{}\label{abr_8h_a92241cf9e96ba3bd8b83dffa7a303d66}
+
+
+Affiche le mot et l\textquotesingle{}équilibre. 
+
+Fonction sert à tester l\textquotesingle{}équilibraque de l\textquotesingle{}arbre binaire de recherche.
+
+
+\begin{DoxyParams}{Parameters}
+{\em st} & Arbre binaire à afficher \\
+\hline
+\end{DoxyParams}
+\index{abr.\+h@{abr.\+h}!vide@{vide}}
+\index{vide@{vide}!abr.\+h@{abr.\+h}}
+\subsubsection[{\texorpdfstring{vide(\+Search\+Tree st)}{vide(SearchTree st)}}]{\setlength{\rightskip}{0pt plus 5cm}bool vide (
+\begin{DoxyParamCaption}
+\item[{{\bf Search\+Tree}}]{st}
+\end{DoxyParamCaption}
+)}\hypertarget{abr_8h_a58c93e14d13eab6db8b5ec6dbe068847}{}\label{abr_8h_a58c93e14d13eab6db8b5ec6dbe068847}
+
+
+Teste si l\textquotesingle{}arbre binaire est vide. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em st} & Arbre binaire\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si l\textquotesingle{}arbre est vide, false sinon 
+\end{DoxyReturn}

@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['initorderedset',['initOrderedSet',['../ensemble_8c.html#ad05e82c19615c4726ce49ebcd14f1b20',1,'initOrderedSet():&#160;ensemble.c'],['../ensemble_8h.html#ad05e82c19615c4726ce49ebcd14f1b20',1,'initOrderedSet():&#160;ensemble.c']]],
-  ['insertvalue',['insertValue',['../ensemble_8c.html#abcfc1c401b5fc05e502db8a84f324563',1,'insertValue(OrderedSet os, int element):&#160;ensemble.c'],['../ensemble_8h.html#abcfc1c401b5fc05e502db8a84f324563',1,'insertValue(OrderedSet os, int element):&#160;ensemble.c']]],
-  ['intersect',['intersect',['../ensemble_8c.html#a686bb865332759a8eda3e2347ee6c21c',1,'intersect(OrderedSet os1, OrderedSet os2):&#160;ensemble.c'],['../ensemble_8h.html#a686bb865332759a8eda3e2347ee6c21c',1,'intersect(OrderedSet os1, OrderedSet os2):&#160;ensemble.c']]]
+  ['fg',['fg',['../structs__arbre.html#ac3fec87fd94a912facfdf4c0ffef5ea3',1,'s_arbre']]],
+  ['find',['find',['../abr_8c.html#a53aaae73c1d65cf477b1e41c926a308f',1,'find(SearchTree st, char *mot):&#160;abr.c'],['../abr_8h.html#a53aaae73c1d65cf477b1e41c926a308f',1,'find(SearchTree st, char *mot):&#160;abr.c']]],
+  ['findcooccurrences',['findCooccurrences',['../abr_8c.html#abaf566de66217dff3629ac4bfe07af59',1,'findCooccurrences(SearchTree st, char **mots, int nbMots):&#160;abr.c'],['../abr_8h.html#abaf566de66217dff3629ac4bfe07af59',1,'findCooccurrences(SearchTree st, char **mots, int nbMots):&#160;abr.c']]],
+  ['freebinarysearchtree',['freeBinarySearchTree',['../abr_8c.html#a6ad1d8fa5b86e8dca7313405f1c2868e',1,'freeBinarySearchTree(SearchTree st):&#160;abr.c'],['../abr_8h.html#a6ad1d8fa5b86e8dca7313405f1c2868e',1,'freeBinarySearchTree(SearchTree st):&#160;abr.c']]],
+  ['freeorderedset',['freeOrderedSet',['../ensemble_8c.html#acbbc519e6181b870ae0e957315a53d71',1,'freeOrderedSet(OrderedSet os):&#160;ensemble.c'],['../ensemble_8h.html#acbbc519e6181b870ae0e957315a53d71',1,'freeOrderedSet(OrderedSet os):&#160;ensemble.c']]]
 ];

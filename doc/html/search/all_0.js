@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['contains',['contains',['../ensemble_8c.html#a5771e4f0d1f54a93beccd7d0d35a8c69',1,'contains(OrderedSet os, int element):&#160;ensemble.c'],['../ensemble_8h.html#a5771e4f0d1f54a93beccd7d0d35a8c69',1,'contains(OrderedSet os, int element):&#160;ensemble.c']]]
+  ['abr_2ec',['abr.c',['../abr_8c.html',1,'']]],
+  ['abr_2eh',['abr.h',['../abr_8h.html',1,'']]],
+  ['arbeq_2ec',['arbeq.c',['../arbeq_8c.html',1,'']]],
+  ['arbeq_2eh',['arbeq.h',['../arbeq_8h.html',1,'']]]
 ];
