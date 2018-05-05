@@ -173,6 +173,7 @@ SearchTree construction_arbre(char * filename)
             if (longueur_mot == 0)
             {
                 i++;
+                ptBuf ++;
                 continue;
             }
 
