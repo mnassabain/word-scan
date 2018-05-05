@@ -249,7 +249,7 @@ SearchTree enraciner(char *mot, OrderedSet positions, SearchTree st1, SearchTree
 
     racine->mot = mot;
     racine->positions = positions;
-
+    racine->eq = 0;
     racine->fg = st1;
     racine->fd = st2;
 

@@ -162,6 +162,8 @@ int main(int argc, char * const argv[])
     printBinarySearchTree(st);
     //printBinarySearchTreeQuentin(st, 0, 0);
 
+    printf("%d\n", isBalanced(st));
+
     freeBinarySearchTree(st);
 
 

@@ -1,6 +1,3 @@
-foo bar baz grault
-qux foo bar corge
-corge waldo grault foo
-je suis un professionel
-on dirait un technicien it
-trop fort pour sda
+The number of characters that would have been written if n had been sufficiently
+large not counting the terminating null character
+If an encoding error occurs a negative number is returned

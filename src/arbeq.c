@@ -6,7 +6,9 @@
 
 bool isBalanced(SearchTree st)
 {
-    return (st->eq == 0 || st->eq == -1 || st->eq == 1);
+    if (vide(st))
+        return true;
+    return (st->eq == 0 || st->eq == -1 || st->eq == 1) && isBalanced(st->fg) && isBalanced (st->fd);
 }
 
 int deseq(SearchTree st)
@@ -47,9 +49,7 @@ int getHeight (SearchTree st)
  */
 SearchTree rotateLeft(SearchTree st)
 {
-    SearchTree new_st = initBinarySearchTree();
-
-    new_st = enraciner(st->fd->mot, st->fd->positions, enraciner(st->mot, st->positions, st->fg, st->fd->fg),
+    SearchTree new_st = enraciner(st->fd->mot, st->fd->positions, enraciner(st->mot, st->positions, st->fg, st->fd->fg),
         st->fd->fd);
 
     free(st->fd);
@@ -196,7 +196,6 @@ SearchTree insavl(SearchTree st, char * mot, int index)
     if (vide(st))
     {
         st = enraciner(mot, insertValue(initOrderedSet(), index), NULL, NULL);
-        st->eq = 0;
         return st;
     }
 
