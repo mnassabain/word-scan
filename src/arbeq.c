@@ -165,16 +165,21 @@ SearchTree construction_arbre(char * filename)
             int longueur_mot = 0;
             char *mot;
 
-            for (; buffer[i] != ' ' && buffer[i] != '\n'; i++)
+            for (; buffer[i] != ' ' && buffer[i] != '\n' && buffer[i] != '.'; i++)
             {
                 longueur_mot++;
+            }
+
+            if (longueur_mot == 0)
+            {
+                i++;
+                continue;
             }
 
             mot = (char*) malloc (longueur_mot + 1);
             strncpy(mot, ptBuf, longueur_mot);
             mot[longueur_mot] = '\0';
 
-            
             //st = insert(st, mot, phrase);
             st = insavl(st, mot, phrase);
             ptBuf += longueur_mot+1;
