@@ -71,8 +71,6 @@ SearchTree rotateLeftRight(SearchTree st)
 
 SearchTree rotateRightLeft(SearchTree st)
 {
-    //SearchTree new_st = initBinarySearchTree(); //= rotateLeft(enraciner(st->mot, st->positions, st->fg, rotateRight(st->fd)));
-
     st->fd = rotateRight(st->fd);
 
     SearchTree new_st = enraciner(st->mot, st->positions, st->fg, st->fd);
@@ -140,17 +138,6 @@ SearchTree balance(SearchTree st)
 
     return st;
 }
-
-
-SearchTree new_insert(SearchTree st, char * mot, int index)
-{
-    st = insert(st, mot, index);
-
-    st = balance(st);
-
-    return st;
-}
-
 
 // CONSTRUCTION DE L'ARBRE À PARTIR D'UN FICHIER
 

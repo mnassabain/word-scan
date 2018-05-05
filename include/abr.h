@@ -29,8 +29,6 @@ int getNumberString(SearchTree st);
 
 int getTotalNumberString(SearchTree st);
 
-SearchTree insert(SearchTree st, char *mot, int index);
-
 OrderedSet find(SearchTree st, char *mot);
 
 OrderedSet findCooccurrences(SearchTree st, char ** mots, int nbMots);
@@ -39,13 +37,10 @@ void printBinarySearchTree(SearchTree st);
 
 // fonction supplémentaires
 void printBinarySearchTreeAux(SearchTree st, int niveau, int position, char *** mot, int * ligne);
-void printBinarySearchTreeQuentin(SearchTree st, int niveau, int position);
 
 bool vide(SearchTree st);
 
 SearchTree enraciner(char *mot, OrderedSet positions, SearchTree st1, SearchTree st2);
-
-void coupure(SearchTree st, char *mot, SearchTree * g, SearchTree * d);
 
 int comp(char * mot1, char * mot2);
 

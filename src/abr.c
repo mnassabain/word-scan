@@ -43,46 +43,6 @@ int getTotalNumberString(SearchTree st)
     return nb + getNumberElt(st->positions);
 }
 
-SearchTree insert(SearchTree st, char *mot, int index)
-{
-    //SearchTree racine = st;
-
-    OrderedSet mot_os;
-    if (vide(st))
-    {
-        st = (SearchTree) malloc (sizeof(struct s_arbre));
-        if (st == NULL)
-        {
-            raler(1, "Erreur lors malloc");
-        }
-
-        st->mot = mot;
-        st->positions = initOrderedSet();
-        st->positions = insertValue(st->positions, index);
-
-        st->fg = NULL;
-        st->fd = NULL;
-
-        return st;
-    }
-
-    if ((mot_os = find(st, mot)) == NULL)
-    {
-        SearchTree g, d;
-        g = d = NULL;
-        coupure(st, mot, &g, &d);
-        OrderedSet os = initOrderedSet();
-        os = insertValue(os, index);
-        st = enraciner(mot, os, g, d);
-    }
-    else
-    {
-        free(mot); // si le mot existe déjà on le libère
-        mot_os = insertValue (mot_os, index);
-    }
-
-    return st;
-}
 
 int comp(char *mot1, char *mot2)
 {
@@ -294,69 +254,4 @@ SearchTree enraciner(char *mot, OrderedSet positions, SearchTree st1, SearchTree
     racine->fd = st2;
 
     return racine;
-}
-
-
-void coupure(SearchTree st, char *mot, SearchTree * g, SearchTree * d)
-{
-    if (vide(st))
-    {
-        *g = *d = NULL;
-        return;
-    }
-
-    int comparaison = comp(mot, st->mot);
-    if (comparaison == 0)
-    {
-        *g = enraciner(mot, st->positions, st->fg, initBinarySearchTree());
-        *d = st->fd;
-    }
-    else if(comparaison < 0)
-    {
-        coupure(st->fg, mot, g, d);
-        *d = enraciner(st->mot, st->positions, *d, st->fd);
-        free(st); // car enraciner réalloue un sommet à partir du mot et des positions
-    }
-    else
-    {
-        coupure(st->fd, mot, g, d);
-        *g = enraciner(st->mot, st->positions, st->fg, *g);
-        free(st); // car enraciner réalloue un sommet à partir du mot et des positions
-    }
-}
-
-void printBinarySearchTreeQuentin(SearchTree st, int niveau, int position)
-{
-    if (niveau == 0) // racine
-    {
-        printf("%s ", st->mot);
-    }
-    else
-    {
-        int i;
-        for (i = 0; i < niveau - 1; i++)
-        {
-            printf("|%*s", 8, "");
-        }
-
-        if (position == GAUCHE)
-            printf("|-- fg: ");
-        else
-        {
-            printf("|-- fd: ");
-        }
-        printf("%s: ", st->mot);
-
-    }
-    printOrderedSet(st->positions);
-
-    if (!vide(st->fg))
-    {
-        printBinarySearchTreeQuentin(st->fg, niveau + 1, GAUCHE);
-    }
-
-    if (!vide(st->fd))
-    {
-        printBinarySearchTreeQuentin(st->fd, niveau + 1, DROIT);
-    }
 }
