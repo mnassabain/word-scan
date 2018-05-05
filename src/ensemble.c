@@ -274,3 +274,79 @@ OrderedSet intersect(OrderedSet os1, OrderedSet os2)
 
     return intersection;
 }
+
+#define MAX_BUFFER 128
+
+char* int_to_string(int nombre)
+{
+	static char buf[32] = {0};
+
+	int i;
+	for(i = 30; nombre > 0 && i > 0 ; --i, nombre /= 10)
+	{
+		buf[i] = "0123456789abcdef"[nombre % 10];
+	}
+
+	return &buf[i+1];
+}
+
+
+char * to_string(OrderedSet os)
+{
+    int max_buffer = MAX_BUFFER;
+    int buffer_size = 0;
+    char * buffer = malloc(max_buffer);
+
+    buffer[0] = '[';
+    buffer[1] = ' ';
+
+    int i, n_elt = getNumberElt(os);
+    int pt = 2;
+    for (i = 0; i < n_elt; i++)
+    {
+        char * nb = int_to_string(os->elements[i]);
+        int nb_size = strlen(nb);
+
+        int new_buffer_size = buffer_size + nb_size;
+        if (new_buffer_size >= max_buffer)
+        {
+            max_buffer += MAX_BUFFER;
+            buffer = realloc(buffer, max_buffer);
+        }
+
+        int j;
+        for (j = 0; nb[j] != '\0'; j++, pt++)
+        {
+            buffer[pt] = nb[j];
+        }
+
+        buffer[pt++] = ',';
+        buffer[pt++] = ' ';
+
+        buffer_size = new_buffer_size;
+    }
+
+    buffer = realloc(buffer, max_buffer + 2);
+
+    buffer[pt - 2] = ' ';
+    buffer[pt - 1] = ']';
+    buffer[pt] = '\0';
+    //buffer[pt-1] = ' ';
+
+    return buffer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+////////////

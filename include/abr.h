@@ -38,6 +38,8 @@ void printBinarySearchTree(SearchTree st);
 // fonction supplémentaires
 void printBinarySearchTreeAux(SearchTree st, int niveau, int position, char *** mot, int * ligne);
 
+void printEquilibre (SearchTree st, int niveau, int pos);
+
 bool vide(SearchTree st);
 
 SearchTree enraciner(char *mot, OrderedSet positions, SearchTree st1, SearchTree st2);

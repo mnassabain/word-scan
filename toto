@@ -1,3 +1,4 @@
-The number of characters that would have been written if n had been sufficiently
-large not counting the terminating null character
-If an encoding error occurs a negative number is returned
+foo bar grault baz
+corge bin boo
+waldo frault gaz
+bin shell

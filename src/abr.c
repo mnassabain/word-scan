@@ -94,6 +94,7 @@ char * slash;
 char * backslash;
 char * tiret;
 char * lignel;
+char * deuxpt;
 
 
 typedef char* String;
@@ -118,16 +119,22 @@ void printBinarySearchTree(SearchTree st)
     lignel = malloc(2);
     strcpy(lignel, "|");
 
+    deuxpt = malloc(2);
+    strcpy(deuxpt, ":");
+
 
     int nb_lignes = getNumberString(st);
+    int nb_colonnes = nb_lignes + 3;
+
+    nb_lignes *= 2;/////
 
     String ** display = (String**)malloc(nb_lignes * sizeof(String*));
     int i;
     for (i = 0; i < nb_lignes; i++)
     {
-        display[i] = (String*)malloc(nb_lignes * sizeof(String));
+        display[i] = (String*)malloc(nb_colonnes * sizeof(String));
         int j;
-        for (j = 0; j < nb_lignes; j++)
+        for (j = 0; j < nb_colonnes; j++)
         {
             display[i][j] = NULL;
         }
@@ -140,7 +147,7 @@ void printBinarySearchTree(SearchTree st)
     int j;
     for (i = 0; i < nb_lignes - 1; i++)
     {
-        for (j = 0; j < nb_lignes; j++)
+        for (j = 0; j < nb_colonnes; j++)
         {
             if (display[i][j] == slash && display[i + 1][j] == NULL)
             {
@@ -155,7 +162,7 @@ void printBinarySearchTree(SearchTree st)
 
     for (i = 1; i < nb_lignes; i++)
     {
-        for (j = 0; j < nb_lignes; j++)
+        for (j = 0; j < nb_colonnes; j++)
         {
             if (display[i][j] == backslash && display[i - 1][j] == NULL)
             {
@@ -171,7 +178,7 @@ void printBinarySearchTree(SearchTree st)
     /** affichage **/
     for (i = 0; i < nb_lignes; i++)
     {
-        for (j = 0; j < nb_lignes; j++)
+        for (j = 0; j < nb_colonnes; j++)
         {
             if (display[i][j] == NULL)
             {
@@ -189,6 +196,7 @@ void printBinarySearchTree(SearchTree st)
     free(slash);
     free(backslash);
     free(tiret);
+    free(deuxpt);
 
     for (i = 0; i < nb_lignes; i++)
     {
@@ -219,7 +227,8 @@ void printBinarySearchTreeAux(SearchTree st, int niveau, int position, String **
     if (niveau == 0)
     {
         display[*ligne][0] = st->mot;
-        // display[*ligne][1] = to_string(st->positions);
+        display[*ligne][1] = deuxpt;
+        display[*ligne][3] = to_string(st->positions);
     }
     else
     {
@@ -235,13 +244,42 @@ void printBinarySearchTreeAux(SearchTree st, int niveau, int position, String **
         display[*ligne][3*niveau - 2] = tiret;
         display[*ligne][3*niveau - 1] = tiret;
         display[*ligne][3*niveau] = st->mot;
+        display[*ligne][3*niveau + 1] = deuxpt;
+        display[*ligne][3*niveau + 3] = to_string(st->positions);
     }
 
     (*ligne)++;
+    (*ligne)++; ////
 
     printBinarySearchTreeAux(st->fg, niveau + 1, GAUCHE, display, ligne);
 }
 
+void printEquilibre (SearchTree st, int niveau, int pos)
+{
+    if (vide(st))
+    {
+        return;
+    }
+    if (niveau == 0){
+        printf("%s eq = %d\n", st->mot, st->eq);
+    }
+    else
+    {
+        int i;
+        for (i = 0; i < niveau-1; i++)
+        {
+            printf("%*s", 4, "");
+        }
+        if (pos ==GAUCHE)
+            printf("|--fg: ");
+        else
+            printf("|--fd: ");
+        printf("%s | eq = %d\n", st->mot, st->eq);
+    }
+
+    printEquilibre(st->fg, niveau + 1, GAUCHE);
+    printEquilibre(st->fd, niveau + 1, DROIT);
+}
 
 SearchTree enraciner(char *mot, OrderedSet positions, SearchTree st1, SearchTree st2)
 {
