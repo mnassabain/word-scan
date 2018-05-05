@@ -33,9 +33,8 @@ int getHeight (SearchTree st)
  */
 SearchTree rotateRight(SearchTree st)
 {
-    SearchTree new_fd = enraciner(st->mot, st->positions, st->fg->fd, st->fd);
     SearchTree new_st = enraciner(st->fg->mot, st->fg->positions, st->fg->fg,
-        new_fd);
+        enraciner(st->mot, st->positions, st->fg->fd, st->fd));
 
     free(st);
 

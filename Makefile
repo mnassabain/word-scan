@@ -14,10 +14,12 @@ vpath %.c src
 vpath %.o obj
 vpath main bin
 
-.PHONY: default all clean
+.PHONY: default all clean exec
 
 default: $(TARGET)
 all: default
+exec:
+	./bin/main
 
 
 %.o: %.c
