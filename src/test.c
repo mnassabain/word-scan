@@ -212,5 +212,8 @@ void testAVL ()
         printOrderedSet(cooccurences);
     }
 
+    bool b = isBalanced(stFile);
+    printf("L'arbre est-il équilibré? %s\n", (b) ? "oui" : "non");
+
     freeBinarySearchTree(stFile);
 }
