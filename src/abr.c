@@ -197,6 +197,9 @@ char * deuxpt;
 
 typedef char* String;
 
+String ** display;
+String * sets;
+
 
 /**
  * \brief Affiche l'arbre binaire donné
@@ -233,11 +236,11 @@ void printBinarySearchTree(SearchTree st)
 
 
     int nb_lignes = getNumberString(st);
-    int nb_colonnes = nb_lignes + 3;
+    int nb_colonnes = nb_lignes + 6;
 
     nb_lignes *= 2;/////
 
-    String ** display = (String**)malloc(nb_lignes * sizeof(String*));
+    display = (String**)malloc(nb_lignes * sizeof(String*));
     int i;
     for (i = 0; i < nb_lignes; i++)
     {
@@ -248,8 +251,11 @@ void printBinarySearchTree(SearchTree st)
             display[i][j] = NULL;
         }
     }
+
+    sets = (String*)malloc((nb_lignes/2) * sizeof(String));
+
     int ligne = 0;
-    printBinarySearchTreeAux(st, 0, 0, display, &ligne);
+    printBinarySearchTreeAux(st, 0, 0, &ligne);
 
     /** liens **/
 
@@ -313,6 +319,11 @@ void printBinarySearchTree(SearchTree st)
     }
     free(display);
 
+    for (i = 0; i < nb_lignes / 2; i++)
+    {
+        free(sets[i]);
+    }
+    free(sets);
 }
 
 
@@ -330,14 +341,14 @@ void printBinarySearchTree(SearchTree st)
  * \param ligne Le nombre de ligne dans le display actuel
  *
  */
-void printBinarySearchTreeAux(SearchTree st, int niveau, int position, String ** display, int * ligne)
+void printBinarySearchTreeAux(SearchTree st, int niveau, int position, int * ligne)
 {
     if (vide(st))
     {
         return;
     }
 
-    printBinarySearchTreeAux(st->fd, niveau + 1, DROIT, display, ligne);
+    printBinarySearchTreeAux(st->fd, niveau + 1, DROIT, ligne);
 
 
     if (niveau == 0)
@@ -345,6 +356,7 @@ void printBinarySearchTreeAux(SearchTree st, int niveau, int position, String **
         display[*ligne][0] = st->mot;
         display[*ligne][1] = deuxpt;
         display[*ligne][3] = to_string(st->positions);
+        sets[(*ligne)/2] = display[*ligne][3];
     }
     else
     {
@@ -362,12 +374,12 @@ void printBinarySearchTreeAux(SearchTree st, int niveau, int position, String **
         display[*ligne][3*niveau] = st->mot;
         display[*ligne][3*niveau + 1] = deuxpt;
         display[*ligne][3*niveau + 3] = to_string(st->positions);
+        sets[(*ligne)/2] = display[*ligne][3*niveau + 3];
     }
 
-    (*ligne)++;
-    (*ligne)++; ////
+    (*ligne) += 2;
 
-    printBinarySearchTreeAux(st->fg, niveau + 1, GAUCHE, display, ligne);
+    printBinarySearchTreeAux(st->fg, niveau + 1, GAUCHE, ligne);
 }
 
 

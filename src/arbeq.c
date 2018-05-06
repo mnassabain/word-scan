@@ -278,11 +278,11 @@ SearchTree construction_arbre(char * filename)
     /** Parcours du fichier **/
     char buffer[LINE_MAX];
     //short* pt = (short*) buffer;
-    short buffer_short[LINE_MAX];
+    // short buffer_short[LINE_MAX];
     int phrase = 1;
     while(fgets(buffer, LINE_MAX, fichier) != NULL)
     {
-
+        /*
         int k, l = 0;
         for (k = 0; buffer[k] != '\0'; k++)
         {
@@ -291,7 +291,7 @@ SearchTree construction_arbre(char * filename)
                 buffer_short[l] = buffer[k];
                 l++;
             }
-            
+
             else
             {
                 char c1 = buffer[k];
@@ -303,7 +303,7 @@ SearchTree construction_arbre(char * filename)
             }
         }
         buffer_short[l] = '\0';
-        
+
         for (k = 0; buffer_short[k] != '\0'; k++)
         {
             if (buffer_short[k] < 0)
@@ -317,7 +317,9 @@ SearchTree construction_arbre(char * filename)
             buffer[k] = buffer_short[k];
         }
         buffer[k] = '\0';
+        */
 
+        
         int i = 0;
         char *ptBuf = buffer; // pointeur sur le buffer
         while(buffer[i] != '\0')
@@ -351,8 +353,6 @@ SearchTree construction_arbre(char * filename)
             if (buffer[i] == '.')
                 phrase++;
             i++;
-
-
         }
     }
 

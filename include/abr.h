@@ -79,7 +79,7 @@ SearchTree enraciner(char *mot, OrderedSet positions, SearchTree st1,
 
 /** \brief Fonction auxiliaire de l'affichage **/
 void printBinarySearchTreeAux(SearchTree st, int niveau, int position,
-    char *** mot, int * ligne);
+    int * ligne);
 
 
 /** \brief Affiche le mot et l'équilibre. **/

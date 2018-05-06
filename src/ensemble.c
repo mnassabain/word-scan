@@ -278,11 +278,11 @@ OrderedSet intersect(OrderedSet os1, OrderedSet os2)
 
 /**
  * \brief Fonction interne: transforme un entier en string (char *)
- * 
+ *
  * \param nombre Entier à transformer en string
- * 
+ *
  * \return Le nombre sous forme de string
- * 
+ *
  */
 char* int_to_string(int nombre)
 {
@@ -300,9 +300,9 @@ char* int_to_string(int nombre)
 
 /**
  * \brief Transforme un ensemble ordonné en string (char *)
- * 
+ *
  * \param os L'ensemble à transformer en string
- * 
+ *
  * \return L'ensemble ordonné sous forme de string
  */
 char * to_string(OrderedSet os)
@@ -345,7 +345,6 @@ char * to_string(OrderedSet os)
     buffer[pt - 2] = ' ';
     buffer[pt - 1] = ']';
     buffer[pt] = '\0';
-    //buffer[pt-1] = ' ';
 
     return buffer;
 }
