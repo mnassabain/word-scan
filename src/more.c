@@ -81,3 +81,29 @@ char transformer_utf8(short c)
 
     return resultat;
 }
+
+
+/**
+ * \brief Teste si un mot contient un caractère
+ *
+ * Teste si la chaine de caractères mot contient le caractère x
+ * \param x un caractère
+ * \param mot une chaine de caractères
+ *
+ * \return Booléen qui vaut true si la chaine contient le caractère x,
+ * false sinon
+ *
+ */
+bool contient(char x, char * mot)
+{
+    int i;
+    for (i = 0; mot[i] != '\0'; i++)
+    {
+        if (x == mot[i])
+        {
+            return true;
+        }
+    }
+
+    return false;
+}

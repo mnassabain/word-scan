@@ -283,34 +283,8 @@ SearchTree balance(SearchTree st)
 // CONSTRUCTION DE L'ARBRE À PARTIR D'UN FICHIER
 
 /**
- * \brief Teste si un mot contient un caractère
- *
- * Teste si la chaine de caractères mot contient le caractère x
- * \param x un caractère
- * \param mot une chaine de caractères
- *
- * \return Booléen qui vaut true si la chaine contient le caractère x,
- * false sinon
- *
- */
-bool contient(char x, char * mot)
-{
-    int i;
-    for (i = 0; i < 7; i++)
-    {
-        if (x == mot[i])
-        {
-            return true;
-        }
-    }
-
-    return false;
-}
-
-
-
-/**
- * \brief Construction de l'arbre binaire de recherché équilibré
+ * \brief Construction de l'arbre binaire de recherché équilibré à partir
+ * d'un fichier.
  *
  * Lit le fichier passé en argument et sépare chaque mot pour le stocker
  * dans un arbre binaire de recherche équilibré. Un équilibrage est effectué
@@ -344,39 +318,42 @@ SearchTree construction_arbre(char * filename)
     while(fgets(buffer, LINE_MAX, fichier) != NULL)
     {
         /** Traitement des accents **/
-        int k, l = 0;
-        for (k = 0; buffer[k] != '\0'; k++)
+        if (flag_U)
         {
-            if (buffer[k] >= 0)
+            int k, l = 0;
+            for (k = 0; buffer[k] != '\0'; k++)
             {
-                buffer_short[l] = buffer[k];
-                l++;
-            }
+                if (buffer[k] >= 0)
+                {
+                    buffer_short[l] = buffer[k];
+                    l++;
+                }
 
-            else
-            {
-                char c1 = buffer[k];
-                char c2 = buffer[k + 1];
-                //printf("%d %d %d\n", c1, c2, c1 + c2);
-                buffer_short[l] = c1 + c2;
-                k++;
-                l++;
+                else
+                {
+                    char c1 = buffer[k];
+                    char c2 = buffer[k + 1];
+                    //printf("%d %d %d\n", c1, c2, c1 + c2);
+                    buffer_short[l] = c1 + c2;
+                    k++;
+                    l++;
+                }
             }
-        }
-        buffer_short[l] = '\0';
+            buffer_short[l] = '\0';
 
-        for (k = 0; buffer_short[k] != '\0'; k++)
-        {
-            if (buffer_short[k] < 0)
+            for (k = 0; buffer_short[k] != '\0'; k++)
             {
-                buffer[k] = transformer_utf8(buffer_short[k]);
+                if (buffer_short[k] < 0)
+                {
+                    buffer[k] = transformer_utf8(buffer_short[k]);
+                }
+                else
+                {
+                    buffer[k] = buffer_short[k];
+                }
             }
-            else
-            {
-                buffer[k] = buffer_short[k];
-            }
+            buffer[k] = '\0';
         }
-        buffer[k] = '\0';
 
         /** Pointeur sur le buffer **/
         char *ptBuf = buffer;
