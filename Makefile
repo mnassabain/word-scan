@@ -37,4 +37,5 @@ clean:
 	-rm -f $(OPATH)*
 	-rm -f bin/$(TARGET)
 	-rm -f bin/*.gc*
+	-rm -f *.gcda
 	-rm -f *.o
