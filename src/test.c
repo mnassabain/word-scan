@@ -11,7 +11,7 @@
 char * prog;
 
 void tests(){
-    // testOrderedSet();
+    testOrderedSet();
     testAVL();
 }
 
@@ -177,6 +177,9 @@ void testAVL ()
 ///////////////// TESTS FONCTIONS SUR ARBRE ////////////////////////////////////
     printf("[32m################### TESTING: fonctions sur arbre initialisé avec foo.txt[0m\n");
     SearchTree stFile = construction_arbre("foo.txt");
+
+    printf("Equilibre de l'arbre: ");
+    printEquilibre(stFile, 0, 0);
 
     printBinarySearchTree(stFile);
 

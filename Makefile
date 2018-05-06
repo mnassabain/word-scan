@@ -12,6 +12,7 @@ OBJECTS = $(SOURCES:.c=.o)
 vpath %.h include
 vpath %.c src
 vpath %.o obj
+vpath %.gc% coverage
 vpath main bin
 
 .PHONY: default all clean exec coverage
@@ -19,9 +20,11 @@ vpath main bin
 default: $(TARGET)
 all: default
 exec:
-	./bin/main
+	./bin/main -t
+	@mv *.gcda coverage/
+
 coverage:
-	@gcov *.gcno
+	@gcov coverage/*.gcno
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< $(IFLAGS) -o $@
@@ -31,11 +34,11 @@ coverage:
 
 $(TARGET): $(OBJECTS)
 	$(CC) $(CFLAGS) $(LIBS) -o $@ $(OPATH)*
+	mv *.gcno coverage/
 	mv $@ bin/
 
 clean:
 	-rm -f $(OPATH)*
 	-rm -f bin/$(TARGET)
-	-rm -f bin/*.gc*
-	-rm -f *.gc*
-	-rm -f *.o
+	-rm -f coverage/*
+	-rm -f *.gcno
