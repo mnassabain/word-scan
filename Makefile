@@ -14,13 +14,14 @@ vpath %.c src
 vpath %.o obj
 vpath main bin
 
-.PHONY: default all clean exec
+.PHONY: default all clean exec coverage
 
 default: $(TARGET)
 all: default
 exec:
 	./bin/main
-
+coverage:
+	@gcov *.gcno
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< $(IFLAGS) -o $@
@@ -31,11 +32,10 @@ exec:
 $(TARGET): $(OBJECTS)
 	$(CC) $(CFLAGS) $(LIBS) -o $@ $(OPATH)*
 	mv $@ bin/
-	mv *.gc* bin/
 
 clean:
 	-rm -f $(OPATH)*
 	-rm -f bin/$(TARGET)
 	-rm -f bin/*.gc*
-	-rm -f *.gcda
+	-rm -f *.gc*
 	-rm -f *.o

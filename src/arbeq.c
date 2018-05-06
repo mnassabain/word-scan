@@ -278,7 +278,7 @@ SearchTree construction_arbre(char * filename)
     /** Parcours du fichier **/
     char buffer[LINE_MAX];
     //short* pt = (short*) buffer;
-    short buffer_short[LINE_MAX];
+    // short buffer_short[LINE_MAX];
     int phrase = 1;
     while(fgets(buffer, LINE_MAX, fichier) != NULL)
     {
@@ -299,25 +299,25 @@ SearchTree construction_arbre(char * filename)
             }
             */
         }
-        buffer_short[k] = '\0';
+        // buffer_short[k] = '\0';
 
         //char a[2] = "é";
         //printf("%d\n", a[0]);
         //printf("%d\n", a[1]);
 
 
-        for (k = 0; buffer[k] != '\0'; k++)
-        {
-            if (buffer[k] == E_ACC_EGU)
-            {
-                buffer[k] = 'e';
-            }
-        }
-
-        for (k = 0; buffer_short[k] != '\0'; k++)
-        {
-            buffer[k] = buffer_short[k];
-        }
+        // for (k = 0; buffer[k] != '\0'; k++)
+        // {
+        //     if (buffer[k] == E_ACC_EGU)
+        //     {
+        //         buffer[k] = 'e';
+        //     }
+        // }
+        //
+        // for (k = 0; buffer_short[k] != '\0'; k++)
+        // {
+        //     buffer[k] = buffer_short[k];
+        // }
 
         int i = 0;
         char *ptBuf = buffer; // pointeur sur le buffer
@@ -335,8 +335,6 @@ SearchTree construction_arbre(char * filename)
                 }
                 longueur_mot++;
             }
-            if (buffer[i] == '.')
-                phrase++;
 
             if (longueur_mot == 0)
             {
@@ -351,7 +349,11 @@ SearchTree construction_arbre(char * filename)
 
             st = insavl(st, mot, phrase);
             ptBuf += longueur_mot+1;
+            if (buffer[i] == '.')
+                phrase++;
             i++;
+
+
         }
     }
 
