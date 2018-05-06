@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-// structure
+
 /**
  * Nombre d'éléments d'un ensemble par défaut.
  * Si débordement, on rajoute de la place pour encore SIZE_TAB éléments
