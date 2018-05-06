@@ -23,7 +23,7 @@ typedef struct s_arbre
     /** Les données à stocker dans un noeud; le mot **/
     char * mot;
 
-    /** L'ensemble ordonné de ses cooccurences **/
+    /** L'ensemble ordonné de ses occurences **/
     OrderedSet positions;
 
     /** Facteur d'équilibre **/
