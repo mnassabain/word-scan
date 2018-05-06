@@ -18,6 +18,22 @@
 
 \maketitle
 
+
+\section{Introduction}
+    Ce rapport est une analyse théorique du programme donné pour le projet 2018.
+    Le programme doit prendre en entrée un fichier. Il lit le fichier ligne
+    par ligne et il insère les mots trouvés et leurs occurences dans un arbre
+    binaire de recherche équilibré.\\
+
+    Le programme est testé sur \texttt{Turing} et compile sans problèmes. Il n'a
+    pas d'erreur de mémoire. Le
+    programme ne traite pas les sauts de ligne comme fin de phrase. En effet,
+    il est capable de différencier les mots des séparateurs et donc traiter un
+    point comme la fin d'une phrase. Le programme gère aussi les lettres en
+    majuscules et les accents. Vous trouverez plus de détails dans les fichiers
+    source. Le Makefile comporte un jeu de tests pour tester le programme.\\
+
+
 \section{Ensemble ordonné}
 
     \subsection{Implémentation}
@@ -170,6 +186,24 @@
         La complexité de l'intersection est la même.
 
 
+    \section{Exemple}
+
+    \begin{verbatim}
+    $ make exec
+       /--waldo: [ 3 ]
+       |
+    /--qux: [ 2 ]
+    |  |
+    |  \--grault: [ 1, 3 ]
+    |
+    foo: [ 1, 2, 3 ]
+    |
+    |  /--corge: [ 2, 3 ]
+    |  |
+    \--baz: [ 1 ]
+       |
+       \--bar: [ 1, 2 ]
+    \end{verbatim}
 
 
 \end{document}
