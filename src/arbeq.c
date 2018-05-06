@@ -83,7 +83,7 @@ int getHeight (SearchTree st)
  */
 double getAverageDepth(SearchTree st)
 {
-    return lci(st, 0) / getNumberString (st);
+    return lci(st, 1) / getNumberString (st);
 }
 
 /**
@@ -105,9 +105,9 @@ double lci (SearchTree st, int hauteur)
     }
     if (vide (st->fg) && vide (st->fd))
     {
-        return 0;
+        return hauteur;
     }
-    return hauteur + lci (st->fg, hauteur+1) +lci (st->fd, hauteur + 1);
+    return hauteur + lci (st->fg, hauteur+1) + lci (st->fd, hauteur + 1);
 }
 
 
