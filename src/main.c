@@ -156,6 +156,7 @@ int main(int argc, char * const argv[])
     printBinarySearchTree(st);
 */
 
+    
     SearchTree st = construction_arbre("toto");
 
     printBinarySearchTree(st);

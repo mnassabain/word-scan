@@ -278,46 +278,45 @@ SearchTree construction_arbre(char * filename)
     /** Parcours du fichier **/
     char buffer[LINE_MAX];
     //short* pt = (short*) buffer;
-    // short buffer_short[LINE_MAX];
+    short buffer_short[LINE_MAX];
     int phrase = 1;
     while(fgets(buffer, LINE_MAX, fichier) != NULL)
     {
 
-        int k;
+        int k, l = 0;
         for (k = 0; buffer[k] != '\0'; k++)
         {
-            //if (buffer[k] >= 0)
-            //{
-            //    buffer_short[k] = buffer[k];
-            //}
-            /*
+            if (buffer[k] >= 0)
+            {
+                buffer_short[l] = buffer[k];
+                l++;
+            }
+            
             else
             {
-                short * tmp = (short*) &buffer[k];
-                buffer_short[k] = tmp[0];
+                char c1 = buffer[k];
+                char c2 = buffer[k + 1];
+                printf("%d, %c; %d, %c\n", c1, c1, c2, c2);
+                buffer_short[l] = c1 + c2;
                 k++;
+                l++;
             }
-            */
         }
-        // buffer_short[k] = '\0';
+        buffer_short[l] = '\0';
+        
+        for (k = 0; buffer_short[k] != '\0'; k++)
+        {
+            if (buffer_short[k] < 0)
+            {
+                if (buffer_short[k] == -148) // é
+                {
+                    buffer_short[k] = 'e';
+                }
+            }
 
-        //char a[2] = "é";
-        //printf("%d\n", a[0]);
-        //printf("%d\n", a[1]);
-
-
-        // for (k = 0; buffer[k] != '\0'; k++)
-        // {
-        //     if (buffer[k] == E_ACC_EGU)
-        //     {
-        //         buffer[k] = 'e';
-        //     }
-        // }
-        //
-        // for (k = 0; buffer_short[k] != '\0'; k++)
-        // {
-        //     buffer[k] = buffer_short[k];
-        // }
+            buffer[k] = buffer_short[k];
+        }
+        buffer[k] = '\0';
 
         int i = 0;
         char *ptBuf = buffer; // pointeur sur le buffer
