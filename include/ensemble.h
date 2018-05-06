@@ -14,12 +14,19 @@
 #include <stdlib.h>
 #include <string.h>
 
-// structure
+
+/** MACROS **/
+
 /**
  * Nombre d'éléments d'un ensemble par défaut.
  * Si débordement, on rajoute de la place pour encore SIZE_TAB éléments
  */
-#define SIZE_TAB 10
+#define SIZE_TAB    10
+
+/** Utilisée dans to_string(). **/
+#define MAX_BUFFER  128
+
+
 
 /**
  * Structure d'ensemble ordonné OrderedSet
@@ -35,22 +42,36 @@ typedef struct s_set
 
 } * OrderedSet;     // pour eviter copie de données
 
-// fonctions
+/** FONCTIONS **/
+
+/** \brief Initialise un ensemble ordonné. **/
 OrderedSet initOrderedSet();
 
+
+/** \brief Libération de mémoire occupé par l'ensemble ordonné **/
 void freeOrderedSet(OrderedSet os);
 
+
+/** \brief Renvoie le nombre d'éléments dans l'ensemble. **/
 int getNumberElt(OrderedSet os);
 
+
+/** \brief Insere l'élément element dans l'ensemble os **/
 OrderedSet insertValue(OrderedSet os, int element);
 
+
+/** \brief Teste si un ensemble contient un élément **/
 bool contains(OrderedSet os, int element);
 
+
+/** \brief Affiche un ensemble ordonné **/
 void printOrderedSet(OrderedSet os);
 
+
+/** \brief Cherche l'intersection de deux ensembles **/
 OrderedSet intersect(OrderedSet os1, OrderedSet os2);
 
-// pour l'affichage
+/** brief Transforme un ensemble ordonné en string (char *) **/
 char * to_string(OrderedSet os);
 
 

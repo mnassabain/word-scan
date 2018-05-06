@@ -5,3 +5,7 @@
 *.gcov
 *.gcda
 *.gcno
+
+# documentation
+./doc/html/*
+./doc/latex/*

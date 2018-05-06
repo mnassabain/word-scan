@@ -70,14 +70,16 @@ bool vide(SearchTree st);
 
 
 /** \brief Constructeur de base de l'arbre binaire **/
-SearchTree enraciner(char *mot, OrderedSet positions, SearchTree st1, SearchTree st2);
+SearchTree enraciner(char *mot, OrderedSet positions, SearchTree st1,
+    SearchTree st2);
 
 
 
 /** FONCTION SUPPLÉMENTAIRES **/
 
 /** \brief Fonction auxiliaire de l'affichage **/
-void printBinarySearchTreeAux(SearchTree st, int niveau, int position, char *** mot, int * ligne);
+void printBinarySearchTreeAux(SearchTree st, int niveau, int position,
+    char *** mot, int * ligne);
 
 
 /** \brief Affiche le mot et l'équilibre. **/

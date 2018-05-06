@@ -275,8 +275,15 @@ OrderedSet intersect(OrderedSet os1, OrderedSet os2)
     return intersection;
 }
 
-#define MAX_BUFFER 128
 
+/**
+ * \brief Fonction interne: transforme un entier en string (char *)
+ * 
+ * \param nombre Entier à transformer en string
+ * 
+ * \return Le nombre sous forme de string
+ * 
+ */
 char* int_to_string(int nombre)
 {
 	static char buf[32] = {0};
@@ -291,6 +298,13 @@ char* int_to_string(int nombre)
 }
 
 
+/**
+ * \brief Transforme un ensemble ordonné en string (char *)
+ * 
+ * \param os L'ensemble à transformer en string
+ * 
+ * \return L'ensemble ordonné sous forme de string
+ */
 char * to_string(OrderedSet os)
 {
     int max_buffer = MAX_BUFFER;
@@ -335,18 +349,3 @@ char * to_string(OrderedSet os)
 
     return buffer;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-////////////
