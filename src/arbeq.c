@@ -291,6 +291,12 @@ bool contient(char x, char * mot)
     return false;
 }
 
+
+#define E_ACC_EGU   -148
+#define E_ACC_GRV   -149
+#define E_ACC_CRX   -147
+
+
 /**
  * \brief Construction de l'arbre binaire de recherché équilibré
  *
@@ -361,7 +367,6 @@ SearchTree construction_arbre(char * filename)
         }
         buffer[k] = '\0';
         */
-
 
         int i = 0;
         char *ptBuf = buffer; // pointeur sur le buffer
