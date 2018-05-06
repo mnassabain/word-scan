@@ -19,7 +19,9 @@ bool isBalanced(SearchTree st);
 
 int getHeight (SearchTree st);
 
-int getAverageDepth (SearchTree st);
+double getAverageDepth (SearchTree st);
+
+double lci (SearchTree st, int hauteur);
 
 SearchTree rotateLeft(SearchTree st);
 

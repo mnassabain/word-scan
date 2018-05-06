@@ -69,6 +69,49 @@ int getHeight (SearchTree st)
     return MAX(hauteurFg, hauteurFd) + 1;
 }
 
+
+/**
+ * \brief La profondeur moyenne de chaque noeud de l'arbre
+ *
+ * Calcule la profondeur moyenne de chaque noeud en divisant la longeur de
+ * cheminement interne avec le nombre de noeuds.
+ *
+ * \param st Arbre binaire
+ *
+ * \return La profondeur moyenne de chaque noeud de l'arbre binaire
+ *
+ */
+double getAverageDepth(SearchTree st)
+{
+    return lci(st, 0) / getNumberString (st);
+}
+
+/**
+ * \brief Longueur de cheminement interne
+ *
+ * Calcule la longueur de cheminement interne de l'arbre passé en argument.
+ *
+ * \param st AVL
+ * \param hauteur La hauteur du noeud courrant
+ *
+ * \return Longueur de cheminement interne de l'arbre
+ *
+ */
+double lci (SearchTree st, int hauteur)
+{
+    if (vide (st))
+    {
+        return 0;
+    }
+    if (vide (st->fg) && vide (st->fd))
+    {
+        return 0;
+    }
+    return hauteur + lci (st->fg, hauteur+1) +lci (st->fd, hauteur + 1);
+}
+
+
+
 /**
  * \brief Rotation droite
  *
@@ -319,7 +362,7 @@ SearchTree construction_arbre(char * filename)
         buffer[k] = '\0';
         */
 
-        
+
         int i = 0;
         char *ptBuf = buffer; // pointeur sur le buffer
         while(buffer[i] != '\0')
