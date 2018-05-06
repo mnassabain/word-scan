@@ -10,6 +10,7 @@
 
 char * prog;
 
+bool flag_A = false;    // affiche l'aide
 bool flag_E = false;    // isBalanced
 bool flag_H = false;    // height
 bool flag_P = false;    // avgdepth
@@ -50,10 +51,7 @@ int main(int argc, char * const argv[])
         printf("La profondeur moyenne des noeuds est: %d\n", p);
     }
 
-
-
     freeBinarySearchTree(st);
-
 
     return 0;
 }
@@ -75,6 +73,9 @@ char * traiter_arguments(int argc, char * const argv[])
     {
         switch(opt)
         {
+            case 'a':
+                flag_A = true;
+                break;
             case 'e':
                 flag_E = true;
                 break;

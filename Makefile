@@ -15,12 +15,15 @@ vpath %.o obj
 vpath %.gc% coverage
 vpath main bin
 
-.PHONY: default all clean exec coverage
+.PHONY: default all clean tests coverage
 
 default: $(TARGET)
 all: default
-exec:
+
+tests:
 	./bin/main -t
+	./bin/main -u accents.txt >/dev/null
+	./bin/main 2> /dev/null || exit 0 && exit 1
 	@mv *.gcda coverage/
 
 coverage:
@@ -41,4 +44,4 @@ clean:
 	-rm -f $(OPATH)*
 	-rm -f bin/$(TARGET)
 	-rm -f coverage/*
-	-rm -f *.gcno
+	-rm -f *.gcov
