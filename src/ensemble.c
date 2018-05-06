@@ -96,12 +96,6 @@ OrderedSet insertValue(OrderedSet os, int element)
         return os;
     }
 
-    // si element deja dans l'ensemble
-    // if (contains(os, element))
-    // {
-    //     return os;
-    // }
-
     int milieu;
 
     while(debut <= fin)
@@ -136,15 +130,12 @@ OrderedSet insertValue(OrderedSet os, int element)
     // decalage du tableau
     if (os->n_elt == os->max_elt)
     {
-        int rempli = os->max_elt;
         os->max_elt += SIZE_TAB;
         os->elements = (int *)realloc(os->elements, os->max_elt * sizeof(int));
         if (os->elements == NULL)
         {
             raler(1, "Erreur lors realloc");
         }
-
-        memset(os->elements + rempli, 0, sizeof(int) * SIZE_TAB);
     }
 
     int tmp = os->n_elt;
@@ -156,6 +147,36 @@ OrderedSet insertValue(OrderedSet os, int element)
     // insertion
     os->elements[position] = element;
     os->n_elt++;
+
+    return os;
+}
+
+
+/**
+ * \brief Insère un élément à la fin d'un ensemble ordonné
+ *
+ * Insère l'élément à la fin d'un ensemble ordonné et teste le dépassement
+ * de capacité
+ *
+ * \param os L'ensemble ordonné
+ * \param element L'élément qu'on veut insérer
+ *
+ * \return L'ensemble ordonné
+ *
+ */
+OrderedSet insertFin(OrderedSet os, int element)
+{
+    if (os->n_elt == os->max_elt)
+    {
+        os->max_elt += SIZE_TAB;
+        os->elements = (int *)realloc(os->elements, os->max_elt * sizeof(int));
+        if (os->elements == NULL)
+        {
+            raler(1, "Erreur lors realloc");
+        }
+    }
+
+    os->elements[os->n_elt++] = element;
 
     return os;
 }
@@ -269,10 +290,9 @@ OrderedSet intersect(OrderedSet os1, OrderedSet os2)
 
     for (i = 0; i < max_elt; i++)
     {
-        //tab[tab_src]->elements[i] dans tab[tab_dest] ?
         if (contains(tab[tab_dest], tab[tab_src]->elements[i]))
         {
-            intersection = insertValue(intersection, tab[tab_src]->elements[i]);
+            intersection = insertFin(intersection, tab[tab_src]->elements[i]);
         }
     }
 

@@ -33,14 +33,18 @@
  */
 typedef struct s_set
 {
-    int * elements; /**< tableau contenant les éléments de l'ensemble */
-    int max_elt;    /**< nombre maximum d'éléments dans le tableau
-                        ce n'est pas une limite, cette variable sert
-                        à faire attention aux débordements
-                     */
-    int n_elt;      /**< nombre d'éléments dans le tableau */
+    /** tableau contenant les éléments de l'ensemble */
+    int * elements;
 
-} * OrderedSet;     // pour eviter copie de données
+    /** nombre maximum d'éléments que le tableau peut contenir sans faire une
+      * reallocation **/
+    int max_elt;
+
+    /** nombre d'éléments dans le tableau */
+    int n_elt;
+
+} * OrderedSet;
+
 
 /** FONCTIONS **/
 
@@ -58,6 +62,10 @@ int getNumberElt(OrderedSet os);
 
 /** \brief Insere l'élément element dans l'ensemble os **/
 OrderedSet insertValue(OrderedSet os, int element);
+
+
+/** \brief Insère un élément à la fin d'un ensemble ordonné **/
+OrderedSet insertFin(OrderedSet os, int element);
 
 
 /** \brief Teste si un ensemble contient un élément **/

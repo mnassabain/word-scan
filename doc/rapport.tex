@@ -49,29 +49,118 @@
 
         \subsubsection{Insertion dans l'ensemble}
         Pour insérer un élément dans l'ensemble nous faisons d'abord une
-        recherche dichotomique pour voir si l'élément est présent. Cette
-        recherche nous donne la place où l'élément doit se trouver.
-        Si l'élément se situe à cette place, on ne l'insére pas. S'il n'est pas
+        recherche dichotomique pour voir si l'élément est présent, si
+        pendant cette recherche on trouve l'élement alors on s'arrête et
+        on retourne l'ensemble d'entrée. Si l'élément n'est pas présent,
+        on effectue un décalage des éléments du tableau vers la droite,
+        à partir de la position trouvée. Si ce décalage entraîne un dépassement
+        de la capacité du tableau on effectue une réallocation.
+        Ensuite on insère l'élement à cette position.\\
 
+        La complexité de la recherche dichotomique est en $\Theta(\log{}n)$ pour
+        un ensemble de n éléments. Le décalage du tableau a une complexité en
+        $\Theta(n)$ dans le pire cas. Ce cas correspond à une insertion
+        en première position dans l'ensemble ordonné.
 
         \subsubsection{Appartenance d'un élément}
+        Quand il faut tester si un élément appartient à un ensemble on fait
+        une recherche dichotomique. Si on trouve l'élément à la position donnée
+        par la recherche, on renvoie \texttt{true} et \texttt{false} sinon.\\
+
+        La complexité de cet algorithme est $\Theta(\log{}n)$. Le pire cas
+        est quand l'élément est en première ou dernière position.
 
         \subsubsection{Intersection de 2 ensembles}
+        Pour réaliser l'intersection de deux ensembles nous faisons un parcours
+        linéaire de l'ensemble qui contient moins d'éléments que l'autre. Ensuite
+        on teste si cet élément appartient au deuxième ensemble avec une
+        recherche dichotomique.\\
+
+        La complexité de cet algorithme est $\Theta(\log{}m)$.
 
 
 \section{Arbre binaire de recherche}
 
     \subsection{Choix d'implémentations pour l'arbre binaire de recherche}
+    Pour représenter un arbre binaire de recherche nous avons choisi de créer
+    une structure qui contient les données (le mot et ses occurences), les fils
+    du noeud et le facteur d'équilibrage du noeud.
+
+    \begin{verbatim}
+    typedef struct s_arbre
+    {
+        char * mot;
+        OrderedSet positions;
+
+        int eq;
+
+        struct s_arbre *fg, *fd;
+
+    } Noeud, *SearchTree;
+    \end{verbatim}
+
+    On a choisi cette structure car elle permet de simplifier les opérations
+    sur les arbres. On stocke le facteur d'équilibrage \texttt{eq} dans cette
+    structure pour améliorer la complexité lors de l'équilibrage de l'arbre.
 
     \subsection{Fonctionnement des fonctions getAverageDepth et isBalanced}
+    La fonction \texttt{getAverageDepth()} utilise la fonction \texttt{lci()}
+    qui permet de calculer la longueur de cheminement interne et
+    divise cette valeur par le nombre de noeuds de l'arbre obtenus
+    grâce à la fonction \texttt{getNumberString()}. Ce calcul nous donne la
+    hauteur moyenne de tous les noeuds dans l'arbre.\\
+
+    La fonction \texttt{isBalanced()} commence par la racine. Si la racine est
+    déséquilibrée elle renvoie \texttt{false}. Si elle est équilibrée, on
+    appelle cette fonction sur le fils gauche. Si le fils gauche est déséquilibré, on
+    renvoie \texttt{false} et sinon on appelle la fonction sur le fils droit.
+    Si lui aussi est équilibré, on renvoie \texttt{true} et sinon \texttt{false}.
+    Or cette fonction est récursive donc on va pouvoir répéter ces opérations pour
+    chaque noeud dans l'arbre pour tester son équilibrage.
 
     \subsection{Complexité de FindCooccurrences}
 
         \subsubsection{Hauteur moyenne d'un noeud}
+        Prenons l'exemple de deux arbres avec le même nombre de noeuds dont un
+        est équilibré et l'autre non.
+        Le facteur d'équilibrage d'un noeud correspond à la difference des
+        hauteurs de ses fils. On peut remarquer que cette difference va être plus
+        grande si l'arbre est déséquilibré, car rien n'oblige l'arbre à avoir
+        le même nombre de noeuds de chaque côté. Cependant, dans un arbre
+        équilibré, cette difference est minimale. L'arbre impose que la difference
+        en valeur absolue entre les hauteurs du fils gauche et du fils droit soit
+        nulle ou un. Donc un arbre non équilibré aura plus de noeuds avec une
+        hauteur importante. Cela résulte en une hauteur moyenne
+        supérieure à la hauteur moyenne d'un arbre équilibré.\\
+
+        Cela peut avoir un grand impact sur les performances d'un programme.
+        Lors du parcours de l'arbre non équilibré il va falloir parcourir beaucoup
+        plus de noeuds pour trouver ce qu'on cherche. Une recherche dans un arbre
+        équilibré est très similaire à une recherche dichotomique dans un ensemble.
+
 
         \subsubsection{Complexité dans le pire cas dans un arbre non équilibré}
+        La première phase de cet algorithme est de trouver les mots donnés dans
+        l'arbre binaire. Dans le cas d'un arbre non équilibré, le parcours va être
+        plus lent. Effectivement, dans le pire cas, les mot recherchés sont des
+        feuilles ayant une profondeur égale à la hauteur de l'arbre. Pour les
+        trouver il va falloir parcourir l'arbre deux fois. La complexité de
+        cette recherche est de $\Theta(n)$, où n est le nombre de noeuds dans
+        l'arbre.\\
+
+        Après avoir fait cela on fait appel à la fonction \texttt{intersect()}
+        sur les ensembles des occurences des mots cherchés, dont on a déjà
+        calculé la complexité, qui est donc de $\Theta(k\log{}k)$ dans le pire cas,
+        k étant le nombre maximal de phrases dans lesquelles un mot apparaît.
 
         \subsubsection{Complexité dans le pire cas dans un arbre équilibré}
+        Dans le cas d'un arbre équilibré, la recherche est beaucoup plus rapide.
+        En effet, dans un arbre de \texttt{n} éléments, dans le pire cas il va falloir
+        parcourir ${\log_2(n+1)}$ noeuds. Donc la complexité de la recherche
+        est $\Theta(\log{}n)$ et pas de $\Theta(n)$ comme dans le cas d'un arbre
+        binaire non équilibré.
+
+        La complexité de l'intersection est la même.
 
 
 \end{document}

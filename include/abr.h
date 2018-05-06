@@ -19,19 +19,17 @@
  */
 typedef struct s_arbre
 {
-    /** \{ **/
     /** Les données à stocker dans un noeud; le mot **/
     char * mot;
 
     /** L'ensemble ordonné de ses occurences **/
     OrderedSet positions;
 
-    /** Facteur d'équilibre **/
+    /** Facteur d'équilibrage **/
     int eq;
 
     /** Pointeurs vers le fils gauche et le fils droit **/
     struct s_arbre *fg, *fd;
-    /** \} **/
 
 } Noeud, *SearchTree;
 

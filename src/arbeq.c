@@ -28,7 +28,23 @@ bool isBalanced(SearchTree st)
 {
     if (vide(st))
         return true;
-    return (st->eq == 0 || st->eq == -1 || st->eq == 1) && isBalanced(st->fg) && isBalanced (st->fd);
+
+    if (getEq(st) != 0 && getEq(st) != 1 && getEq(st) != -1)
+    {
+        return false;
+    }
+
+    if (!isBalanced(st->fg))
+    {
+        return false;
+    }
+
+    if (!isBalanced(st->fd))
+    {
+        return false;
+    }
+
+    return true;
 }
 
 /**
