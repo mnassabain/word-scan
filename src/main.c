@@ -4,6 +4,7 @@
 #include "ensemble.h"
 #include "abr.h"
 #include "arbeq.h"
+#include "tests.h"
 #include <stdbool.h>
 #include <unistd.h>
 
@@ -13,6 +14,7 @@ bool flag_E = false;    // isBalanced
 bool flag_H = false;    // height
 bool flag_P = false;    // avgdepth
 bool flag_U = false;    // support UTF-8
+bool flag_T = false;    // lancement des jeux de test
 
 char * traiter_arguments(int argc, char * const argv[]);
 
@@ -20,6 +22,12 @@ char * traiter_arguments(int argc, char * const argv[]);
 int main(int argc, char * const argv[])
 {
     char * filename = traiter_arguments(argc, argv);
+
+    if (flag_T)
+    {
+        tests();
+        return 0;
+    }
 
     SearchTree st = construction_arbre(filename);
     printBinarySearchTree(st);
@@ -43,6 +51,7 @@ int main(int argc, char * const argv[])
     }
 
 
+
     freeBinarySearchTree(st);
 
 
@@ -55,14 +64,14 @@ int main(int argc, char * const argv[])
 char * traiter_arguments(int argc, char * const argv[])
 {
     prog = argv[0];
-    
+
     if (argc != 2 && argc != 3 && argc != 4 && argc != 5 && argc != 6)
     {
         raler(0, "Usage: %s fichier", prog);
     }
 
     int opt;
-    while((opt = getopt(argc, argv, "ehpu")) != -1)
+    while((opt = getopt(argc, argv, "ehput")) != -1)
     {
         switch(opt)
         {
@@ -80,6 +89,10 @@ char * traiter_arguments(int argc, char * const argv[])
 
             case 'u':
                 flag_U = true;
+                break;
+
+            case 't':
+                flag_T = true;
                 break;
 
             default:

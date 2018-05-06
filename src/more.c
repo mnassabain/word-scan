@@ -1,4 +1,4 @@
-#include "../include/more.h"
+#include "more.h"
 
 noreturn void raler (int syserr, const char *fmt, ...)
 {
