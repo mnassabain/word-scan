@@ -292,9 +292,17 @@ bool contient(char x, char * mot)
 }
 
 
-#define E_ACC_EGU   -148
-#define E_ACC_GRV   -149
-#define E_ACC_CRX   -147
+
+#define A_ACC_GRV   -(157)
+#define A_ACC_CRX   -(155)
+
+#define E_ACC_EGU   -(148)
+#define E_ACC_GRV   -(149)
+#define E_ACC_CRX   -(147)
+
+#define I_ACC_CRX   -(143)
+
+#define U_ACC_GRV   -(132)
 
 
 /**
@@ -326,12 +334,12 @@ SearchTree construction_arbre(char * filename)
 
     /** Parcours du fichier **/
     char buffer[LINE_MAX];
-    //short* pt = (short*) buffer;
-    // short buffer_short[LINE_MAX];
+
+    short buffer_short[LINE_MAX];
     int phrase = 1;
     while(fgets(buffer, LINE_MAX, fichier) != NULL)
     {
-        /*
+
         int k, l = 0;
         for (k = 0; buffer[k] != '\0'; k++)
         {
@@ -345,7 +353,6 @@ SearchTree construction_arbre(char * filename)
             {
                 char c1 = buffer[k];
                 char c2 = buffer[k + 1];
-                printf("%d, %c; %d, %c\n", c1, c1, c2, c2);
                 buffer_short[l] = c1 + c2;
                 k++;
                 l++;
@@ -357,16 +364,31 @@ SearchTree construction_arbre(char * filename)
         {
             if (buffer_short[k] < 0)
             {
-                if (buffer_short[k] == -148) // é
+                short elt = buffer_short[k];
+                if (elt == E_ACC_EGU
+                    || elt == E_ACC_GRV
+                    || elt == E_ACC_CRX)
                 {
-                    buffer_short[k] = 'e';
+                    elt = 'e';
+                }
+                else if (elt == A_ACC_GRV || elt == A_ACC_CRX)
+                {
+                    elt = 'a';
+                }
+                else if (elt == I_ACC_CRX)
+                {
+                    elt = 'i';
+                }
+                else if (elt == U_ACC_GRV)
+                {
+                    elt = 'u';
                 }
             }
 
             buffer[k] = buffer_short[k];
         }
         buffer[k] = '\0';
-        */
+
 
         int i = 0;
         char *ptBuf = buffer; // pointeur sur le buffer

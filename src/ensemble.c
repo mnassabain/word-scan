@@ -97,10 +97,10 @@ OrderedSet insertValue(OrderedSet os, int element)
     }
 
     // si element deja dans l'ensemble
-    if (contains(os, element))
-    {
-        return os;
-    }
+    // if (contains(os, element))
+    // {
+    //     return os;
+    // }
 
     int milieu;
 
@@ -108,6 +108,10 @@ OrderedSet insertValue(OrderedSet os, int element)
     {
         milieu = (debut + fin) / 2;
 
+        if (element == os->elements[milieu])
+        {
+            return os;
+        }
         if (element < os->elements[milieu])
         {
             fin = milieu - 1;

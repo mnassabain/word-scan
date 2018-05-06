@@ -3,13 +3,75 @@
 \usepackage[utf8]{inputenc}
 \usepackage[margin=1in]{geometry}
 
+\author{
+    CHRISTOFFEL, Quentin
+    \and
+    NASSABAIN, Marco
+}
 
 \begin{document}
 
+\section{Ensemble ordonné}
+
+    \subsection{Implémentation}
+    Nous avons choisi de représenter
+    la structure de ensemble ordonné par une table.
+    Cette table contient un tableau, qui stocke les
+    élements triés par ordre croissant. La structure contient aussi
+    la capacité du tableau ainsi que le nombre d'élements dans le tableau.
+    Il est important de remarquer que la capacité est le
+    nombre maximum d'éléments qu'il peut stocker
+    avant de faire une réallocation de mémoire, s'il n'y a plus assez
+    de place dans le tableau.
+
+    \begin{verbatim}
+    typedef struct s_set
+    {
+        int * elements;
+        int max_elt;
+        int n_elt;
+
+    } * OrderedSet;
+    \end{verbatim}
+
+    Nous avons décidé de représenter cette structure sous cette forme
+    car l'insertion nécessite de faire une recherche
+    pour voir si l'ensemble contient déjà l'élément, ce qui est plus
+    efficace avec une recherche dichotomique dans un tableau trié.
+
+    \subsection{Fonctionnement de la fonction intersection}
+    Au debut de l'algorithme nous choisisons l'ensemble qui contient moins
+    d'éléments que l'autre. Nous faisons un parcours linéaire sur celui-ci
+    et nous testons si les éléments sont présents dans l'autre ensemble.
+    Nous créeons un nouvel ensemble qui contient l'intersection.
+
+    \subsection{Complexité}
+
+        \subsubsection{Insertion dans l'ensemble}
+        Pour insérer un élément dans l'ensemble nous faisons d'abord une
+        recherche dichotomique pour voir si l'élément est présent. Cette
+        recherche nous donne la place où l'élément doit se trouver.
+        Si l'élément se situe à cette place, on ne l'insére pas. S'il n'est pas
 
 
+        \subsubsection{Appartenance d'un élément}
+
+        \subsubsection{Intersection de 2 ensembles}
 
 
+\section{Arbre binaire de recherche}
+
+    \subsection{Choix d'implémentations pour l'arbre binaire de recherche}
+
+    \subsection{Fonctionnement des fonctions getAverageDepth et isBalanced}
+
+    \subsection{Complexité de FindCooccurrences}
+
+        \subsubsection{Hauteur moyenne d'un noeud}
+
+        \subsubsection{Complexité dans le pire cas dans un arbre non équilibré}
+
+        \subsubsection{Complexité dans le pire cas dans un arbre équilibré}
 
 
 \end{document}
