@@ -9,7 +9,7 @@
 #ifndef __ENSEMBLE_H__
 #define __ENSEMBLE_H__
 
-#include "erreur.h"
+#include "more.h"
 #include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>

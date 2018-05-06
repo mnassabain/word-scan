@@ -8,6 +8,8 @@
 
 #include "abr.h"
 
+extern char * filename;
+
 /**
  * \brief Intialise un arbre binaire de recherche.
  *
