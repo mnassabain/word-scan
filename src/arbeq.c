@@ -331,7 +331,7 @@ SearchTree construction_arbre(char * filename)
             {
                 if (buffer[i] >= 'A' && buffer[i] <= 'Z')
                 {
-                    buffer[i] += 32;
+                    buffer[i] += 'a'-'A';
                 }
                 longueur_mot++;
             }
