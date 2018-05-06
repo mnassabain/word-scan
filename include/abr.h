@@ -37,7 +37,7 @@ typedef struct s_arbre
 
 /** PROTOTYPES **/
 
-/** \brief Intialise un arbre binaire de recherche. **/
+/** \brief Initialise un arbre binaire de recherche. **/
 SearchTree initBinarySearchTree();
 
 
