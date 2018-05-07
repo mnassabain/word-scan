@@ -27,6 +27,7 @@ int main(int argc, char * const argv[])
     if (flag_A)
     {
         printf("aide = uaeibfozebf\n");
+        return 0;
     }
 
     if (flag_T)
@@ -104,6 +105,11 @@ char * traiter_arguments(int argc, char * const argv[])
             default:
                 raler(0, "Option invalide");
         }
+    }
+
+    if (argc - optind == 0 && (!flag_A && !flag_T))
+    {
+        raler(0, "Usage: %s fichier", prog);
     }
 
     return argv[optind];

@@ -262,7 +262,6 @@ SearchTree balance(SearchTree st)
     return st;
 }
 
-// CONSTRUCTION DE L'ARBRE À PARTIR D'UN FICHIER
 
 /**
  * \brief Construction de l'arbre binaire de recherché équilibré à partir
@@ -353,7 +352,6 @@ SearchTree construction_arbre(char * filename)
                 {
                     ptBuf += longueur_mot + 1;
                     longueur_mot = 0;
-                    i++;
                     continue;
                 }
                 else if (buffer[i] >= 'A' && buffer[i] <= 'Z')

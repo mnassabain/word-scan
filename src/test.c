@@ -293,7 +293,7 @@ void testAccEtSep()
 
     if (dup2(old_stdout, 1) == -1) raler(1, "Erreur dup2");
 
-    printf("L'affichage de l'arbre a été redirigé vers le fichier result_lorem.txt\n");
+    printf("L'affichage de l'arbre a été redirigé vers le fichier gilbert.txt\n");
 
     freeBinarySearchTree(stFile);
 ////////////////////////////////////////////////////////////////////////////////
