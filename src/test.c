@@ -9,12 +9,15 @@ char * prog;
 
 void tests(){
     testOrderedSet();
-    // testAVL();
+    testABR();
+    testConstruction();
+    testAVL();
 }
 
 
 void testOrderedSet()
 {
+    printf("[32m################### TESTING: Partie 1: ensemble ordonné[0m\n");
     OrderedSet testOs = initOrderedSet();
 
     srand(time(NULL));
@@ -64,11 +67,23 @@ void testOrderedSet()
     printOrderedSet(intersection);
 
     freeOrderedSet(testOs);
+    printf("[32m################### TESTING: fin tests ensemble ordonné[0m\n\n");
+}
+
+void testABR()
+{
+    printf("[32m################### TESTING: Partie 2: Arbre binaire de recherche[0m\n");
+}
+
+void testConstruction()
+{
+    printf("[32m################### TESTING: Partie 3: Construction de l'arbre[0m\n");
 }
 
 void testAVL ()
 {
 ///////////////// TEST ROTATION GAUCHE /////////////////////////////////////////
+    printf("[32m################### TESTING: Partie 4: AVL[0m\n");
     printf("[32m################### TESTING: rotation gauche[0m\n");
     SearchTree stRG = initBinarySearchTree();
 
@@ -206,4 +221,5 @@ void testAVL ()
     printf("L'arbre est-il équilibré? %s\n", (b) ? "oui" : "non");
 
     freeBinarySearchTree(stFile);
+////////////////////////////////////////////////////////////////////////////////
 }
