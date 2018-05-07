@@ -21,10 +21,6 @@ extern bool flag_U;
 bool isBalanced(SearchTree st);
 
 
-/** \brief Renvoie la hauteur de l'arbre **/
-int getHeight (SearchTree st);
-
-
 /** \brief La profondeur moyenne de chaque noeud de l'arbre **/
 double getAverageDepth (SearchTree st);
 

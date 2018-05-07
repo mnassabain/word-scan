@@ -26,7 +26,7 @@ int main(int argc, char * const argv[])
 
     if (flag_A)
     {
-            printf("aide = uaeibfozebf\n");
+        printf("aide = uaeibfozebf\n");
     }
 
     if (flag_T)

@@ -67,24 +67,6 @@ int getEq(SearchTree st)
     return st->eq;
 }
 
-/**
- * \brief Renvoie la hauteur de l'arbre
- *
- * Renvoie la hauteur de l'arbre passé en argument.
- * \param st AVL
- *
- * \return Hauteur de l'arbre
- *
- */
-int getHeight (SearchTree st)
-{
-    if (vide (st)) return 0;
-    int hauteurFg, hauteurFd;
-    hauteurFg = getHeight(st->fg);
-    hauteurFd = getHeight(st->fd);
-    return MAX(hauteurFg, hauteurFd) + 1;
-}
-
 
 /**
  * \brief La profondeur moyenne de chaque noeud de l'arbre

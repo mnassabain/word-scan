@@ -1,3 +1,1 @@
-foo bar baz grault.
-qux foo bar corge.
-corge waldo grault foo.
+foo.

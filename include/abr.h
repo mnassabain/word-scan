@@ -43,6 +43,10 @@ SearchTree initBinarySearchTree();
 void freeBinarySearchTree(SearchTree st);
 
 
+/** \brief Renvoie la hauteur de l'arbre **/
+int getHeight (SearchTree st);
+
+
 /** \brief Trouver le nombre de mots dans l'arbre (noeuds) **/
 int getNumberString(SearchTree st);
 

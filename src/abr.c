@@ -48,6 +48,25 @@ void freeBinarySearchTree(SearchTree st)
 
 
 /**
+ * \brief Renvoie la hauteur de l'arbre
+ *
+ * Renvoie la hauteur de l'arbre passé en argument.
+ * \param st AVL
+ *
+ * \return Hauteur de l'arbre
+ *
+ */
+int getHeight (SearchTree st)
+{
+    if (vide (st)) return 0;
+    int hauteurFg, hauteurFd;
+    hauteurFg = getHeight(st->fg);
+    hauteurFd = getHeight(st->fd);
+    return MAX(hauteurFg, hauteurFd) + 1;
+}
+
+
+/**
  * \brief Trouver le nombre de mots dans l'arbre (noeuds)
  *
  * Fonction récursive qui calcule le nombre de mots en comptant les noueds de
@@ -238,7 +257,7 @@ void printBinarySearchTree(SearchTree st)
 
 
     int nb_lignes = getNumberString(st);
-    int nb_colonnes = nb_lignes + 6;
+    int nb_colonnes = getHeight(st) * 3 + 1;
 
     nb_lignes *= 2;/////
 
@@ -343,7 +362,8 @@ void printBinarySearchTree(SearchTree st)
  * \param ligne Le nombre de ligne dans le display actuel
  *
  */
-void printBinarySearchTreeAux(SearchTree st, int niveau, int position, int * ligne)
+void printBinarySearchTreeAux(SearchTree st, int niveau, int position, 
+    int * ligne)
 {
     if (vide(st))
     {
