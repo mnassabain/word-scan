@@ -218,7 +218,7 @@ void testAVL ()
     }
 
     bool b = isBalanced(stFile);
-    printf("L'arbre est-il équilibré? %s\n", (b) ? "oui" : "non");
+    printf("L'arbre est-il équilibré ? %s\n", (b) ? "oui" : "non");
 
     freeBinarySearchTree(stFile);
 ////////////////////////////////////////////////////////////////////////////////
