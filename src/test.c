@@ -72,6 +72,8 @@ void testOrderedSet()
     printOrderedSet(intersection);
 
     freeOrderedSet(testOs);
+    freeOrderedSet(testOs2);
+    freeOrderedSet(intersection);
     printf("[32m################### TESTING: fin tests ensemble ordonné[0m\n\n");
 }
 
@@ -127,7 +129,9 @@ void testABR()
     {
         printf("Occurences du mot %s dans les phrases :", motRecherche);
         printOrderedSet(cooccurences);
+        freeOrderedSet(cooccurences);
     }
+
 
     freeBinarySearchTree(stFile);
     printf("[32m################### TESTING: fin tests arbre binaire de recherche[0m\n\n");
