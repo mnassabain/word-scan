@@ -85,9 +85,11 @@ int getNumberElt(OrderedSet os)
  */
 OrderedSet insertValue(OrderedSet os, int element)
 {
+    /** Bornes de recherche **/
     int debut   = 0;
     int fin     = os->n_elt - 1;
 
+    /** Si pas d'éléments on l'insère à la premiere place **/
     if(os->n_elt == 0)
     {
         os->elements[0] = element;
@@ -96,8 +98,8 @@ OrderedSet insertValue(OrderedSet os, int element)
         return os;
     }
 
+    /** Algorithme de recherche dichotomique **/
     int milieu;
-
     while(debut <= fin)
     {
         milieu = (debut + fin) / 2;
@@ -127,7 +129,7 @@ OrderedSet insertValue(OrderedSet os, int element)
     }
 
 
-    // decalage du tableau
+    /** Decalage des éléments du tableau pour l'insertion **/
     if (os->n_elt == os->max_elt)
     {
         os->max_elt += SIZE_TAB;
@@ -144,7 +146,7 @@ OrderedSet insertValue(OrderedSet os, int element)
         os->elements[tmp] = os->elements[tmp - 1];
     }
 
-    // insertion
+    /** Insertion **/
     os->elements[position] = element;
     os->n_elt++;
 
@@ -195,6 +197,7 @@ OrderedSet insertFin(OrderedSet os, int element)
  */
 bool contains(OrderedSet os, int element)
 {
+    /** Algorithme de recherche dichotomique **/
     int debut   = 0;
     int fin     = os->n_elt;
     bool trouve = false;
@@ -220,7 +223,7 @@ bool contains(OrderedSet os, int element)
             }
         }
 
-        // debordement
+        /** Fin de l'algo **/
         if (debut > fin)
         {
             break;
@@ -269,25 +272,25 @@ OrderedSet intersect(OrderedSet os1, OrderedSet os2)
 {
     OrderedSet intersection = initOrderedSet();
 
-    int i;
-    int max_elt;
+    /** Détérminer l'ensemble plus petit pour le parcours linéaire **/
+    int i, max_elt;
     OrderedSet tab[] = {os1, os2};
     int tab_src, tab_dest;
     if(getNumberElt(os1) < getNumberElt(os2))
     {
-        max_elt = os1->max_elt;
+        max_elt = getNumberElt(os1);
         tab_src = 0;
         tab_dest = 1;
 
     }
     else
     {
-        max_elt = os2->max_elt;
+        max_elt = getNumberElt(os2);
         tab_src = 1;
         tab_dest = 0;
     }
 
-
+    /** Boucle qui teste l'appartenance des éléments **/
     for (i = 0; i < max_elt; i++)
     {
         if (contains(tab[tab_dest], tab[tab_src]->elements[i]))
@@ -297,28 +300,6 @@ OrderedSet intersect(OrderedSet os1, OrderedSet os2)
     }
 
     return intersection;
-}
-
-
-/**
- * \brief Fonction interne: transforme un entier en string (char *)
- *
- * \param nombre Entier à transformer en string
- *
- * \return Le nombre sous forme de string
- *
- */
-char* int_to_string(int nombre)
-{
-	static char buf[32] = {0};
-
-	int i;
-	for(i = 30; nombre > 0 && i > 0 ; --i, nombre /= 10)
-	{
-		buf[i] = "0123456789abcdef"[nombre % 10];
-	}
-
-	return &buf[i+1];
 }
 
 

@@ -48,7 +48,6 @@ SearchTree rotateRightLeft(SearchTree st);
 /** \brief Equilibre l'arbre **/
 SearchTree balance(SearchTree st);
 
-/** Construction d'un arbre binaire équilibré **/
 
 /** \brief Renvoie l'équilibre d'un noeud **/
 int getEq(SearchTree st);

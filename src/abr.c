@@ -8,8 +8,6 @@
 
 #include "abr.h"
 
-extern char * filename;
-
 /**
  * \brief Intialise un arbre binaire de recherche.
  *
@@ -113,21 +111,6 @@ int getTotalNumberString(SearchTree st)
 
 
 /**
- * \brief Comparaison de deux chaînes de caractères.
- *
- * \param mot1
- * \param mot2
- *
- * \return  Résultat de la comparaison.
- *
- */
-int comp(char *mot1, char *mot2)
-{
-    return strcmp(mot1, mot2);
-}
-
-
-/**
  * \brief Cherche un mot dans un arbre binaire de recherche
  *
  * Parcours l'arbre binaire de recherche. Si on trouve le mot on renvoie un
@@ -205,23 +188,6 @@ bool vide(SearchTree st)
 }
 
 
-#define GAUCHE 1
-#define DROIT  2
-
-
-char * slash;
-char * backslash;
-char * tiret;
-char * lignel;
-char * deuxpt;
-
-
-typedef char* String;
-
-String ** display;
-String * sets;
-
-
 /**
  * \brief Affiche l'arbre binaire donné
  *
@@ -241,31 +207,36 @@ void printBinarySearchTree(SearchTree st)
     }
 
     slash = malloc(2);
+    if (slash == NULL) raler(1, "Erreur malloc");
     strcpy(slash, "/");
 
     backslash = malloc(2);
+    if (backslash == NULL) raler(1, "Erreur malloc");
     strcpy(backslash, "\\");
 
     tiret = malloc(2);
+    if (tiret == NULL) raler(1, "Erreur malloc");
     strcpy(tiret, "-");
 
     lignel = malloc(2);
+    if (lignel == NULL) raler(1, "Erreur malloc");
     strcpy(lignel, "|");
 
     deuxpt = malloc(2);
+    if (deuxpt == NULL) raler(1, "Erreur malloc");
     strcpy(deuxpt, ":");
 
 
-    int nb_lignes = getNumberString(st);
+    int nb_lignes = getNumberString(st) * 2;
     int nb_colonnes = getHeight(st) * 3 + 1;
 
-    nb_lignes *= 2;/////
-
     display = (String**)malloc(nb_lignes * sizeof(String*));
+    if (display == NULL) raler(1, "Erreur malloc");
     int i;
     for (i = 0; i < nb_lignes; i++)
     {
         display[i] = (String*)malloc(nb_colonnes * sizeof(String));
+        if (display[i] == NULL) raler(1, "Erreur malloc");
         int j;
         for (j = 0; j < nb_colonnes; j++)
         {
@@ -274,12 +245,12 @@ void printBinarySearchTree(SearchTree st)
     }
 
     sets = (String*)malloc((nb_lignes/2) * sizeof(String));
+    if (sets == NULL) raler(1, "Erreur malloc");
 
     int ligne = 0;
     printBinarySearchTreeAux(st, 0, 0, &ligne);
 
-    /** liens **/
-
+    /** Relire les noeuds **/
     int j;
     for (i = 0; i < nb_lignes - 1; i++)
     {
@@ -311,7 +282,7 @@ void printBinarySearchTree(SearchTree st)
         }
     }
 
-    /** affichage **/
+    /** Afficher le display **/
     for (i = 0; i < nb_lignes; i++)
     {
         for (j = 0; j < nb_colonnes; j++)
@@ -328,6 +299,7 @@ void printBinarySearchTree(SearchTree st)
         printf("\n");
     }
 
+    /** Libérer la mémoire **/
     free(lignel);
     free(slash);
     free(backslash);
@@ -362,7 +334,7 @@ void printBinarySearchTree(SearchTree st)
  * \param ligne Le nombre de ligne dans le display actuel
  *
  */
-void printBinarySearchTreeAux(SearchTree st, int niveau, int position, 
+void printBinarySearchTreeAux(SearchTree st, int niveau, int position,
     int * ligne)
 {
     if (vide(st))
@@ -372,7 +344,7 @@ void printBinarySearchTreeAux(SearchTree st, int niveau, int position,
 
     printBinarySearchTreeAux(st->fd, niveau + 1, DROIT, ligne);
 
-
+    /** Mettre le noeud dans le display **/
     if (niveau == 0)
     {
         display[*ligne][0] = st->mot;

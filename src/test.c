@@ -46,6 +46,7 @@ void testOrderedSet()
     printOrderedSet(testOs);
 
     printf("L'ensemble a %d elements.\n", getNumberElt(testOs));
+    printf("L'ensemble contient t'il 10 ? %s\n", contains(testOs, 10) ? "oui" : "non");
 
     //------------------
 
@@ -73,11 +74,76 @@ void testOrderedSet()
 void testABR()
 {
     printf("[32m################### TESTING: Partie 2: Arbre binaire de recherche[0m\n");
+    printf("Test fonctions sur arbre initialisé avec textes/foo.txt\n");
+
+    SearchTree stFile = initBinarySearchTree();
+    stFile = construction_arbre("textes/foo.txt");
+
+    printf("Affichage de l'arbre créé avec foot.txt\n");
+    printBinarySearchTree(stFile);
+    printf("L'arbre contient %d mots differents.\n\n", getNumberString(stFile));
+
+    printf("Equilibre de l'arbre:\n");
+    printEquilibre(stFile, 0, 0);
+    printf("\n");
+
+    printf("Rajout du mot 'projet' dans l'arbre à l'index 3.\n");
+    char * mot = malloc (7);
+    strcpy(mot, "projet");
+    stFile = insavl(stFile, mot, 3);
+
+    printf("\nNouvel arbre:\n");
+    printBinarySearchTree(stFile);
+
+    printf("L'arbre contient %d mots differents\n", getNumberString(stFile));
+    printf("L'arbre contient %d mots au total\n", getTotalNumberString(stFile));
+    printf("Profondeur moyenne des noeuds de l'arbre : %f\n", getAverageDepth(stFile));
+
+    char *mots[3];
+    mots[0] = "foo";
+    mots[1] = "bar";
+    OrderedSet cooccurences = findCooccurrences(stFile, mots, 2);
+    printf ("Les mots %s et %s apparaissent dans les phrases : ", mots[0], mots[1]);
+    printOrderedSet(cooccurences);
+    freeOrderedSet(cooccurences);
+
+    mots[0] = "waldo";
+    mots[1] = "foo";
+    mots[2] = "grault";
+    cooccurences = findCooccurrences(stFile, mots, 3);
+    printf ("Les mots %s, %s et %s apparaissent dans les phrases : ", mots[0], mots[1], mots[2]);
+    printOrderedSet(cooccurences);
+    freeOrderedSet(cooccurences);
+
+    char *motRecherche = "abaa\0";
+    cooccurences = find(stFile, motRecherche);
+    if (cooccurences == NULL)
+        printf ("Le mot %s n'est pas dans une phrase.\n", motRecherche);
+    else
+    {
+        printf("Occurences du mot %s dans les phrases :", motRecherche);
+        printOrderedSet(cooccurences);
+    }
+
+    freeBinarySearchTree(stFile);
+    printf("[32m################### TESTING: fin tests arbre binaire de recherche[0m\n\n");
 }
 
 void testConstruction()
 {
     printf("[32m################### TESTING: Partie 3: Construction de l'arbre[0m\n");
+    SearchTree stFile = initBinarySearchTree();
+    printf("Arbre initialisé avec textes/texte.txt qui contient 500 mots de lorem ipsum.\n");
+    stFile = construction_arbre("textes/texte.txt");
+
+    printBinarySearchTree(stFile);
+
+
+    printf("L'arbre contient %d mots differents\n", getNumberString(stFile));
+    printf("Profondeur moyenne des noeuds de l'arbre : %f\n", getAverageDepth(stFile));
+
+    freeBinarySearchTree(stFile);
+    printf("[32m################### TESTING: fin tests construction de l'arbre[0m\n\n");
 }
 
 void testAVL ()
@@ -180,42 +246,10 @@ void testAVL ()
 ////////////////////////////////////////////////////////////////////////////////
 
 ///////////////// TESTS FONCTIONS SUR ARBRE ////////////////////////////////////
-    printf("[32m################### TESTING: fonctions sur arbre initialisé avec foo.txt[0m\n");
-    SearchTree stFile = construction_arbre("foo.txt");
+    printf("Test fonctions sur arbre initialisé avec foo.txt\n");
 
-    printf("Equilibre de l'arbre: ");
-    printEquilibre(stFile, 0, 0);
-
-    printBinarySearchTree(stFile);
-
-    printf("L'arbre contient %d mots differents\n", getNumberString(stFile));
-    printf("L'arbre contient %d mots au total\n", getTotalNumberString(stFile));
-    printf("Profondeur moyenne des noeuds de l'arbre : %f\n", getAverageDepth(stFile));
-
-    char *mots[2];
-    mots[0] = "foo";
-    mots[1] = "bar";
-    OrderedSet cooccurences = findCooccurrences(stFile, mots, 2);
-    printf ("Les mots %s et %s apparaissent dans les phrases : ", mots[0], mots[1]);
-    printOrderedSet(cooccurences);
-    freeOrderedSet(cooccurences);
-
-    mots[0] = "grault";
-    mots[1] = "foo";
-    cooccurences = findCooccurrences(stFile, mots, 2);
-    printf ("Les mots %s et %s apparaissent dans les phrases : ", mots[0], mots[1]);
-    printOrderedSet(cooccurences);
-    freeOrderedSet(cooccurences);
-
-    char *motRecherche = "abaa\0";
-    cooccurences = find(stFile, motRecherche);
-    if (cooccurences == NULL)
-        printf ("Le mot %s n'est pas dans une phrase.\n", motRecherche);
-    else
-    {
-        printf("Occurences du mot %s dans les phrases :", motRecherche);
-        printOrderedSet(cooccurences);
-    }
+    SearchTree stFile = initBinarySearchTree();
+    stFile = construction_arbre("foo.txt");
 
     bool b = isBalanced(stFile);
     printf("L'arbre est-il équilibré ? %s\n", (b) ? "oui" : "non");

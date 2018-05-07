@@ -13,6 +13,18 @@
 #include <limits.h>
 #include "ensemble.h"
 
+extern char * filename;
+
+/* =====    MACROS    ===== */
+
+/** Pour l'affichage de l'arbres **/
+#define GAUCHE      1
+#define DROIT       2
+
+
+/* =====    STRUCTURES    ===== */
+
+
 /**
  * \typedef SearchTree Structure qui réprésente les arbres binaires.
  *
@@ -33,7 +45,25 @@ typedef struct s_arbre
 
 } Noeud, *SearchTree;
 
-/** PROTOTYPES **/
+
+/** Utile pour l'affichage **/
+typedef char* String;
+
+/* =====    VARIABLES GLOBALES    ===== */
+
+/** Caractères pour l'affichage de l'arbre **/
+char * slash;       // "/"
+char * backslash;   // "\"
+char * tiret;       // "-"
+char * lignel;      // "|"
+char * deuxpt;      // ":"
+
+/** Variables pour l'affichage de l'arbre **/
+String ** display;
+String * sets;
+
+
+/* =====    FONCTIONS    ===== */
 
 /** \brief Initialise un arbre binaire de recherche. **/
 SearchTree initBinarySearchTree();
@@ -77,7 +107,7 @@ SearchTree enraciner(char *mot, OrderedSet positions, SearchTree st1,
 
 
 
-/** FONCTION SUPPLÉMENTAIRES **/
+/* =====    FONCTIONS SUPPLÉMENTAIRES    ===== */
 
 /** \brief Fonction auxiliaire de l'affichage **/
 void printBinarySearchTreeAux(SearchTree st, int niveau, int position,
@@ -86,10 +116,6 @@ void printBinarySearchTreeAux(SearchTree st, int niveau, int position,
 
 /** \brief Affiche le mot et l'équilibre. **/
 void printEquilibre (SearchTree st, int niveau, int pos);
-
-
-/** \brief Comparaison de deux chaînes de caractères. **/
-int comp(char * mot1, char * mot2);
 
 
 

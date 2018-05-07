@@ -1,6 +1,6 @@
 /**
  * \file more.h
- * 
+ *
  * Fichier qui contient les fonctions et macros pour la gestion d'erreur
  */
 
@@ -15,38 +15,30 @@
 #include <stdnoreturn.h>
 #include "accents.h"
 
-
 #define MAX(X, Y) (((X) > (Y)) ? (X) : (Y))
 
 /** Nom du programme pour l'affichage des erreurs **/
 extern char *prog;
 
-/**
- * 
- * 
- */
+
+/** Gestion des messages d'erreur **/
 noreturn void raler (int syserr, const char *fmt, ...);
 
 
-/**
- * \brief Enlève l'accent de la lettre
- * 
- * Transforme le short en char en enlèvant l'accent.
- * 
- * \param c Lettre à transformer.
- * 
- * \return Caractère sans accent sous forme de char
- * 
- */
+/** brief Enlève l'accent de la lettre **/
 char transformer_utf8(short c);
 
 
-/**
- * 
- * 
- */
+/** Teste si le mot contient le caractère x **/
 bool contient(char x, char * mot);
 
+
+/** \brief Fonction interne: transforme un entier en string (char *) **/
+char* int_to_string(int nombre);
+
+
+/** \brief Comparaison de deux chaînes de caractères. **/
+int comp(char * mot1, char * mot2);
 
 
 #endif

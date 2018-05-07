@@ -16,6 +16,16 @@ noreturn void raler (int syserr, const char *fmt, ...)
 }
 
 
+/**
+ * \brief Enlève l'accent de la lettre
+ *
+ * Transforme le short en char en enlèvant l'accent.
+ *
+ * \param c Lettre à transformer.
+ *
+ * \return Caractère sans accent sous forme de char
+ *
+ */
 char transformer_utf8(short c)
 {
     char resultat;
@@ -106,4 +116,41 @@ bool contient(char x, char * mot)
     }
 
     return false;
+}
+
+
+/**
+ * \brief Fonction interne: transforme un entier en string (char *)
+ *
+ * \param nombre Entier à transformer en string
+ *
+ * \return Le nombre sous forme de string
+ *
+ */
+char* int_to_string(int nombre)
+{
+	static char buf[32] = {0};
+
+	int i;
+	for(i = 30; nombre > 0 && i > 0 ; --i, nombre /= 10)
+	{
+		buf[i] = "0123456789abcdef"[nombre % 10];
+	}
+
+	return &buf[i+1];
+}
+
+
+/**
+ * \brief Comparaison de deux chaînes de caractères.
+ *
+ * \param mot1
+ * \param mot2
+ *
+ * \return  Résultat de la comparaison.
+ *
+ */
+int comp(char *mot1, char *mot2)
+{
+    return strcmp(mot1, mot2);
 }

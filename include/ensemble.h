@@ -15,7 +15,7 @@
 #include <string.h>
 
 
-/** MACROS **/
+/* =====    MACROS    ===== */
 
 /**
  * Nombre d'éléments d'un ensemble par défaut.
@@ -23,14 +23,13 @@
  */
 #define SIZE_TAB    10
 
-/** Utilisée dans to_string(). **/
+/** Utilisée dans to_string(). Contrôle le dépassement du buffer. **/
 #define MAX_BUFFER  128
 
 
+/* =====    STRUCTURES    ===== */
 
-/**
- * Structure d'ensemble ordonné OrderedSet
- */
+/** Structure d'ensemble ordonné OrderedSet **/
 typedef struct s_set
 {
     /** tableau contenant les éléments de l'ensemble */
@@ -46,7 +45,7 @@ typedef struct s_set
 } * OrderedSet;
 
 
-/** FONCTIONS **/
+/* =====    FONCTIONS    ===== */
 
 /** \brief Initialise un ensemble ordonné. **/
 OrderedSet initOrderedSet();
@@ -78,6 +77,7 @@ void printOrderedSet(OrderedSet os);
 
 /** \brief Cherche l'intersection de deux ensembles **/
 OrderedSet intersect(OrderedSet os1, OrderedSet os2);
+
 
 /** brief Transforme un ensemble ordonné en string (char *) **/
 char * to_string(OrderedSet os);
