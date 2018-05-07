@@ -347,8 +347,7 @@ SearchTree construction_arbre(char * filename)
             char *mot;
 
             for (; buffer[i] != ' ' && buffer[i] != '\n' && buffer[i] != '.'
-                && !contient(buffer[i], separateurs)
-                && buffer[i] != '\'' ; i++)
+                && !contient(buffer[i], separateurs); i++)
             {
                 if (buffer[i] == '\'')
                 {

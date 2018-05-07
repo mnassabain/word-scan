@@ -8,6 +8,8 @@
 #include <fcntl.h>
 #include <stdlib.h>
 
+extern bool flag_U;
+
 void tests(){
     testOrderedSet();
     testABR();
@@ -148,7 +150,7 @@ void testConstruction()
 
     if (dup2(old_stdout, 1) == -1) raler(1, "Erreur dup2");
 
-    printf("L'affichage de l'arbre a été redirigé vers le fichier result_lorem.txt");
+    printf("L'affichage de l'arbre a été redirigé vers le fichier result_lorem.txt\n");
     printf("L'arbre contient %d mots differents\n", getNumberString(stFile));
     printf("Profondeur moyenne des noeuds de l'arbre : %f\n", getAverageDepth(stFile));
 
@@ -274,15 +276,26 @@ void testAVL ()
 
 void testAccEtSep()
 {
-///////////////// TEST ROTATION GAUCHE /////////////////////////////////////////
-        printf("[32m################### TESTING: Partie BONUS: Accents & séparateurs[0m\n");
+    flag_U = true;
+///////////////// TEST ACCENTS /////////////////////////////////////////////////
+    printf("[32m################### TESTING: Partie BONUS: Accents & séparateurs[0m\n");
 
-        SearchTree stFile = initBinarySearchTree();
-        stFile = construction_arbre("texte/accents.txt");
+    SearchTree stFile = initBinarySearchTree();
+    stFile = construction_arbre("texte/accents.txt");
 
-        printBinarySearchTree(stFile);
+    int fichier = open("gilbert.txt", O_CREAT | O_WRONLY | O_TRUNC, 0666);
+    if (fichier == -1) raler(1, "Erreur open");
 
-        freeBinarySearchTree(stFile);
+    int old_stdout = dup(1);
+    if (dup2(fichier, 1) == -1) raler(1, "Erreur dup2");
+
+    printBinarySearchTree(stFile);
+
+    if (dup2(old_stdout, 1) == -1) raler(1, "Erreur dup2");
+
+    printf("L'affichage de l'arbre a été redirigé vers le fichier result_lorem.txt\n");
+
+    freeBinarySearchTree(stFile);
 ////////////////////////////////////////////////////////////////////////////////
-        printf("[32m################### TESTING: fin tests BONUS[0m\n\n");
+    printf("[32m################### TESTING: fin tests BONUS[0m\n\n");
 }
