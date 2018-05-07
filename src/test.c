@@ -74,10 +74,10 @@ void testOrderedSet()
 void testABR()
 {
     printf("[32m################### TESTING: Partie 2: Arbre binaire de recherche[0m\n");
-    printf("Test fonctions sur arbre initialisé avec textes/foo.txt\n");
+    printf("Test fonctions sur arbre initialisé avec texte/foo.txt\n");
 
     SearchTree stFile = initBinarySearchTree();
-    stFile = construction_arbre("textes/foo.txt");
+    stFile = construction_arbre("texte/foo.txt");
 
     printf("Affichage de l'arbre créé avec foot.txt\n");
     printBinarySearchTree(stFile);
@@ -133,8 +133,8 @@ void testConstruction()
 {
     printf("[32m################### TESTING: Partie 3: Construction de l'arbre[0m\n");
     SearchTree stFile = initBinarySearchTree();
-    printf("Arbre initialisé avec textes/texte.txt qui contient 500 mots de lorem ipsum.\n");
-    stFile = construction_arbre("textes/texte.txt");
+    printf("Arbre initialisé avec texte/texte.txt qui contient 500 mots de lorem ipsum.\n");
+    stFile = construction_arbre("texte/texte.txt");
 
     printBinarySearchTree(stFile);
 
@@ -249,7 +249,7 @@ void testAVL ()
     printf("Test fonctions sur arbre initialisé avec foo.txt\n");
 
     SearchTree stFile = initBinarySearchTree();
-    stFile = construction_arbre("foo.txt");
+    stFile = construction_arbre("texte/foo.txt");
 
     bool b = isBalanced(stFile);
     printf("L'arbre est-il équilibré ? %s\n", (b) ? "oui" : "non");

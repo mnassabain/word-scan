@@ -1,6 +1,9 @@
 # fichiers pour compilation
 *.o
 
+#executable
+./bin/main
+
 # fichier pour gcov
 *.gcov
 *.gcda

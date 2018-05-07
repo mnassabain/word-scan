@@ -143,8 +143,8 @@ double lci (SearchTree st, int hauteur)
  */
 SearchTree rotateLeft(SearchTree st)
 {
-    SearchTree new_st = enraciner(st->fd->mot, st->fd->positions, enraciner(st->mot, st->positions, st->fg, st->fd->fg),
-        st->fd->fd);
+    SearchTree new_st = enraciner(st->fd->mot, st->fd->positions,
+        enraciner(st->mot, st->positions, st->fg, st->fd->fg), st->fd->fd);
 
     free(st->fd);
     free(st);
