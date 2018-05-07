@@ -9,6 +9,10 @@ void tests();
 
 void testOrderedSet();
 
+void testABR();
+
+void testConstruction();
+
 void testAVL();
 
 #endif
