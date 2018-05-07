@@ -26,7 +26,7 @@ noreturn void raler (int syserr, const char *fmt, ...)
  * \return Caractère sans accent sous forme de char
  *
  */
-char transformer_utf8(short c)
+char transformer_utf8(int c)
 {
     char resultat;
 
@@ -87,6 +87,9 @@ char transformer_utf8(short c)
         case C_MAX_CDL:
             resultat = 'C';
             break;
+
+        default:
+            resultat='x';
     }
 
     return resultat;

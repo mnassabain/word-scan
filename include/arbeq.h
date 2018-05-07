@@ -12,6 +12,7 @@
 
 #include <stdbool.h>
 #include "abr.h"
+#include "more.h"
 
 /** Flag qui indique si le mode UTF-8 est activé **/
 extern bool flag_U;

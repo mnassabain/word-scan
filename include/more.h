@@ -26,7 +26,7 @@ noreturn void raler (int syserr, const char *fmt, ...);
 
 
 /** brief Enlève l'accent de la lettre **/
-char transformer_utf8(short c);
+char transformer_utf8(int c);
 
 
 /** Teste si le mot contient le caractère x **/
