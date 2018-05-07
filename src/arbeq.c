@@ -315,7 +315,6 @@ SearchTree construction_arbre(char * filename)
                 {
                     char c1 = buffer[k];
                     char c2 = buffer[k + 1];
-                    //printf("%d %d %d\n", c1, c2, c1 + c2);
                     buffer_short[l] = c1 + c2;
                     k++;
                     l++;
@@ -348,9 +347,17 @@ SearchTree construction_arbre(char * filename)
             char *mot;
 
             for (; buffer[i] != ' ' && buffer[i] != '\n' && buffer[i] != '.'
-                && !contient(buffer[i], separateurs); i++)
+                && !contient(buffer[i], separateurs)
+                && buffer[i] != '\'' ; i++)
             {
-                if (buffer[i] >= 'A' && buffer[i] <= 'Z')
+                if (buffer[i] == '\'')
+                {
+                    ptBuf += longueur_mot + 1;
+                    longueur_mot = 0;
+                    i++;
+                    continue;
+                }
+                else if (buffer[i] >= 'A' && buffer[i] <= 'Z')
                 {
                     buffer[i] += 'a'-'A';
                 }

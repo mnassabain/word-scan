@@ -17,16 +17,20 @@ vpath main bin
 
 .PHONY: default all clean tests coverage
 
-default: $(TARGET)
-all: default
+TESTS = coverage test
 
-tests:
+all : $(TARGET) $(TESTS)
+
+test:
 	./bin/main -t
-	./bin/main -u accents.txt >/dev/null
-	./bin/main 2> /dev/null || exit 0 && exit 1
-	@mv *.gcda coverage/
 
 coverage:
+	./bin/main -t -u > /dev/null
+	./bin/main -a texte/foo.txt > /dev/null
+	./bin/main -h texte/foo.txt > /dev/null
+	./bin/main -u texte/accents.txt >/dev/null./
+	./bin/main 2> /dev/null || exit 0 && exit 1
+	@mv *.gcda coverage/
 	@gcov coverage/*.gcno
 
 %.o: %.c
@@ -44,4 +48,4 @@ clean:
 	-rm -f $(OPATH)*
 	-rm -f bin/$(TARGET)
 	-rm -f coverage/*
-	-rm -f *.gcov
+	-rm -f *.gc*

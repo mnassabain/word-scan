@@ -74,7 +74,7 @@ char * traiter_arguments(int argc, char * const argv[])
     }
 
     int opt;
-    while((opt = getopt(argc, argv, "ehput")) != -1)
+    while((opt = getopt(argc, argv, "aehput")) != -1)
     {
         switch(opt)
         {

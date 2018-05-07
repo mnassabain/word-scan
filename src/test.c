@@ -8,13 +8,12 @@
 #include <fcntl.h>
 #include <stdlib.h>
 
-char * prog;
-
 void tests(){
     testOrderedSet();
     testABR();
     testConstruction();
     testAVL();
+    testAccEtSep();
 }
 
 
@@ -142,14 +141,14 @@ void testConstruction()
     int fichier = open("result_lorem.txt", O_CREAT | O_WRONLY | O_TRUNC, 0666);
     if (fichier == -1) raler(1, "Erreur open");
 
-    int old_stdout = 10;
-    if (dup2(1, old_stdout) == -1) raler(1, "Erreur dup2");
+    int old_stdout = dup(1);
     if (dup2(fichier, 1) == -1) raler(1, "Erreur dup2");
 
     printBinarySearchTree(stFile);
 
     if (dup2(old_stdout, 1) == -1) raler(1, "Erreur dup2");
 
+    printf("L'affichage de l'arbre a été redirigé vers le fichier result_lorem.txt");
     printf("L'arbre contient %d mots differents\n", getNumberString(stFile));
     printf("Profondeur moyenne des noeuds de l'arbre : %f\n", getAverageDepth(stFile));
 
@@ -264,7 +263,26 @@ void testAVL ()
 
     bool b = isBalanced(stFile);
     printf("L'arbre est-il équilibré ? %s\n", (b) ? "oui" : "non");
+    printf("La hauteur de l'arbre est %d.\n", getHeight(stFile));
+    printf("Profondeur moyenne des noeuds de l'arbre : %f\n", getAverageDepth(stFile));
 
     freeBinarySearchTree(stFile);
 ////////////////////////////////////////////////////////////////////////////////
+    printf("[32m################### TESTING: fin tests AVL[0m\n\n");
+}
+
+
+void testAccEtSep()
+{
+///////////////// TEST ROTATION GAUCHE /////////////////////////////////////////
+        printf("[32m################### TESTING: Partie BONUS: Accents & séparateurs[0m\n");
+
+        SearchTree stFile = initBinarySearchTree();
+        stFile = construction_arbre("texte/accents.txt");
+
+        printBinarySearchTree(stFile);
+
+        freeBinarySearchTree(stFile);
+////////////////////////////////////////////////////////////////////////////////
+        printf("[32m################### TESTING: fin tests BONUS[0m\n\n");
 }
