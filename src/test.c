@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-
 #include "ensemble.h"
 #include "abr.h"
 #include "arbeq.h"
@@ -12,68 +9,61 @@ char * prog;
 
 void tests(){
     testOrderedSet();
-    testAVL();
+    // testAVL();
 }
 
 
 void testOrderedSet()
 {
-    OrderedSet test = initOrderedSet();
+    OrderedSet testOs = initOrderedSet();
 
-    test = insertValue(test, 1);
-    test = insertValue(test, 3);
-    test = insertValue(test, 5);
-    test = insertValue(test, 7);
-    test = insertValue(test, 9);
-    test = insertValue(test, 11);
-    test = insertValue(test, 13);
-    test = insertValue(test, 15);
-    test = insertValue(test, 17);
-    test = insertValue(test, 19);
-    test = insertValue(test, 21);
-    test = insertValue(test, 23);
-    test = insertValue(test, 25);
-    test = insertValue(test, 27);
-    test = insertValue(test, 29);
-    test = insertValue(test, 31);
-    test = insertValue(test, 33);
-    test = insertValue(test, 35);
-    test = insertValue(test, 37);
+    srand(time(NULL));
+    int i, r;
+    printf("Insertion de 10 entiers aléatoires entre 0 et 20 dans un ensemble ordonné:\n");
+    for (i = 0; i < 10; i++)
+    {
+        r = rand() % 20;
+        printf("Insertion de l'entier %d.\n", r);
+        testOs = insertValue(testOs, r);
+    }
+    printf("Ensemble ordonné :\n");
+    printOrderedSet(testOs);
+    printf("L'ensemble a %d elements.\n", getNumberElt(testOs));
 
-    printOrderedSet(test);
+    printf("\nInsertion de la valeur 10.\n");
+    testOs = insertValue(testOs, 10);
 
-    test = insertValue(test, 20);
+    printf("Ensemble ordonné :\n");
+    printOrderedSet(testOs);
 
-    printOrderedSet(test);
+    printf("\nInsertion de la valeur 5.\n");
+    testOs = insertValue(testOs, 5);
 
-    test = insertValue(test, 5);
+    printf("Ensemble ordonné :\n");
+    printOrderedSet(testOs);
 
-    printOrderedSet(test);
-
-    printf("L'ensemble a %d elements\n", getNumberElt(test));
-
-    test = insertValue(test, 7);
-    printOrderedSet(test);
+    printf("L'ensemble a %d elements.\n", getNumberElt(testOs));
 
     //------------------
 
-    OrderedSet test2 = initOrderedSet();
-    test2 = insertValue(test2, 3);
-    test2 = insertValue(test2, 7);
-    test2 = insertValue(test2, 8);
-    test2 = insertValue(test2, 11);
-    test2 = insertValue(test2, 21);
-    test2 = insertValue(test2, 30);
+    OrderedSet testOs2 = initOrderedSet();
+    testOs2 = insertValue(testOs2, 3);
+    testOs2 = insertValue(testOs2, 7);
+    testOs2 = insertValue(testOs2, 8);
+    testOs2 = insertValue(testOs2, 11);
+    testOs2 = insertValue(testOs2, 21);
+    testOs2 = insertValue(testOs2, 30);
 
-    printf("\n\nTest d'intersection:\nEnsemble 1:\n");
-    printOrderedSet(test);
-    printf("\nEnsemble 2:\n");
-    printOrderedSet(test2);
+    printf("\nTest d'intersection:\n");
+    printf("Ensemble 1:\n");
+    printOrderedSet(testOs);
+    printf("Ensemble 2:\n");
+    printOrderedSet(testOs2);
     printf("\nIntersection:\n");
-    OrderedSet intersection = intersect(test, test2);
+    OrderedSet intersection = intersect(testOs, testOs2);
     printOrderedSet(intersection);
 
-    freeOrderedSet(test);
+    freeOrderedSet(testOs);
 }
 
 void testAVL ()

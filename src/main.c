@@ -24,6 +24,11 @@ int main(int argc, char * const argv[])
 {
     char * filename = traiter_arguments(argc, argv);
 
+    if (flag_A)
+    {
+            printf("aide = uaeibfozebf\n");
+    }
+
     if (flag_T)
     {
         tests();
