@@ -4,6 +4,9 @@
 #include "accents.h"
 #include "more.h"
 #include "tests.h"
+#include <unistd.h>
+#include <fcntl.h>
+#include <stdlib.h>
 
 char * prog;
 
@@ -136,8 +139,16 @@ void testConstruction()
     printf("Arbre initialisé avec texte/texte.txt qui contient 500 mots de lorem ipsum.\n");
     stFile = construction_arbre("texte/texte.txt");
 
+    int fichier = open("result_lorem.txt", O_CREAT | O_WRONLY | O_TRUNC, 0666);
+    if (fichier == -1) raler(1, "Erreur open");
+
+    int old_stdout = 10;
+    if (dup2(1, old_stdout) == -1) raler(1, "Erreur dup2");
+    if (dup2(fichier, 1) == -1) raler(1, "Erreur dup2");
+
     printBinarySearchTree(stFile);
 
+    if (dup2(old_stdout, 1) == -1) raler(1, "Erreur dup2");
 
     printf("L'arbre contient %d mots differents\n", getNumberString(stFile));
     printf("Profondeur moyenne des noeuds de l'arbre : %f\n", getAverageDepth(stFile));
