@@ -321,6 +321,8 @@ char * to_string(OrderedSet os)
 
     int i, n_elt = getNumberElt(os);
     int pt = 2;
+
+    /** Boucle qui transforme chaque élément en string et le concatène **/
     for (i = 0; i < n_elt; i++)
     {
         char * nb = int_to_string(os->elements[i]);

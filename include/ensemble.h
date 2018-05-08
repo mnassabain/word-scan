@@ -29,7 +29,7 @@
 
 /* =====    STRUCTURES    ===== */
 
-/** Structure d'ensemble ordonné OrderedSet **/
+/** \typedef Structure d'ensemble ordonné OrderedSet **/
 typedef struct s_set
 {
     /** tableau contenant les éléments de l'ensemble */

@@ -25,10 +25,7 @@ extern char * filename;
 /* =====    STRUCTURES    ===== */
 
 
-/**
- * \typedef SearchTree Structure qui réprésente les arbres binaires.
- *
- */
+/** \typedef SearchTree Structure qui réprésente les arbres binaires. **/
 typedef struct s_arbre
 {
     /** Les données à stocker dans un noeud; le mot **/

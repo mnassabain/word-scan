@@ -8,6 +8,9 @@
 #include <stdbool.h>
 #include <unistd.h>
 
+
+/* =====    VARIABLES GLOBALES    ===== */
+
 char * prog;
 
 bool flag_A = false;    // affiche l'aide
@@ -17,7 +20,8 @@ bool flag_P = false;    // avgdepth
 bool flag_U = false;    // support UTF-8
 bool flag_T = false;    // lancement des jeux de test
 
-char * traiter_arguments(int argc, char * const argv[]);
+/* =====    PROTOTYPES    ===== */
+
 
 
 int main(int argc, char * const argv[])
@@ -60,57 +64,4 @@ int main(int argc, char * const argv[])
     freeBinarySearchTree(st);
 
     return 0;
-}
-
-
-
-
-char * traiter_arguments(int argc, char * const argv[])
-{
-    prog = argv[0];
-
-    if (argc != 2 && argc != 3 && argc != 4 && argc != 5 && argc != 6)
-    {
-        raler(0, "Usage: %s fichier", prog);
-    }
-
-    int opt;
-    while((opt = getopt(argc, argv, "aehput")) != -1)
-    {
-        switch(opt)
-        {
-            case 'a':
-                flag_A = true;
-                break;
-            case 'e':
-                flag_E = true;
-                break;
-
-            case 'h':
-                flag_H = true;
-                break;
-
-            case 'p':
-                flag_P = true;
-                break;
-
-            case 'u':
-                flag_U = true;
-                break;
-
-            case 't':
-                flag_T = true;
-                break;
-
-            default:
-                raler(0, "Option invalide");
-        }
-    }
-
-    if (argc - optind == 0 && (!flag_A && !flag_T))
-    {
-        raler(0, "Usage: %s fichier", prog);
-    }
-
-    return argv[optind];
 }

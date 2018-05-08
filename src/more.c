@@ -1,5 +1,23 @@
+/**
+ * \file more.c
+ * 
+ * Fichier qui contient des fonction générales utiles 
+ * 
+ */
+
 #include "more.h"
 
+/* =====    FONCTIONS    ===== */
+
+/**
+ * \brief Fonction qui affiche les messages d'erreur
+ * 
+ * Fait appel à perror si nécessaire ou affiche le message d'erreur
+ * 
+ * \param syserr 1 si l'erreur change errno, 0 sinon
+ * \param fmt Format d'affichage
+ * 
+ */
 noreturn void raler (int syserr, const char *fmt, ...)
 {
     va_list ap ;
@@ -156,4 +174,64 @@ char* int_to_string(int nombre)
 int comp(char *mot1, char *mot2)
 {
     return strcmp(mot1, mot2);
+}
+
+
+/**
+ * \brief Traiter les argument donnée lors l'appel au programme
+ * 
+ * \param argc
+ * \param argv
+ * 
+ * \return
+ * 
+ */
+char * traiter_arguments(int argc, char * const argv[])
+{
+    prog = argv[0];
+
+    if (argc != 2 && argc != 3 && argc != 4 && argc != 5 && argc != 6)
+    {
+        raler(0, "Usage: %s fichier", prog);
+    }
+
+    int opt;
+    while((opt = getopt(argc, argv, "aehput")) != -1)
+    {
+        switch(opt)
+        {
+            case 'a':
+                flag_A = true;
+                break;
+            case 'e':
+                flag_E = true;
+                break;
+
+            case 'h':
+                flag_H = true;
+                break;
+
+            case 'p':
+                flag_P = true;
+                break;
+
+            case 'u':
+                flag_U = true;
+                break;
+
+            case 't':
+                flag_T = true;
+                break;
+
+            default:
+                raler(0, "Option invalide");
+        }
+    }
+
+    if (argc - optind == 0 && (!flag_A && !flag_T))
+    {
+        raler(0, "Usage: %s fichier", prog);
+    }
+
+    return argv[optind];
 }
