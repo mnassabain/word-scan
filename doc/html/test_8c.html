@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Arbre de recherche: include/tests.h File Reference</title>
+<title>Arbre de recherche: src/test.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -80,66 +80,71 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">tests.h File Reference</div>  </div>
+<div class="title">test.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Fichier qui contient les prototypes des fonctions de test.  
+<p>Fichier qui lance un jeu de tests.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="ensemble_8h_source.html">ensemble.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="abr_8h_source.html">abr.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="arbeq_8h_source.html">arbeq.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="accents_8h_source.html">accents.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="more_8h_source.html">more.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="tests_8h_source.html">tests.h</a>&quot;</code><br />
+<code>#include &lt;unistd.h&gt;</code><br />
+<code>#include &lt;fcntl.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
-<code>#include &lt;time.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for tests.h:</div>
+Include dependency graph for test.c:</div>
 <div class="dyncontent">
-<div class="center"><img src="tests_8h__incl.png" border="0" usemap="#include_2tests_8h" alt=""/></div>
+<div class="center"><img src="test_8c__incl.png" border="0" usemap="#src_2test_8c" alt=""/></div>
 <!-- MAP 0 -->
 </div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><img src="tests_8h__dep__incl.png" border="0" usemap="#include_2tests_8hdep" alt=""/></div>
-<!-- MAP 1 -->
-</div>
-</div>
-<p><a href="tests_8h_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a88ec9ad42717780d6caaff9d3d6977f9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a88ec9ad42717780d6caaff9d3d6977f9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tests_8h.html#a88ec9ad42717780d6caaff9d3d6977f9">tests</a> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8c.html#a88ec9ad42717780d6caaff9d3d6977f9">tests</a> ()</td></tr>
 <tr class="memdesc:a88ec9ad42717780d6caaff9d3d6977f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui démarre les tests et appele les tests. <br /></td></tr>
 <tr class="separator:a88ec9ad42717780d6caaff9d3d6977f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06dab6fc34e9fba9863f6bfaf618d652"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a06dab6fc34e9fba9863f6bfaf618d652"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tests_8h.html#a06dab6fc34e9fba9863f6bfaf618d652">testOrderedSet</a> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8c.html#a06dab6fc34e9fba9863f6bfaf618d652">testOrderedSet</a> ()</td></tr>
 <tr class="memdesc:a06dab6fc34e9fba9863f6bfaf618d652"><td class="mdescLeft">&#160;</td><td class="mdescRight">Jeu de tests pour un ensemble ordonné <br /></td></tr>
 <tr class="separator:a06dab6fc34e9fba9863f6bfaf618d652"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aada548971a4a05bb2946fb588838250c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aada548971a4a05bb2946fb588838250c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tests_8h.html#aada548971a4a05bb2946fb588838250c">testABR</a> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8c.html#aada548971a4a05bb2946fb588838250c">testABR</a> ()</td></tr>
 <tr class="memdesc:aada548971a4a05bb2946fb588838250c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Jeu de tests pour un arbre binaire de recherche. <br /></td></tr>
 <tr class="separator:aada548971a4a05bb2946fb588838250c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c2c3e90ba6646a30db9276cc1d2e378"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6c2c3e90ba6646a30db9276cc1d2e378"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tests_8h.html#a6c2c3e90ba6646a30db9276cc1d2e378">testConstruction</a> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8c.html#a6c2c3e90ba6646a30db9276cc1d2e378">testConstruction</a> ()</td></tr>
 <tr class="memdesc:a6c2c3e90ba6646a30db9276cc1d2e378"><td class="mdescLeft">&#160;</td><td class="mdescRight">Jeu de tests pour la construction de l'arbre. <br /></td></tr>
 <tr class="separator:a6c2c3e90ba6646a30db9276cc1d2e378"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f9ef87f6c86a3646a5a6d0aa79ec179"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6f9ef87f6c86a3646a5a6d0aa79ec179"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tests_8h.html#a6f9ef87f6c86a3646a5a6d0aa79ec179">testAVL</a> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8c.html#a6f9ef87f6c86a3646a5a6d0aa79ec179">testAVL</a> ()</td></tr>
 <tr class="memdesc:a6f9ef87f6c86a3646a5a6d0aa79ec179"><td class="mdescLeft">&#160;</td><td class="mdescRight">Jeu de tests pour tester l'arbre AVL. <br /></td></tr>
 <tr class="separator:a6f9ef87f6c86a3646a5a6d0aa79ec179"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a913c1d56e298a557b07ea50ae00b0cb0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a913c1d56e298a557b07ea50ae00b0cb0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tests_8h.html#a913c1d56e298a557b07ea50ae00b0cb0">testAccEtSep</a> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8c.html#a913c1d56e298a557b07ea50ae00b0cb0">testAccEtSep</a> ()</td></tr>
 <tr class="memdesc:a913c1d56e298a557b07ea50ae00b0cb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Jeu de tests pour tester les accents et séparateurs. <br /></td></tr>
 <tr class="separator:a913c1d56e298a557b07ea50ae00b0cb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a79f48d856f2b2dd2010bd69f7627de2d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a79f48d856f2b2dd2010bd69f7627de2d"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>flag_U</b></td></tr>
+<tr class="separator:a79f48d856f2b2dd2010bd69f7627de2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Fichier qui contient les prototypes des fonctions de test. </p>
+<div class="textblock"><p>Fichier qui lance un jeu de tests. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

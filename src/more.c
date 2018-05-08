@@ -1,7 +1,7 @@
 /**
  * \file more.c
  *
- * Fichier qui contient des fonction générales utiles
+ * \brief Fichier qui contient des fonction générales utiles
  *
  */
 

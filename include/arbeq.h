@@ -1,7 +1,7 @@
 /**
  * \file arbeq.h
  *
- * Fichier qui contient les structures et prototypes de l'arbre binaire
+ * \brief Fichier qui contient les structures et prototypes de l'arbre binaire
  * de recherche équilibré.
  *
  */

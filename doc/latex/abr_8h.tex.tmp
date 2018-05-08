@@ -1,5 +1,10 @@
 \hypertarget{abr_8h}{}\section{include/abr.h File Reference}
 \label{abr_8h}\index{include/abr.\+h@{include/abr.\+h}}
+
+
+Fichier qui contient les structures et prototypes de l\textquotesingle{}arbre binaire.  
+
+
 {\ttfamily \#include $<$stdbool.\+h$>$}\\*
 {\ttfamily \#include $<$string.\+h$>$}\\*
 {\ttfamily \#include $<$limits.\+h$>$}\\*
@@ -88,6 +93,8 @@ char $\ast$ {\bfseries deuxpt}\hypertarget{abr_8h_af8c215c91485f4ab12fc54df84a87
 
 \subsection{Detailed Description}
 Fichier qui contient les structures et prototypes de l\textquotesingle{}arbre binaire. 
+
+
 
 \subsection{Macro Definition Documentation}
 \index{abr.\+h@{abr.\+h}!G\+A\+U\+C\+HE@{G\+A\+U\+C\+HE}}

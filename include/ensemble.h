@@ -1,7 +1,7 @@
 /**
  * \file ensemble.h
  *
- * Fichier qui définit la structure d'ensemble ordonné
+ * \brief Fichier qui définit la structure d'ensemble ordonné
  * et les prototypes des fonctions sur cette structure
  *
  */

@@ -1,6 +1,8 @@
 /**
  * \file ensemble.c
- * définition des fonctions pour la structure des ensembles ordonnées
+ *
+ * \brief Contient des fonctions pour la structure des ensembles ordonnées
+ *
  */
 
 #include "ensemble.h"
@@ -213,7 +215,7 @@ bool contains(OrderedSet os, int element)
         milieu = (debut + fin) / 2;
         if (milieu >= os->n_elt)
             return false;
-            
+
         eltMilieu = os->elements[milieu];
 
         if (eltMilieu == element)

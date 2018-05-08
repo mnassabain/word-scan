@@ -1,8 +1,8 @@
 /**
  * \file main.c
- * 
- * Fichier qui porte la fonction main du programme.
- * 
+ *
+ * \brief Fichier qui porte la fonction main du programme.
+ *
  */
 
 #include <stdio.h>

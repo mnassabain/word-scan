@@ -1,7 +1,8 @@
 /**
  * \file more.h
  *
- * Fichier qui contient des fonctions générales utiles
+ * \brief Fichier qui contient des les prototypes de fonctions générales utiles
+ *
  */
 
 #ifndef __MORE_H__

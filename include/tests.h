@@ -1,8 +1,8 @@
 /**
  * \file tests.h
- * 
- * Fichier qui contient les prototypes des fonctions de test
- * 
+ *
+ * \brief Fichier qui contient les prototypes des fonctions de test
+ *
  */
 
 #ifndef __TESTS_H__

@@ -1,7 +1,7 @@
 /**
  * \file test.c
  * 
- * Fichier qui lance un jeu de tests
+ * \brief Fichier qui lance un jeu de tests
  * 
  */
 

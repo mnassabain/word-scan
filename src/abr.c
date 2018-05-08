@@ -1,8 +1,8 @@
 /**
  * \file abr.c
  *
- * Fichier qui implémente les fonctions basiques pour la structure de l'arbre
- * binaire de recherche.
+ * \brief Fichier qui implémente les fonctions basiques pour la structure de
+ * l'arbre binaire de recherche.
  *
  */
 

@@ -1,10 +1,12 @@
 /**
  * \file arbeq.c
  *
- * Fichier qui implémente les fonctions d'équilibrage de l'arbre, les rotaions
- * et des calculs de hauteur. Il implémente aussi la fonction qui construit
- * l'arbre à partir d'un fichier et l'insertion dans un arbre binaire de
- * recherche équilibré, c'est à dire un AVL.
+ * \brief Fichier qui implémente les fonctions d'équilibrage de l'arbre,
+ * les rotaions et des calculs de hauteur.
+ *
+ * Il implémente aussi la fonction qui construit l'arbre à partir d'un fichier
+ * et l'insertion dans un arbre binaire de recherche équilibré, c'est à dire
+ * un AVL.
  *
  */
 
@@ -312,7 +314,7 @@ SearchTree construction_arbre(char * filename)
                    int new_char = buffer[k] + buffer[k + 1];
                    char char_c = transformer_utf8(new_char);
                    buffer[l++] = char_c;
-                   k += 2; 
+                   k += 2;
                }
             }
 
