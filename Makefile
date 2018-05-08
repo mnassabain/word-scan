@@ -29,6 +29,9 @@ test:
 coverage:
 	./bin/main -a > /dev/null
 	./bin/main -h texte/foo.txt > /dev/null
+	./bin/main -e texte/foo.txt > /dev/null
+	./bin/main -p texte/foo.txt > /dev/null
+	./bin/main -n texte/foo.txt > /dev/null
 	./bin/main -u texte/accents.txt >/dev/null
 	./bin/main 2> /dev/null || exit 0 && exit 1
 	@rm -f /tmp/projet2018$$

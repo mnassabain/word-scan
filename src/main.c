@@ -31,7 +31,7 @@ int main(int argc, char * const argv[])
 
     if (flag_A)
     {
-        printf("aide = uaeibfozebf\n");
+        aide();
         return 0;
     }
 

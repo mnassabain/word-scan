@@ -73,5 +73,8 @@ void interactif ();
 /** \brief Affiche le menu du mode interactif **/
 void menu();
 
+/** \brief Affiche le menu du mode interactif **/
+void aide();
+
 
 #endif
