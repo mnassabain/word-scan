@@ -26,8 +26,8 @@ test:
 	@mv *.gcda coverage/
 
 coverage:
-	./bin/main -t -u > /dev/null
-	./bin/main -a texte/foo.txt > /dev/null
+	./bin/main -t -u > /dev/null #coromp les fichiers gilbert.txt et result_lorem.txt
+	./bin/main -a > /dev/null
 	./bin/main -h texte/foo.txt > /dev/null
 	./bin/main -u texte/accents.txt >/dev/null
 	./bin/main 2> /dev/null || exit 0 && exit 1
@@ -49,4 +49,5 @@ clean:
 	-rm -f $(OPATH)*
 	-rm -f bin/$(TARGET)
 	-rm -f coverage/*
+	-rm -f gilbert.txt result_lorem.txt
 	-rm -f *.gc*

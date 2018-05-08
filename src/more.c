@@ -1,22 +1,26 @@
 /**
  * \file more.c
- * 
- * Fichier qui contient des fonction générales utiles 
- * 
+ *
+ * Fichier qui contient des fonction générales utiles
+ *
  */
 
 #include "more.h"
+#include "ensemble.h"
+#include "abr.h"
+#include "arbeq.h"
+#include "tests.h"
 
 /* =====    FONCTIONS    ===== */
 
 /**
  * \brief Fonction qui affiche les messages d'erreur
- * 
+ *
  * Fait appel à perror si nécessaire ou affiche le message d'erreur
- * 
+ *
  * \param syserr 1 si l'erreur change errno, 0 sinon
  * \param fmt Format d'affichage
- * 
+ *
  */
 noreturn void raler (int syserr, const char *fmt, ...)
 {
@@ -179,12 +183,12 @@ int comp(char *mot1, char *mot2)
 
 /**
  * \brief Traiter les argument donnée lors l'appel au programme
- * 
+ *
  * \param argc
  * \param argv
- * 
+ *
  * \return
- * 
+ *
  */
 char * traiter_arguments(int argc, char * const argv[])
 {
@@ -196,7 +200,7 @@ char * traiter_arguments(int argc, char * const argv[])
     }
 
     int opt;
-    while((opt = getopt(argc, argv, "aehput")) != -1)
+    while((opt = getopt(argc, argv, "aehputi")) != -1)
     {
         switch(opt)
         {
@@ -223,15 +227,99 @@ char * traiter_arguments(int argc, char * const argv[])
                 flag_T = true;
                 break;
 
+            case 'i':
+                flag_I = true;
+                break;
+
             default:
                 raler(0, "Option invalide");
         }
     }
 
-    if (argc - optind == 0 && (!flag_A && !flag_T))
+    if (argc - optind == 0 && (!flag_A && !flag_T &&!flag_I))
     {
         raler(0, "Usage: %s fichier", prog);
     }
 
     return argv[optind];
+}
+
+void menu()
+{
+    printf("Choisissez ce que vous voulez faire:\n");
+    printf("1. Créer un arbre à partir d'un fichier\n");
+    printf("2. Afficher l'arbre\n");
+    printf("3. Afficher la hauteur de l'arbre\n");
+    printf("4. Afficher la profondeur moyenne des noeuds de l'arbre\n");
+    printf("5. Supprimer l'arbre\n");
+    printf("q. Appuyez sur q pour quitter\n");
+}
+
+void interactif ()
+{
+    SearchTree st = initBinarySearchTree();
+    bool existTree = false;
+    printf("Mode interactif lancé.\n");
+    menu ();
+    char c = getchar();
+    if(c != '\n' && c != EOF)
+      {
+         int d;
+         while((d = getchar()) != '\n' && d != EOF);
+    }
+    while(c != 'q')
+    {
+        switch (c) {
+            case '1':
+                if (existTree)
+                {
+                    printf("\nVous ne pouvez pas créer d'arbre car vous en avez déjà un, veuillez supprimer le précédent.\n");
+                }
+                else
+                {
+                    printf("\nCréation de l'arbre.\n");
+                    st = construction_arbre("texte/foo.txt");
+                    existTree = true;
+                }
+                break;
+
+            case '2':
+                if (existTree)
+                {
+                    printf("\nAffichage de l'arbre:\n");
+                    printBinarySearchTree(st);
+                }
+                else
+                {
+                    printf("\nVous n'avez pas créé d'arbre, vous ne pouvez donc pas l'afficher.\n");
+                }
+                break;
+
+            case '3':
+                printf("\nHauteur de l'arbre: %d\n", getHeight(st));
+                break;
+
+            case '4':
+                printf("\nProfondeur moyenne des noeuds de l'arbre: %f\n", getAverageDepth(st));
+                break;
+
+            case '5':
+                printf("\nSuppression de l'arbre");
+                existTree = false;
+                freeBinarySearchTree(st);
+                break;
+
+            default:
+                printf("Option %c invalide, entrez une autre option.\n", c);
+        }
+        printf("\n");
+        menu ();
+        c = getchar();
+        if(c != '\n' && c != EOF)
+          {
+             int d;
+             while((d = getchar()) != '\n' && d != EOF);
+        }
+    }
+    return;
 }

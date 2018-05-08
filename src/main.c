@@ -19,6 +19,7 @@ bool flag_H = false;    // height
 bool flag_P = false;    // avgdepth
 bool flag_U = false;    // support UTF-8
 bool flag_T = false;    // lancement des jeux de test
+bool flag_I = false;    // mode interactif
 
 /* =====    PROTOTYPES    ===== */
 
@@ -37,6 +38,12 @@ int main(int argc, char * const argv[])
     if (flag_T)
     {
         tests();
+        return 0;
+    }
+
+    if (flag_I)
+    {
+        interactif();
         return 0;
     }
 
