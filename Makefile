@@ -17,16 +17,17 @@ vpath main bin
 
 .PHONY: default all clean tests coverage
 
-TESTS = test
+TESTS = test coverage
 
 all : $(TARGET) $(TESTS)
 
 test:
-	./bin/main -t
-	@mv *.gcda coverage/
+	./bin/main -t -u
+	#@mv *.gcda coverage/
 
 coverage:
-	./bin/main -t -u > /dev/null #coromp les fichiers gilbert.txt et result_lorem.txt
+	#./bin/main -t -u > /dev/null
+	#@rm gilbert.txt result_lorem.txt
 	./bin/main -a > /dev/null
 	./bin/main -h texte/foo.txt > /dev/null
 	./bin/main -u texte/accents.txt >/dev/null
