@@ -460,3 +460,8 @@ void interactif ()
     }
     return;
 }
+
+void aide()
+{
+    return;
+}
