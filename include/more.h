@@ -63,7 +63,8 @@ int comp(char * mot1, char * mot2);
 char * traiter_arguments(int argc, char * const argv[]);
 
 
-/** \brief Lance un mode interactif, qui permet de faire des recherches dans l'arbre **/
+/** \brief Lance un mode interactif, qui permet de faire des recherches
+ * dans l'arbre **/
 void interactif ();
 
 

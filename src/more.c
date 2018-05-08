@@ -253,6 +253,7 @@ char * traiter_arguments(int argc, char * const argv[])
 }
 
 
+/** \brief Affiche le menu pour le mode interactif **/
 void menu()
 {
     printf("Choisissez ce que vous voulez faire:\n");
@@ -265,6 +266,7 @@ void menu()
 }
 
 
+/** \brief Lancer et gérer le mode interactif **/
 void interactif ()
 {
     SearchTree st = initBinarySearchTree();

@@ -23,11 +23,8 @@ all : $(TARGET) $(TESTS)
 
 test:
 	./bin/main -t -u
-	#@mv *.gcda coverage/
 
 coverage:
-	#./bin/main -t -u > /dev/null
-	#@rm gilbert.txt result_lorem.txt
 	./bin/main -a > /dev/null
 	./bin/main -h texte/foo.txt > /dev/null
 	./bin/main -u texte/accents.txt >/dev/null

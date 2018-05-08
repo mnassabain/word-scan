@@ -50,7 +50,8 @@ void testOrderedSet()
     printOrderedSet(testOs);
 
     printf("L'ensemble a %d elements.\n", getNumberElt(testOs));
-    printf("L'ensemble contient t'il 10 ? %s\n", contains(testOs, 10) ? "oui" : "non");
+    printf("L'ensemble contient t'il 10 ? %s\n", 
+        contains(testOs, 10) ? "oui" : "non");
 
     //------------------
 
@@ -103,13 +104,15 @@ void testABR()
 
     printf("L'arbre contient %d mots differents\n", getNumberString(stFile));
     printf("L'arbre contient %d mots au total\n", getTotalNumberString(stFile));
-    printf("Profondeur moyenne des noeuds de l'arbre : %f\n", getAverageDepth(stFile));
+    printf("Profondeur moyenne des noeuds de l'arbre : %f\n", 
+        getAverageDepth(stFile));
 
     char *mots[3];
     mots[0] = "foo";
     mots[1] = "bar";
     OrderedSet cooccurences = findCooccurrences(stFile, mots, 2);
-    printf ("Les mots '%s' et '%s' apparaissent dans les phrases : ", mots[0], mots[1]);
+    printf ("Les mots '%s' et '%s' apparaissent dans les phrases : ", 
+        mots[0], mots[1]);
     printOrderedSet(cooccurences);
     freeOrderedSet(cooccurences);
 
@@ -117,7 +120,8 @@ void testABR()
     mots[1] = "foo";
     mots[2] = "grault";
     cooccurences = findCooccurrences(stFile, mots, 3);
-    printf ("Les mots '%s', '%s' et '%s' apparaissent dans les phrases : ", mots[0], mots[1], mots[2]);
+    printf ("Les mots '%s', '%s' et '%s' apparaissent dans les phrases : ", 
+        mots[0], mots[1], mots[2]);
     printOrderedSet(cooccurences);
     freeOrderedSet(cooccurences);
 
@@ -270,7 +274,8 @@ void testAVL ()
     bool b = isBalanced(stFile);
     printf("L'arbre est-il équilibré ? %s\n", (b) ? "oui" : "non");
     printf("La hauteur de l'arbre est %d.\n", getHeight(stFile));
-    printf("Profondeur moyenne des noeuds de l'arbre : %f\n", getAverageDepth(stFile));
+    printf("Profondeur moyenne des noeuds de l'arbre : %f\n", 
+        getAverageDepth(stFile));
 
     freeBinarySearchTree(stFile);
 ////////////////////////////////////////////////////////////////////////////////
