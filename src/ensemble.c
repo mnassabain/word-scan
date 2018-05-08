@@ -65,6 +65,8 @@ void freeOrderedSet(OrderedSet os)
  */
 int getNumberElt(OrderedSet os)
 {
+    if (os == NULL)
+        return 0;
     return os->n_elt;
 }
 
@@ -197,15 +199,22 @@ OrderedSet insertFin(OrderedSet os, int element)
  */
 bool contains(OrderedSet os, int element)
 {
+    if (os == NULL || os->n_elt == 0)
+        return false;
+
     /** Algorithme de recherche dichotomique **/
     int debut   = 0;
     int fin     = os->n_elt;
+    int milieu = 0, eltMilieu;
     bool trouve = false;
 
     while (!trouve)
     {
-        int milieu = (debut + fin) / 2;
-        int eltMilieu = os->elements[milieu];
+        milieu = (debut + fin) / 2;
+        if (milieu >= os->n_elt)
+            return false;
+            
+        eltMilieu = os->elements[milieu];
 
         if (eltMilieu == element)
         {
@@ -274,7 +283,7 @@ OrderedSet intersect(OrderedSet os1, OrderedSet os2)
     {
         return NULL;
     }
-    
+
     OrderedSet intersection = initOrderedSet();
 
     /** Détérminer l'ensemble plus petit pour le parcours linéaire **/
