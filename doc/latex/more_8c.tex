@@ -1,0 +1,195 @@
+\hypertarget{more_8c}{}\section{src/more.c File Reference}
+\label{more_8c}\index{src/more.\+c@{src/more.\+c}}
+{\ttfamily \#include \char`\"{}more.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}ensemble.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}abr.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}arbeq.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tests.\+h\char`\"{}}\\*
+Include dependency graph for more.\+c\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+noreturn void \hyperlink{more_8c_a1ac9e42df48c7f255d8f1f7eaaa9130b}{raler} (int syserr, const char $\ast$fmt,...)
+\begin{DoxyCompactList}\small\item\em Fonction qui affiche les messages d\textquotesingle{}erreur. \end{DoxyCompactList}\item 
+char \hyperlink{more_8c_a896c1f7484d8e3082b4d1dd8567654c2}{transformer\+\_\+utf8} (int c)
+\begin{DoxyCompactList}\small\item\em Enlève l\textquotesingle{}accent de la lettre. \end{DoxyCompactList}\item 
+bool \hyperlink{more_8c_abda72d7cef08efcb3b0c180e048b497b}{contient} (char x, char $\ast$mot)
+\begin{DoxyCompactList}\small\item\em Teste si un mot contient un caractère. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{more_8c_aaedcdd3d47ea89b27adfac5052e3ca9f}{int\+\_\+to\+\_\+string} (int nombre)
+\begin{DoxyCompactList}\small\item\em Fonction interne\+: transforme un entier en string (char $\ast$) \end{DoxyCompactList}\item 
+int \hyperlink{more_8c_a011464173a74592ad73223b37ad2d245}{comp} (char $\ast$mot1, char $\ast$mot2)
+\begin{DoxyCompactList}\small\item\em Comparaison de deux chaînes de caractères. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{more_8c_a85154569863d29cf327a85eb13528bc9}{traiter\+\_\+arguments} (int argc, char $\ast$const argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Traiter les arguments donnée lors l\textquotesingle{}appel au programme. \end{DoxyCompactList}\item 
+void \hyperlink{more_8c_a2a0e843767aeea4f433a28b9c54f573a}{menu} ()
+\begin{DoxyCompactList}\small\item\em Affiche le menu pour le mode interactif. \end{DoxyCompactList}\item 
+void \hyperlink{more_8c_a0bf77c7bd6c263f9847a5dc35e8090c3}{interactif} ()
+\begin{DoxyCompactList}\small\item\em Lancer et gérer le mode interactif. \end{DoxyCompactList}\item 
+void \hyperlink{more_8c_aae10502a2b12de301b43545991dc1c9f}{aide} ()\hypertarget{more_8c_aae10502a2b12de301b43545991dc1c9f}{}\label{more_8c_aae10502a2b12de301b43545991dc1c9f}
+
+\begin{DoxyCompactList}\small\item\em Affiche l\textquotesingle{}aide. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Fichier qui contient des fonction générales utiles 
+
+\subsection{Function Documentation}
+\index{more.\+c@{more.\+c}!comp@{comp}}
+\index{comp@{comp}!more.\+c@{more.\+c}}
+\subsubsection[{\texorpdfstring{comp(char $\ast$mot1, char $\ast$mot2)}{comp(char *mot1, char *mot2)}}]{\setlength{\rightskip}{0pt plus 5cm}int comp (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{mot1, }
+\item[{char $\ast$}]{mot2}
+\end{DoxyParamCaption}
+)}\hypertarget{more_8c_a011464173a74592ad73223b37ad2d245}{}\label{more_8c_a011464173a74592ad73223b37ad2d245}
+
+
+Comparaison de deux chaînes de caractères. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mot1} & \\
+\hline
+{\em mot2} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Résultat de la comparaison. 
+\end{DoxyReturn}
+\index{more.\+c@{more.\+c}!contient@{contient}}
+\index{contient@{contient}!more.\+c@{more.\+c}}
+\subsubsection[{\texorpdfstring{contient(char x, char $\ast$mot)}{contient(char x, char *mot)}}]{\setlength{\rightskip}{0pt plus 5cm}bool contient (
+\begin{DoxyParamCaption}
+\item[{char}]{x, }
+\item[{char $\ast$}]{mot}
+\end{DoxyParamCaption}
+)}\hypertarget{more_8c_abda72d7cef08efcb3b0c180e048b497b}{}\label{more_8c_abda72d7cef08efcb3b0c180e048b497b}
+
+
+Teste si un mot contient un caractère. 
+
+Teste si le mot contient le caractère x.
+
+Teste si la chaine de caractères mot contient le caractère x 
+\begin{DoxyParams}{Parameters}
+{\em x} & un caractère \\
+\hline
+{\em mot} & une chaine de caractères\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Booléen qui vaut true si la chaine contient le caractère x, false sinon 
+\end{DoxyReturn}
+\index{more.\+c@{more.\+c}!int\+\_\+to\+\_\+string@{int\+\_\+to\+\_\+string}}
+\index{int\+\_\+to\+\_\+string@{int\+\_\+to\+\_\+string}!more.\+c@{more.\+c}}
+\subsubsection[{\texorpdfstring{int\+\_\+to\+\_\+string(int nombre)}{int_to_string(int nombre)}}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ int\+\_\+to\+\_\+string (
+\begin{DoxyParamCaption}
+\item[{int}]{nombre}
+\end{DoxyParamCaption}
+)}\hypertarget{more_8c_aaedcdd3d47ea89b27adfac5052e3ca9f}{}\label{more_8c_aaedcdd3d47ea89b27adfac5052e3ca9f}
+
+
+Fonction interne\+: transforme un entier en string (char $\ast$) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nombre} & Entier à transformer en string\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Le nombre sous forme de string 
+\end{DoxyReturn}
+\index{more.\+c@{more.\+c}!interactif@{interactif}}
+\index{interactif@{interactif}!more.\+c@{more.\+c}}
+\subsubsection[{\texorpdfstring{interactif()}{interactif()}}]{\setlength{\rightskip}{0pt plus 5cm}void interactif (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{more_8c_a0bf77c7bd6c263f9847a5dc35e8090c3}{}\label{more_8c_a0bf77c7bd6c263f9847a5dc35e8090c3}
+
+
+Lancer et gérer le mode interactif. 
+
+Lance un mode interactif, qui permet de faire des recherches dans l\textquotesingle{}arbre. \index{more.\+c@{more.\+c}!menu@{menu}}
+\index{menu@{menu}!more.\+c@{more.\+c}}
+\subsubsection[{\texorpdfstring{menu()}{menu()}}]{\setlength{\rightskip}{0pt plus 5cm}void menu (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{more_8c_a2a0e843767aeea4f433a28b9c54f573a}{}\label{more_8c_a2a0e843767aeea4f433a28b9c54f573a}
+
+
+Affiche le menu pour le mode interactif. 
+
+Affiche le menu du mode interactif. \index{more.\+c@{more.\+c}!raler@{raler}}
+\index{raler@{raler}!more.\+c@{more.\+c}}
+\subsubsection[{\texorpdfstring{raler(int syserr, const char $\ast$fmt,...)}{raler(int syserr, const char *fmt,...)}}]{\setlength{\rightskip}{0pt plus 5cm}noreturn void raler (
+\begin{DoxyParamCaption}
+\item[{int}]{syserr, }
+\item[{const char $\ast$}]{fmt, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\hypertarget{more_8c_a1ac9e42df48c7f255d8f1f7eaaa9130b}{}\label{more_8c_a1ac9e42df48c7f255d8f1f7eaaa9130b}
+
+
+Fonction qui affiche les messages d\textquotesingle{}erreur. 
+
+Gestion des messages d\textquotesingle{}erreur.
+
+Fait appel à perror si nécessaire ou affiche le message d\textquotesingle{}erreur
+
+
+\begin{DoxyParams}{Parameters}
+{\em syserr} & 1 si l\textquotesingle{}erreur change errno, 0 sinon \\
+\hline
+{\em fmt} & Format d\textquotesingle{}affichage \\
+\hline
+\end{DoxyParams}
+\index{more.\+c@{more.\+c}!traiter\+\_\+arguments@{traiter\+\_\+arguments}}
+\index{traiter\+\_\+arguments@{traiter\+\_\+arguments}!more.\+c@{more.\+c}}
+\subsubsection[{\texorpdfstring{traiter\+\_\+arguments(int argc, char $\ast$const argv[])}{traiter_arguments(int argc, char *const argv[])}}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ traiter\+\_\+arguments (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$const}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\hypertarget{more_8c_a85154569863d29cf327a85eb13528bc9}{}\label{more_8c_a85154569863d29cf327a85eb13528bc9}
+
+
+Traiter les arguments donnée lors l\textquotesingle{}appel au programme. 
+
+Traiter les arguments données lors l\textquotesingle{}appel au programme.
+
+Extrait le nom du fichier et active les flags.
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & nombre d\textquotesingle{}arguments \\
+\hline
+{\em argv} & liste d\textquotesingle{}arguments\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Le nom du fichier entrée par l\textquotesingle{}utilisateur 
+\end{DoxyReturn}
+\index{more.\+c@{more.\+c}!transformer\+\_\+utf8@{transformer\+\_\+utf8}}
+\index{transformer\+\_\+utf8@{transformer\+\_\+utf8}!more.\+c@{more.\+c}}
+\subsubsection[{\texorpdfstring{transformer\+\_\+utf8(int c)}{transformer_utf8(int c)}}]{\setlength{\rightskip}{0pt plus 5cm}char transformer\+\_\+utf8 (
+\begin{DoxyParamCaption}
+\item[{int}]{c}
+\end{DoxyParamCaption}
+)}\hypertarget{more_8c_a896c1f7484d8e3082b4d1dd8567654c2}{}\label{more_8c_a896c1f7484d8e3082b4d1dd8567654c2}
+
+
+Enlève l\textquotesingle{}accent de la lettre. 
+
+Transforme le short en char en enlèvant l\textquotesingle{}accent.
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & Lettre à transformer.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Caractère sans accent sous forme de char 
+\end{DoxyReturn}

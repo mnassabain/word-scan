@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['geteq',['getEq',['../arbeq_8c.html#aafda038399454ef7076bc5731f1c0316',1,'getEq(SearchTree st):&#160;arbeq.c'],['../arbeq_8h.html#aafda038399454ef7076bc5731f1c0316',1,'getEq(SearchTree st):&#160;arbeq.c']]],
-  ['getheight',['getHeight',['../arbeq_8c.html#ad8a028fa4d43a704adc9c50467d85e66',1,'getHeight(SearchTree st):&#160;arbeq.c'],['../arbeq_8h.html#ad8a028fa4d43a704adc9c50467d85e66',1,'getHeight(SearchTree st):&#160;arbeq.c']]],
-  ['getnumberelt',['getNumberElt',['../ensemble_8c.html#a67cdbe552e9de41b9187f6c5df5f944a',1,'getNumberElt(OrderedSet os):&#160;ensemble.c'],['../ensemble_8h.html#a67cdbe552e9de41b9187f6c5df5f944a',1,'getNumberElt(OrderedSet os):&#160;ensemble.c']]],
-  ['getnumberstring',['getNumberString',['../abr_8c.html#a6f23425df7acb231970ddeebb4a72338',1,'getNumberString(SearchTree st):&#160;abr.c'],['../abr_8h.html#a6f23425df7acb231970ddeebb4a72338',1,'getNumberString(SearchTree st):&#160;abr.c']]],
-  ['gettotalnumberstring',['getTotalNumberString',['../abr_8c.html#a8eb5575a4eb5f2c432a89fbceec746d1',1,'getTotalNumberString(SearchTree st):&#160;abr.c'],['../abr_8h.html#a8eb5575a4eb5f2c432a89fbceec746d1',1,'getTotalNumberString(SearchTree st):&#160;abr.c']]]
+  ['fg',['fg',['../structs__arbre.html#ac3fec87fd94a912facfdf4c0ffef5ea3',1,'s_arbre']]],
+  ['find',['find',['../abr_8c.html#a53aaae73c1d65cf477b1e41c926a308f',1,'find(SearchTree st, char *mot):&#160;abr.c'],['../abr_8h.html#a53aaae73c1d65cf477b1e41c926a308f',1,'find(SearchTree st, char *mot):&#160;abr.c']]],
+  ['findcooccurrences',['findCooccurrences',['../abr_8c.html#abaf566de66217dff3629ac4bfe07af59',1,'findCooccurrences(SearchTree st, char **mots, int nbMots):&#160;abr.c'],['../abr_8h.html#abaf566de66217dff3629ac4bfe07af59',1,'findCooccurrences(SearchTree st, char **mots, int nbMots):&#160;abr.c']]],
+  ['flag_5fu',['flag_U',['../arbeq_8h.html#a79f48d856f2b2dd2010bd69f7627de2d',1,'flag_U():&#160;main.c'],['../more_8h.html#a79f48d856f2b2dd2010bd69f7627de2d',1,'flag_U():&#160;main.c']]],
+  ['freebinarysearchtree',['freeBinarySearchTree',['../abr_8c.html#a6ad1d8fa5b86e8dca7313405f1c2868e',1,'freeBinarySearchTree(SearchTree st):&#160;abr.c'],['../abr_8h.html#a6ad1d8fa5b86e8dca7313405f1c2868e',1,'freeBinarySearchTree(SearchTree st):&#160;abr.c']]],
+  ['freeorderedset',['freeOrderedSet',['../ensemble_8c.html#acbbc519e6181b870ae0e957315a53d71',1,'freeOrderedSet(OrderedSet os):&#160;ensemble.c'],['../ensemble_8h.html#acbbc519e6181b870ae0e957315a53d71',1,'freeOrderedSet(OrderedSet os):&#160;ensemble.c']]]
 ];

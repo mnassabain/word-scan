@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['orderedset',['OrderedSet',['../ensemble_8h.html#aaaccd0a5a3eec060c270e18a1f546fcb',1,'ensemble.h']]]
+  ['string',['String',['../abr_8h.html#a2efe6d463d80744789f228f5dc4baa39',1,'abr.h']]]
 ];

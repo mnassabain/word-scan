@@ -16,8 +16,10 @@ bool \hyperlink{arbeq_8c_afd3e04613f2a5f65239d6e4ab228e080}{is\+Balanced} (\hype
 \begin{DoxyCompactList}\small\item\em Détermine si l\textquotesingle{}arbre est équilibré où non. \end{DoxyCompactList}\item 
 int \hyperlink{arbeq_8c_aafda038399454ef7076bc5731f1c0316}{get\+Eq} (\hyperlink{structs__arbre}{Search\+Tree} st)
 \begin{DoxyCompactList}\small\item\em Renvoie l\textquotesingle{}équilibre d\textquotesingle{}un noeud. \end{DoxyCompactList}\item 
-int \hyperlink{arbeq_8c_ad8a028fa4d43a704adc9c50467d85e66}{get\+Height} (\hyperlink{structs__arbre}{Search\+Tree} st)
-\begin{DoxyCompactList}\small\item\em Renvoie la hauteur de l\textquotesingle{}arbre. \end{DoxyCompactList}\item 
+double \hyperlink{arbeq_8c_aa164ab0e555fc46135317056f1867688}{get\+Average\+Depth} (\hyperlink{structs__arbre}{Search\+Tree} st)
+\begin{DoxyCompactList}\small\item\em La profondeur moyenne de chaque noeud de l\textquotesingle{}arbre. \end{DoxyCompactList}\item 
+double \hyperlink{arbeq_8c_a7c4d7bd90bc5263c28ab0063b7e85423}{lci} (\hyperlink{structs__arbre}{Search\+Tree} st, int hauteur)
+\begin{DoxyCompactList}\small\item\em Longueur de cheminement interne. \end{DoxyCompactList}\item 
 \hyperlink{structs__arbre}{Search\+Tree} \hyperlink{arbeq_8c_af27314774bdef731db078274084e74c2}{rotate\+Right} (\hyperlink{structs__arbre}{Search\+Tree} st)
 \begin{DoxyCompactList}\small\item\em Rotation droite. \end{DoxyCompactList}\item 
 \hyperlink{structs__arbre}{Search\+Tree} \hyperlink{arbeq_8c_a19a8cf465076e0cade01f0a3fa29bb03}{rotate\+Left} (\hyperlink{structs__arbre}{Search\+Tree} st)
@@ -28,10 +30,8 @@ int \hyperlink{arbeq_8c_ad8a028fa4d43a704adc9c50467d85e66}{get\+Height} (\hyperl
 \begin{DoxyCompactList}\small\item\em Rotation droite gauche. \end{DoxyCompactList}\item 
 \hyperlink{structs__arbre}{Search\+Tree} \hyperlink{arbeq_8c_aad1ee93c4ab33d6c110061db4aae7086}{balance} (\hyperlink{structs__arbre}{Search\+Tree} st)
 \begin{DoxyCompactList}\small\item\em Equilibre l\textquotesingle{}arbre. \end{DoxyCompactList}\item 
-bool \hyperlink{arbeq_8c_abda72d7cef08efcb3b0c180e048b497b}{contient} (char x, char $\ast$mot)
-\begin{DoxyCompactList}\small\item\em Teste si un mot contient un caractère. \end{DoxyCompactList}\item 
 \hyperlink{structs__arbre}{Search\+Tree} \hyperlink{arbeq_8c_a4ca956dd281715bec4e9aafb5a879d1a}{construction\+\_\+arbre} (char $\ast$filename)
-\begin{DoxyCompactList}\small\item\em Construction de l\textquotesingle{}arbre binaire de recherché équilibré \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Construction de l\textquotesingle{}arbre binaire de recherché équilibré à partir d\textquotesingle{}un fichier. \end{DoxyCompactList}\item 
 \hyperlink{structs__arbre}{Search\+Tree} \hyperlink{arbeq_8c_a76ede73310b617e8b0987e5dcf9f16cd}{insavl} (\hyperlink{structs__arbre}{Search\+Tree} st, char $\ast$mot, int index)
 \begin{DoxyCompactList}\small\item\em Insère un mot dans un A\+VL. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -68,7 +68,7 @@ Arbre équilibré
 )}\hypertarget{arbeq_8c_a4ca956dd281715bec4e9aafb5a879d1a}{}\label{arbeq_8c_a4ca956dd281715bec4e9aafb5a879d1a}
 
 
-Construction de l\textquotesingle{}arbre binaire de recherché équilibré 
+Construction de l\textquotesingle{}arbre binaire de recherché équilibré à partir d\textquotesingle{}un fichier. 
 
 Lit le fichier passé en argument et sépare chaque mot pour le stocker dans un arbre binaire de recherche équilibré. Un équilibrage est effectué après chaque insertion si nécéssaire. On considère qu\textquotesingle{}on mot a été trouvé quand on rencontre un des séparateurs suivants \+: \char`\"{},\+:;!?()\char`\"{} ou un espace. 
 \begin{DoxyParams}{Parameters}
@@ -84,27 +84,32 @@ Ouverture du fichier
 
 Initlisation de l\textquotesingle{}arbre de recherche
 
-Parcours du fichier \index{arbeq.\+c@{arbeq.\+c}!contient@{contient}}
-\index{contient@{contient}!arbeq.\+c@{arbeq.\+c}}
-\subsubsection[{\texorpdfstring{contient(char x, char $\ast$mot)}{contient(char x, char *mot)}}]{\setlength{\rightskip}{0pt plus 5cm}bool contient (
+Parcours du fichier
+
+Traitement des accents
+
+Pointeur sur le buffer
+
+Compteur pour la boucle \index{arbeq.\+c@{arbeq.\+c}!get\+Average\+Depth@{get\+Average\+Depth}}
+\index{get\+Average\+Depth@{get\+Average\+Depth}!arbeq.\+c@{arbeq.\+c}}
+\subsubsection[{\texorpdfstring{get\+Average\+Depth(\+Search\+Tree st)}{getAverageDepth(SearchTree st)}}]{\setlength{\rightskip}{0pt plus 5cm}double get\+Average\+Depth (
 \begin{DoxyParamCaption}
-\item[{char}]{x, }
-\item[{char $\ast$}]{mot}
+\item[{{\bf Search\+Tree}}]{st}
 \end{DoxyParamCaption}
-)}\hypertarget{arbeq_8c_abda72d7cef08efcb3b0c180e048b497b}{}\label{arbeq_8c_abda72d7cef08efcb3b0c180e048b497b}
+)}\hypertarget{arbeq_8c_aa164ab0e555fc46135317056f1867688}{}\label{arbeq_8c_aa164ab0e555fc46135317056f1867688}
 
 
-Teste si un mot contient un caractère. 
+La profondeur moyenne de chaque noeud de l\textquotesingle{}arbre. 
 
-Teste si la chaine de caractères mot contient le caractère x 
+Calcule la profondeur moyenne de chaque noeud en divisant la longeur de cheminement interne avec le nombre de noeuds.
+
+
 \begin{DoxyParams}{Parameters}
-{\em x} & un caractère \\
-\hline
-{\em mot} & une chaine de caractères\\
+{\em st} & Arbre binaire\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Booléen qui vaut true si la chaine contient le caractère x, false sinon 
+La profondeur moyenne de chaque noeud de l\textquotesingle{}arbre binaire 
 \end{DoxyReturn}
 \index{arbeq.\+c@{arbeq.\+c}!get\+Eq@{get\+Eq}}
 \index{get\+Eq@{get\+Eq}!arbeq.\+c@{arbeq.\+c}}
@@ -126,25 +131,6 @@ Renvoie le facteur d\textquotesingle{}équilibrage d\textquotesingle{}un noeud.
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Facteur d\textquotesingle{}équilibrage du noeud 
-\end{DoxyReturn}
-\index{arbeq.\+c@{arbeq.\+c}!get\+Height@{get\+Height}}
-\index{get\+Height@{get\+Height}!arbeq.\+c@{arbeq.\+c}}
-\subsubsection[{\texorpdfstring{get\+Height(\+Search\+Tree st)}{getHeight(SearchTree st)}}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Height (
-\begin{DoxyParamCaption}
-\item[{{\bf Search\+Tree}}]{st}
-\end{DoxyParamCaption}
-)}\hypertarget{arbeq_8c_ad8a028fa4d43a704adc9c50467d85e66}{}\label{arbeq_8c_ad8a028fa4d43a704adc9c50467d85e66}
-
-
-Renvoie la hauteur de l\textquotesingle{}arbre. 
-
-Renvoie la hauteur de l\textquotesingle{}arbre passé en argument. 
-\begin{DoxyParams}{Parameters}
-{\em st} & A\+VL\\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Hauteur de l\textquotesingle{}arbre 
 \end{DoxyReturn}
 \index{arbeq.\+c@{arbeq.\+c}!insavl@{insavl}}
 \index{insavl@{insavl}!arbeq.\+c@{arbeq.\+c}}
@@ -191,6 +177,30 @@ Vérifie si pour chacun des noeuds de l\textquotesingle{}arbre, le facteur d\tex
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Booléen qui vaut true si l\textquotesingle{}arbre est équilibré, false sinon 
+\end{DoxyReturn}
+\index{arbeq.\+c@{arbeq.\+c}!lci@{lci}}
+\index{lci@{lci}!arbeq.\+c@{arbeq.\+c}}
+\subsubsection[{\texorpdfstring{lci(\+Search\+Tree st, int hauteur)}{lci(SearchTree st, int hauteur)}}]{\setlength{\rightskip}{0pt plus 5cm}double lci (
+\begin{DoxyParamCaption}
+\item[{{\bf Search\+Tree}}]{st, }
+\item[{int}]{hauteur}
+\end{DoxyParamCaption}
+)}\hypertarget{arbeq_8c_a7c4d7bd90bc5263c28ab0063b7e85423}{}\label{arbeq_8c_a7c4d7bd90bc5263c28ab0063b7e85423}
+
+
+Longueur de cheminement interne. 
+
+Calcule la longueur de cheminement interne de l\textquotesingle{}arbre passé en argument.
+
+
+\begin{DoxyParams}{Parameters}
+{\em st} & A\+VL \\
+\hline
+{\em hauteur} & La hauteur du noeud courrant\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Longueur de cheminement interne de l\textquotesingle{}arbre 
 \end{DoxyReturn}
 \index{arbeq.\+c@{arbeq.\+c}!rotate\+Left@{rotate\+Left}}
 \index{rotate\+Left@{rotate\+Left}!arbeq.\+c@{arbeq.\+c}}

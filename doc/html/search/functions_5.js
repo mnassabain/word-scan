@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['initbinarysearchtree',['initBinarySearchTree',['../abr_8c.html#a4414a6bb3be9f626aa0fe423b35c6981',1,'initBinarySearchTree():&#160;abr.c'],['../abr_8h.html#a4414a6bb3be9f626aa0fe423b35c6981',1,'initBinarySearchTree():&#160;abr.c']]],
-  ['initorderedset',['initOrderedSet',['../ensemble_8c.html#ad05e82c19615c4726ce49ebcd14f1b20',1,'initOrderedSet():&#160;ensemble.c'],['../ensemble_8h.html#ad05e82c19615c4726ce49ebcd14f1b20',1,'initOrderedSet():&#160;ensemble.c']]],
-  ['insavl',['insavl',['../arbeq_8c.html#a76ede73310b617e8b0987e5dcf9f16cd',1,'insavl(SearchTree st, char *mot, int index):&#160;arbeq.c'],['../arbeq_8h.html#a76ede73310b617e8b0987e5dcf9f16cd',1,'insavl(SearchTree st, char *mot, int index):&#160;arbeq.c']]],
-  ['insertvalue',['insertValue',['../ensemble_8c.html#abcfc1c401b5fc05e502db8a84f324563',1,'insertValue(OrderedSet os, int element):&#160;ensemble.c'],['../ensemble_8h.html#abcfc1c401b5fc05e502db8a84f324563',1,'insertValue(OrderedSet os, int element):&#160;ensemble.c']]],
-  ['intersect',['intersect',['../ensemble_8c.html#a686bb865332759a8eda3e2347ee6c21c',1,'intersect(OrderedSet os1, OrderedSet os2):&#160;ensemble.c'],['../ensemble_8h.html#a686bb865332759a8eda3e2347ee6c21c',1,'intersect(OrderedSet os1, OrderedSet os2):&#160;ensemble.c']]],
-  ['isbalanced',['isBalanced',['../arbeq_8c.html#afd3e04613f2a5f65239d6e4ab228e080',1,'isBalanced(SearchTree st):&#160;arbeq.c'],['../arbeq_8h.html#afd3e04613f2a5f65239d6e4ab228e080',1,'isBalanced(SearchTree st):&#160;arbeq.c']]]
+  ['getaveragedepth',['getAverageDepth',['../arbeq_8c.html#aa164ab0e555fc46135317056f1867688',1,'getAverageDepth(SearchTree st):&#160;arbeq.c'],['../arbeq_8h.html#aa164ab0e555fc46135317056f1867688',1,'getAverageDepth(SearchTree st):&#160;arbeq.c']]],
+  ['geteq',['getEq',['../arbeq_8c.html#aafda038399454ef7076bc5731f1c0316',1,'getEq(SearchTree st):&#160;arbeq.c'],['../arbeq_8h.html#aafda038399454ef7076bc5731f1c0316',1,'getEq(SearchTree st):&#160;arbeq.c']]],
+  ['getheight',['getHeight',['../abr_8c.html#ad8a028fa4d43a704adc9c50467d85e66',1,'getHeight(SearchTree st):&#160;abr.c'],['../abr_8h.html#ad8a028fa4d43a704adc9c50467d85e66',1,'getHeight(SearchTree st):&#160;abr.c']]],
+  ['getnumberelt',['getNumberElt',['../ensemble_8c.html#a67cdbe552e9de41b9187f6c5df5f944a',1,'getNumberElt(OrderedSet os):&#160;ensemble.c'],['../ensemble_8h.html#a67cdbe552e9de41b9187f6c5df5f944a',1,'getNumberElt(OrderedSet os):&#160;ensemble.c']]],
+  ['getnumberstring',['getNumberString',['../abr_8c.html#a6f23425df7acb231970ddeebb4a72338',1,'getNumberString(SearchTree st):&#160;abr.c'],['../abr_8h.html#a6f23425df7acb231970ddeebb4a72338',1,'getNumberString(SearchTree st):&#160;abr.c']]],
+  ['gettotalnumberstring',['getTotalNumberString',['../abr_8c.html#a8eb5575a4eb5f2c432a89fbceec746d1',1,'getTotalNumberString(SearchTree st):&#160;abr.c'],['../abr_8h.html#a8eb5575a4eb5f2c432a89fbceec746d1',1,'getTotalNumberString(SearchTree st):&#160;abr.c']]]
 ];

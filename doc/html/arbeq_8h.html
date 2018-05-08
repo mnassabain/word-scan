@@ -85,14 +85,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">arbeq.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;stdbool.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="abr_8h_source.html">abr.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="more_8h_source.html">more.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for arbeq.h:</div>
 <div class="dyncontent">
@@ -108,23 +109,17 @@ This graph shows which files directly or indirectly include this file:</div>
 </div>
 <p><a href="arbeq_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:aff9931d7524c88e07743af6535b20761"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aff9931d7524c88e07743af6535b20761"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>MAX</b>(X,  Y)&#160;&#160;&#160;(((X) &gt; (Y)) ? (X) : (Y))</td></tr>
-<tr class="separator:aff9931d7524c88e07743af6535b20761"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:afd3e04613f2a5f65239d6e4ab228e080"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arbeq_8h.html#afd3e04613f2a5f65239d6e4ab228e080">isBalanced</a> (<a class="el" href="structs__arbre.html">SearchTree</a> st)</td></tr>
 <tr class="memdesc:afd3e04613f2a5f65239d6e4ab228e080"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détermine si l'arbre est équilibré où non.  <a href="#afd3e04613f2a5f65239d6e4ab228e080">More...</a><br /></td></tr>
 <tr class="separator:afd3e04613f2a5f65239d6e4ab228e080"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8a028fa4d43a704adc9c50467d85e66"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arbeq_8h.html#ad8a028fa4d43a704adc9c50467d85e66">getHeight</a> (<a class="el" href="structs__arbre.html">SearchTree</a> st)</td></tr>
-<tr class="memdesc:ad8a028fa4d43a704adc9c50467d85e66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie la hauteur de l'arbre.  <a href="#ad8a028fa4d43a704adc9c50467d85e66">More...</a><br /></td></tr>
-<tr class="separator:ad8a028fa4d43a704adc9c50467d85e66"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c05276a0ec9044bec2b8db0da06f549"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0c05276a0ec9044bec2b8db0da06f549"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getAverageDepth</b> (<a class="el" href="structs__arbre.html">SearchTree</a> st)</td></tr>
-<tr class="separator:a0c05276a0ec9044bec2b8db0da06f549"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa164ab0e555fc46135317056f1867688"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arbeq_8h.html#aa164ab0e555fc46135317056f1867688">getAverageDepth</a> (<a class="el" href="structs__arbre.html">SearchTree</a> st)</td></tr>
+<tr class="memdesc:aa164ab0e555fc46135317056f1867688"><td class="mdescLeft">&#160;</td><td class="mdescRight">La profondeur moyenne de chaque noeud de l'arbre.  <a href="#aa164ab0e555fc46135317056f1867688">More...</a><br /></td></tr>
+<tr class="separator:aa164ab0e555fc46135317056f1867688"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c4d7bd90bc5263c28ab0063b7e85423"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arbeq_8h.html#a7c4d7bd90bc5263c28ab0063b7e85423">lci</a> (<a class="el" href="structs__arbre.html">SearchTree</a> st, int hauteur)</td></tr>
+<tr class="memdesc:a7c4d7bd90bc5263c28ab0063b7e85423"><td class="mdescLeft">&#160;</td><td class="mdescRight">Longueur de cheminement interne.  <a href="#a7c4d7bd90bc5263c28ab0063b7e85423">More...</a><br /></td></tr>
+<tr class="separator:a7c4d7bd90bc5263c28ab0063b7e85423"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19a8cf465076e0cade01f0a3fa29bb03"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structs__arbre.html">SearchTree</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arbeq_8h.html#a19a8cf465076e0cade01f0a3fa29bb03">rotateLeft</a> (<a class="el" href="structs__arbre.html">SearchTree</a> st)</td></tr>
 <tr class="memdesc:a19a8cf465076e0cade01f0a3fa29bb03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotation gauche.  <a href="#a19a8cf465076e0cade01f0a3fa29bb03">More...</a><br /></td></tr>
 <tr class="separator:a19a8cf465076e0cade01f0a3fa29bb03"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -144,11 +139,16 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>getAverageDepth</b> (<
 <tr class="memdesc:aafda038399454ef7076bc5731f1c0316"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie l'équilibre d'un noeud.  <a href="#aafda038399454ef7076bc5731f1c0316">More...</a><br /></td></tr>
 <tr class="separator:aafda038399454ef7076bc5731f1c0316"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ca956dd281715bec4e9aafb5a879d1a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structs__arbre.html">SearchTree</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arbeq_8h.html#a4ca956dd281715bec4e9aafb5a879d1a">construction_arbre</a> (char *filename)</td></tr>
-<tr class="memdesc:a4ca956dd281715bec4e9aafb5a879d1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construction de l'arbre binaire de recherché équilibré  <a href="#a4ca956dd281715bec4e9aafb5a879d1a">More...</a><br /></td></tr>
+<tr class="memdesc:a4ca956dd281715bec4e9aafb5a879d1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construction de l'arbre binaire de recherché équilibré à partir d'un fichier.  <a href="#a4ca956dd281715bec4e9aafb5a879d1a">More...</a><br /></td></tr>
 <tr class="separator:a4ca956dd281715bec4e9aafb5a879d1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76ede73310b617e8b0987e5dcf9f16cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structs__arbre.html">SearchTree</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arbeq_8h.html#a76ede73310b617e8b0987e5dcf9f16cd">insavl</a> (<a class="el" href="structs__arbre.html">SearchTree</a> st, char *mot, int index)</td></tr>
 <tr class="memdesc:a76ede73310b617e8b0987e5dcf9f16cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insère un mot dans un AVL.  <a href="#a76ede73310b617e8b0987e5dcf9f16cd">More...</a><br /></td></tr>
 <tr class="separator:a76ede73310b617e8b0987e5dcf9f16cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a79f48d856f2b2dd2010bd69f7627de2d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arbeq_8h.html#a79f48d856f2b2dd2010bd69f7627de2d">flag_U</a></td></tr>
+<tr class="separator:a79f48d856f2b2dd2010bd69f7627de2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Fichier qui contient les structures et prototypes de l'arbre binaire de recherche équilibré. </p>
@@ -192,7 +192,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>getAverageDepth</b> (<
       </table>
 </div><div class="memdoc">
 
-<p>Construction de l'arbre binaire de recherché équilibré </p>
+<p>Construction de l'arbre binaire de recherché équilibré à partir d'un fichier. </p>
 <p>Lit le fichier passé en argument et sépare chaque mot pour le stocker dans un arbre binaire de recherche équilibré. Un équilibrage est effectué après chaque insertion si nécéssaire. On considère qu'on mot a été trouvé quand on rencontre un des séparateurs suivants : ",:;!?()" ou un espace. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">filename</td><td>un nom de fichier</td></tr>
@@ -203,7 +203,36 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>getAverageDepth</b> (<
 <p>Séparateurs utilisés lors de la lecture du fichier</p>
 <p>Ouverture du fichier</p>
 <p>Initlisation de l'arbre de recherche</p>
-<p>Parcours du fichier </p>
+<p>Parcours du fichier</p>
+<p>Traitement des accents</p>
+<p>Pointeur sur le buffer</p>
+<p>Compteur pour la boucle </p>
+
+</div>
+</div>
+<a class="anchor" id="aa164ab0e555fc46135317056f1867688"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double getAverageDepth </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structs__arbre.html">SearchTree</a>&#160;</td>
+          <td class="paramname"><em>st</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>La profondeur moyenne de chaque noeud de l'arbre. </p>
+<p>Calcule la profondeur moyenne de chaque noeud en divisant la longeur de cheminement interne avec le nombre de noeuds.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">st</td><td>Arbre binaire</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>La profondeur moyenne de chaque noeud de l'arbre binaire </dd></dl>
 
 </div>
 </div>
@@ -230,31 +259,6 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>getAverageDepth</b> (<
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Facteur d'équilibrage du noeud </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ad8a028fa4d43a704adc9c50467d85e66"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int getHeight </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structs__arbre.html">SearchTree</a>&#160;</td>
-          <td class="paramname"><em>st</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Renvoie la hauteur de l'arbre. </p>
-<p>Renvoie la hauteur de l'arbre passé en argument. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">st</td><td>AVL</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Hauteur de l'arbre </dd></dl>
 
 </div>
 </div>
@@ -324,6 +328,43 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>getAverageDepth</b> (<
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Booléen qui vaut true si l'arbre est équilibré, false sinon </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a7c4d7bd90bc5263c28ab0063b7e85423"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double lci </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structs__arbre.html">SearchTree</a>&#160;</td>
+          <td class="paramname"><em>st</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>hauteur</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Longueur de cheminement interne. </p>
+<p>Calcule la longueur de cheminement interne de l'arbre passé en argument.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">st</td><td>AVL </td></tr>
+    <tr><td class="paramname">hauteur</td><td>La hauteur du noeud courrant</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Longueur de cheminement interne de l'arbre </dd></dl>
 
 </div>
 </div>
@@ -428,6 +469,20 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>getAverageDepth</b> (<
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Arbre ayant subit une rotation double droite-gauche </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a class="anchor" id="a79f48d856f2b2dd2010bd69f7627de2d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool flag_U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Flag qui indique si le mode UTF-8 est activé </p>
 
 </div>
 </div>

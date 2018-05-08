@@ -3,21 +3,6 @@
 {\ttfamily \#include \char`\"{}abr.\+h\char`\"{}}\\*
 Include dependency graph for abr.\+c\+:
 % FIG 0
-\subsection*{Macros}
-\begin{DoxyCompactItemize}
-\item 
-\#define {\bfseries G\+A\+U\+C\+HE}~1\hypertarget{abr_8c_af07f8bf974fdf76afd17f2b97ac15a22}{}\label{abr_8c_af07f8bf974fdf76afd17f2b97ac15a22}
-
-\item 
-\#define {\bfseries D\+R\+O\+IT}~2\hypertarget{abr_8c_a00a8afea7645817f734d4a704fc31cf8}{}\label{abr_8c_a00a8afea7645817f734d4a704fc31cf8}
-
-\end{DoxyCompactItemize}
-\subsection*{Typedefs}
-\begin{DoxyCompactItemize}
-\item 
-typedef char $\ast$ {\bfseries String}\hypertarget{abr_8c_a2efe6d463d80744789f228f5dc4baa39}{}\label{abr_8c_a2efe6d463d80744789f228f5dc4baa39}
-
-\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -25,72 +10,32 @@ typedef char $\ast$ {\bfseries String}\hypertarget{abr_8c_a2efe6d463d80744789f22
 \begin{DoxyCompactList}\small\item\em Intialise un arbre binaire de recherche. \end{DoxyCompactList}\item 
 void \hyperlink{abr_8c_a6ad1d8fa5b86e8dca7313405f1c2868e}{free\+Binary\+Search\+Tree} (\hyperlink{structs__arbre}{Search\+Tree} st)
 \begin{DoxyCompactList}\small\item\em Libère un arbre binaire de recherche. \end{DoxyCompactList}\item 
+int \hyperlink{abr_8c_ad8a028fa4d43a704adc9c50467d85e66}{get\+Height} (\hyperlink{structs__arbre}{Search\+Tree} st)
+\begin{DoxyCompactList}\small\item\em Renvoie la hauteur de l\textquotesingle{}arbre. \end{DoxyCompactList}\item 
 int \hyperlink{abr_8c_a6f23425df7acb231970ddeebb4a72338}{get\+Number\+String} (\hyperlink{structs__arbre}{Search\+Tree} st)
 \begin{DoxyCompactList}\small\item\em Trouver le nombre de mots dans l\textquotesingle{}arbre (noeuds) \end{DoxyCompactList}\item 
 int \hyperlink{abr_8c_a8eb5575a4eb5f2c432a89fbceec746d1}{get\+Total\+Number\+String} (\hyperlink{structs__arbre}{Search\+Tree} st)
 \begin{DoxyCompactList}\small\item\em Cherche le nombre de mots total dans l\textquotesingle{}arbre. \end{DoxyCompactList}\item 
-int \hyperlink{abr_8c_a011464173a74592ad73223b37ad2d245}{comp} (char $\ast$mot1, char $\ast$mot2)
-\begin{DoxyCompactList}\small\item\em Comparaison de deux chaînes de caractères. \end{DoxyCompactList}\item 
-\hyperlink{ensemble_8h_aaaccd0a5a3eec060c270e18a1f546fcb}{Ordered\+Set} \hyperlink{abr_8c_a53aaae73c1d65cf477b1e41c926a308f}{find} (\hyperlink{structs__arbre}{Search\+Tree} st, char $\ast$mot)
+\hyperlink{structs__set}{Ordered\+Set} \hyperlink{abr_8c_a53aaae73c1d65cf477b1e41c926a308f}{find} (\hyperlink{structs__arbre}{Search\+Tree} st, char $\ast$mot)
 \begin{DoxyCompactList}\small\item\em Cherche un mot dans un arbre binaire de recherche. \end{DoxyCompactList}\item 
-\hyperlink{ensemble_8h_aaaccd0a5a3eec060c270e18a1f546fcb}{Ordered\+Set} \hyperlink{abr_8c_abaf566de66217dff3629ac4bfe07af59}{find\+Cooccurrences} (\hyperlink{structs__arbre}{Search\+Tree} st, char $\ast$$\ast$mots, int nb\+Mots)
+\hyperlink{structs__set}{Ordered\+Set} \hyperlink{abr_8c_abaf566de66217dff3629ac4bfe07af59}{find\+Cooccurrences} (\hyperlink{structs__arbre}{Search\+Tree} st, char $\ast$$\ast$mots, int nb\+Mots)
 \begin{DoxyCompactList}\small\item\em Cherche les positions communes des mots données en argument. \end{DoxyCompactList}\item 
 bool \hyperlink{abr_8c_a58c93e14d13eab6db8b5ec6dbe068847}{vide} (\hyperlink{structs__arbre}{Search\+Tree} st)
 \begin{DoxyCompactList}\small\item\em Teste si l\textquotesingle{}arbre binaire est vide. \end{DoxyCompactList}\item 
 void \hyperlink{abr_8c_a697cd9722461aeacd7ba990a59d8eacf}{print\+Binary\+Search\+Tree} (\hyperlink{structs__arbre}{Search\+Tree} st)
 \begin{DoxyCompactList}\small\item\em Affiche l\textquotesingle{}arbre binaire donné \end{DoxyCompactList}\item 
-void \hyperlink{abr_8c_a330b7d1ad394a86fbceceae30888dfd2}{print\+Binary\+Search\+Tree\+Aux} (\hyperlink{structs__arbre}{Search\+Tree} st, int niveau, int position, String $\ast$$\ast$display, int $\ast$ligne)
+void \hyperlink{abr_8c_a759368acf8e85acb8b720fff6e5cd738}{print\+Binary\+Search\+Tree\+Aux} (\hyperlink{structs__arbre}{Search\+Tree} st, int niveau, int position, int $\ast$ligne)
 \begin{DoxyCompactList}\small\item\em Fonction auxiliaire de l\textquotesingle{}affichage. \end{DoxyCompactList}\item 
 void \hyperlink{abr_8c_a92241cf9e96ba3bd8b83dffa7a303d66}{print\+Equilibre} (\hyperlink{structs__arbre}{Search\+Tree} st, int niveau, int pos)
 \begin{DoxyCompactList}\small\item\em Affiche le mot et l\textquotesingle{}équilibre. \end{DoxyCompactList}\item 
-\hyperlink{structs__arbre}{Search\+Tree} \hyperlink{abr_8c_a42d0d849b5e10660e9cf9c4ac7fe4b1a}{enraciner} (char $\ast$mot, \hyperlink{ensemble_8h_aaaccd0a5a3eec060c270e18a1f546fcb}{Ordered\+Set} positions, \hyperlink{structs__arbre}{Search\+Tree} st1, \hyperlink{structs__arbre}{Search\+Tree} st2)
+\hyperlink{structs__arbre}{Search\+Tree} \hyperlink{abr_8c_a42d0d849b5e10660e9cf9c4ac7fe4b1a}{enraciner} (char $\ast$mot, \hyperlink{structs__set}{Ordered\+Set} positions, \hyperlink{structs__arbre}{Search\+Tree} st1, \hyperlink{structs__arbre}{Search\+Tree} st2)
 \begin{DoxyCompactList}\small\item\em Constructeur de base de l\textquotesingle{}arbre binaire. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Variables}
-\begin{DoxyCompactItemize}
-\item 
-char $\ast$ {\bfseries slash}\hypertarget{abr_8c_a9cba98a0a07868e8399c1092629d6965}{}\label{abr_8c_a9cba98a0a07868e8399c1092629d6965}
-
-\item 
-char $\ast$ {\bfseries backslash}\hypertarget{abr_8c_a27b42c12c598b8cbbde91ac3b4554f39}{}\label{abr_8c_a27b42c12c598b8cbbde91ac3b4554f39}
-
-\item 
-char $\ast$ {\bfseries tiret}\hypertarget{abr_8c_a05ebe8b5e238bfb54c5f0dbf5e95dda8}{}\label{abr_8c_a05ebe8b5e238bfb54c5f0dbf5e95dda8}
-
-\item 
-char $\ast$ {\bfseries lignel}\hypertarget{abr_8c_a2b72e21b9d9a07de5066ecb8e38fc0eb}{}\label{abr_8c_a2b72e21b9d9a07de5066ecb8e38fc0eb}
-
-\item 
-char $\ast$ {\bfseries deuxpt}\hypertarget{abr_8c_af8c215c91485f4ab12fc54df84a87e22}{}\label{abr_8c_af8c215c91485f4ab12fc54df84a87e22}
-
-\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 Fichier qui implémente les fonctions basiques pour la structure de l\textquotesingle{}arbre binaire de recherche. 
 
 \subsection{Function Documentation}
-\index{abr.\+c@{abr.\+c}!comp@{comp}}
-\index{comp@{comp}!abr.\+c@{abr.\+c}}
-\subsubsection[{\texorpdfstring{comp(char $\ast$mot1, char $\ast$mot2)}{comp(char *mot1, char *mot2)}}]{\setlength{\rightskip}{0pt plus 5cm}int comp (
-\begin{DoxyParamCaption}
-\item[{char $\ast$}]{mot1, }
-\item[{char $\ast$}]{mot2}
-\end{DoxyParamCaption}
-)}\hypertarget{abr_8c_a011464173a74592ad73223b37ad2d245}{}\label{abr_8c_a011464173a74592ad73223b37ad2d245}
-
-
-Comparaison de deux chaînes de caractères. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em mot1} & \\
-\hline
-{\em mot2} & \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Résultat de la comparaison. 
-\end{DoxyReturn}
 \index{abr.\+c@{abr.\+c}!enraciner@{enraciner}}
 \index{enraciner@{enraciner}!abr.\+c@{abr.\+c}}
 \subsubsection[{\texorpdfstring{enraciner(char $\ast$mot, Ordered\+Set positions, Search\+Tree st1, Search\+Tree st2)}{enraciner(char *mot, OrderedSet positions, SearchTree st1, SearchTree st2)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Search\+Tree} enraciner (
@@ -190,6 +135,25 @@ Parcours l\textquotesingle{}arbre binaire et ses fils pour libérer la mémoire 
 {\em st} & Arbre binaire à libérer. \\
 \hline
 \end{DoxyParams}
+\index{abr.\+c@{abr.\+c}!get\+Height@{get\+Height}}
+\index{get\+Height@{get\+Height}!abr.\+c@{abr.\+c}}
+\subsubsection[{\texorpdfstring{get\+Height(\+Search\+Tree st)}{getHeight(SearchTree st)}}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Height (
+\begin{DoxyParamCaption}
+\item[{{\bf Search\+Tree}}]{st}
+\end{DoxyParamCaption}
+)}\hypertarget{abr_8c_ad8a028fa4d43a704adc9c50467d85e66}{}\label{abr_8c_ad8a028fa4d43a704adc9c50467d85e66}
+
+
+Renvoie la hauteur de l\textquotesingle{}arbre. 
+
+Renvoie la hauteur de l\textquotesingle{}arbre passé en argument. 
+\begin{DoxyParams}{Parameters}
+{\em st} & A\+VL\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Hauteur de l\textquotesingle{}arbre 
+\end{DoxyReturn}
 \index{abr.\+c@{abr.\+c}!get\+Number\+String@{get\+Number\+String}}
 \index{get\+Number\+String@{get\+Number\+String}!abr.\+c@{abr.\+c}}
 \subsubsection[{\texorpdfstring{get\+Number\+String(\+Search\+Tree st)}{getNumberString(SearchTree st)}}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Number\+String (
@@ -243,6 +207,8 @@ Nombre de mots total dans l\textquotesingle{}arbre binaire
 
 Intialise un arbre binaire de recherche. 
 
+Initialise un arbre binaire de recherche.
+
 \begin{DoxyReturn}{Returns}
 Arbre binaire vide. 
 \end{DoxyReturn}
@@ -264,19 +230,24 @@ Parcours infixé de l\textquotesingle{}arbre binaire. Crée un tableau de deux d
 {\em st} & Arbre binaire à afficher \\
 \hline
 \end{DoxyParams}
-liens
+Tableau de deux dimensions de string, on le remplir avec les chaînes de caractères à afficher
 
-affichage \index{abr.\+c@{abr.\+c}!print\+Binary\+Search\+Tree\+Aux@{print\+Binary\+Search\+Tree\+Aux}}
+Un tableau qui va stocker les pointeurs qu\textquotesingle{}on obtient avec to\+\_\+string(ensemble) pour les libérer ensuite.
+
+Relire les noeuds
+
+Afficher le display
+
+Libérer la mémoire \index{abr.\+c@{abr.\+c}!print\+Binary\+Search\+Tree\+Aux@{print\+Binary\+Search\+Tree\+Aux}}
 \index{print\+Binary\+Search\+Tree\+Aux@{print\+Binary\+Search\+Tree\+Aux}!abr.\+c@{abr.\+c}}
-\subsubsection[{\texorpdfstring{print\+Binary\+Search\+Tree\+Aux(\+Search\+Tree st, int niveau, int position, String $\ast$$\ast$display, int $\ast$ligne)}{printBinarySearchTreeAux(SearchTree st, int niveau, int position, String **display, int *ligne)}}]{\setlength{\rightskip}{0pt plus 5cm}void print\+Binary\+Search\+Tree\+Aux (
+\subsubsection[{\texorpdfstring{print\+Binary\+Search\+Tree\+Aux(\+Search\+Tree st, int niveau, int position, int $\ast$ligne)}{printBinarySearchTreeAux(SearchTree st, int niveau, int position, int *ligne)}}]{\setlength{\rightskip}{0pt plus 5cm}void print\+Binary\+Search\+Tree\+Aux (
 \begin{DoxyParamCaption}
 \item[{{\bf Search\+Tree}}]{st, }
 \item[{int}]{niveau, }
 \item[{int}]{position, }
-\item[{String $\ast$$\ast$}]{display, }
 \item[{int $\ast$}]{ligne}
 \end{DoxyParamCaption}
-)}\hypertarget{abr_8c_a330b7d1ad394a86fbceceae30888dfd2}{}\label{abr_8c_a330b7d1ad394a86fbceceae30888dfd2}
+)}\hypertarget{abr_8c_a759368acf8e85acb8b720fff6e5cd738}{}\label{abr_8c_a759368acf8e85acb8b720fff6e5cd738}
 
 
 Fonction auxiliaire de l\textquotesingle{}affichage. 
@@ -296,7 +267,7 @@ Remplit le tableau (display) mentionné précedamment par les mots dans l\textqu
 {\em ligne} & Le nombre de ligne dans le display actuel \\
 \hline
 \end{DoxyParams}
-\index{abr.\+c@{abr.\+c}!print\+Equilibre@{print\+Equilibre}}
+Mettre le noeud dans le display \index{abr.\+c@{abr.\+c}!print\+Equilibre@{print\+Equilibre}}
 \index{print\+Equilibre@{print\+Equilibre}!abr.\+c@{abr.\+c}}
 \subsubsection[{\texorpdfstring{print\+Equilibre(\+Search\+Tree st, int niveau, int pos)}{printEquilibre(SearchTree st, int niveau, int pos)}}]{\setlength{\rightskip}{0pt plus 5cm}void print\+Equilibre (
 \begin{DoxyParamCaption}

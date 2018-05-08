@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['balance',['balance',['../arbeq_8c.html#aad1ee93c4ab33d6c110061db4aae7086',1,'balance(SearchTree st):&#160;arbeq.c'],['../arbeq_8h.html#aad1ee93c4ab33d6c110061db4aae7086',1,'balance(SearchTree st):&#160;arbeq.c']]]
+  ['aide',['aide',['../more_8c.html#aae10502a2b12de301b43545991dc1c9f',1,'aide():&#160;more.c'],['../more_8h.html#aae10502a2b12de301b43545991dc1c9f',1,'aide():&#160;more.c']]]
 ];

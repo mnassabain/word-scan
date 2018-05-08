@@ -1,3 +1,10 @@
+/**
+ * \file main.c
+ * 
+ * Fichier qui porte la fonction main du programme.
+ * 
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 

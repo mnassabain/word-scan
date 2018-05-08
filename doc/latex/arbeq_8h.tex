@@ -2,26 +2,20 @@
 \label{arbeq_8h}\index{include/arbeq.\+h@{include/arbeq.\+h}}
 {\ttfamily \#include $<$stdbool.\+h$>$}\\*
 {\ttfamily \#include \char`\"{}abr.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}more.\+h\char`\"{}}\\*
 Include dependency graph for arbeq.\+h\+:
 % FIG 0
 This graph shows which files directly or indirectly include this file\+:
 % FIG 1
-\subsection*{Macros}
-\begin{DoxyCompactItemize}
-\item 
-\#define {\bfseries M\+AX}(X,  Y)~(((X) $>$ (Y)) ? (X) \+: (Y))\hypertarget{arbeq_8h_aff9931d7524c88e07743af6535b20761}{}\label{arbeq_8h_aff9931d7524c88e07743af6535b20761}
-
-\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 bool \hyperlink{arbeq_8h_afd3e04613f2a5f65239d6e4ab228e080}{is\+Balanced} (\hyperlink{structs__arbre}{Search\+Tree} st)
 \begin{DoxyCompactList}\small\item\em Détermine si l\textquotesingle{}arbre est équilibré où non. \end{DoxyCompactList}\item 
-int \hyperlink{arbeq_8h_ad8a028fa4d43a704adc9c50467d85e66}{get\+Height} (\hyperlink{structs__arbre}{Search\+Tree} st)
-\begin{DoxyCompactList}\small\item\em Renvoie la hauteur de l\textquotesingle{}arbre. \end{DoxyCompactList}\item 
-int {\bfseries get\+Average\+Depth} (\hyperlink{structs__arbre}{Search\+Tree} st)\hypertarget{arbeq_8h_a0c05276a0ec9044bec2b8db0da06f549}{}\label{arbeq_8h_a0c05276a0ec9044bec2b8db0da06f549}
-
-\item 
+double \hyperlink{arbeq_8h_aa164ab0e555fc46135317056f1867688}{get\+Average\+Depth} (\hyperlink{structs__arbre}{Search\+Tree} st)
+\begin{DoxyCompactList}\small\item\em La profondeur moyenne de chaque noeud de l\textquotesingle{}arbre. \end{DoxyCompactList}\item 
+double \hyperlink{arbeq_8h_a7c4d7bd90bc5263c28ab0063b7e85423}{lci} (\hyperlink{structs__arbre}{Search\+Tree} st, int hauteur)
+\begin{DoxyCompactList}\small\item\em Longueur de cheminement interne. \end{DoxyCompactList}\item 
 \hyperlink{structs__arbre}{Search\+Tree} \hyperlink{arbeq_8h_a19a8cf465076e0cade01f0a3fa29bb03}{rotate\+Left} (\hyperlink{structs__arbre}{Search\+Tree} st)
 \begin{DoxyCompactList}\small\item\em Rotation gauche. \end{DoxyCompactList}\item 
 \hyperlink{structs__arbre}{Search\+Tree} \hyperlink{arbeq_8h_af27314774bdef731db078274084e74c2}{rotate\+Right} (\hyperlink{structs__arbre}{Search\+Tree} st)
@@ -35,9 +29,14 @@ int {\bfseries get\+Average\+Depth} (\hyperlink{structs__arbre}{Search\+Tree} st
 int \hyperlink{arbeq_8h_aafda038399454ef7076bc5731f1c0316}{get\+Eq} (\hyperlink{structs__arbre}{Search\+Tree} st)
 \begin{DoxyCompactList}\small\item\em Renvoie l\textquotesingle{}équilibre d\textquotesingle{}un noeud. \end{DoxyCompactList}\item 
 \hyperlink{structs__arbre}{Search\+Tree} \hyperlink{arbeq_8h_a4ca956dd281715bec4e9aafb5a879d1a}{construction\+\_\+arbre} (char $\ast$filename)
-\begin{DoxyCompactList}\small\item\em Construction de l\textquotesingle{}arbre binaire de recherché équilibré \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Construction de l\textquotesingle{}arbre binaire de recherché équilibré à partir d\textquotesingle{}un fichier. \end{DoxyCompactList}\item 
 \hyperlink{structs__arbre}{Search\+Tree} \hyperlink{arbeq_8h_a76ede73310b617e8b0987e5dcf9f16cd}{insavl} (\hyperlink{structs__arbre}{Search\+Tree} st, char $\ast$mot, int index)
 \begin{DoxyCompactList}\small\item\em Insère un mot dans un A\+VL. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{arbeq_8h_a79f48d856f2b2dd2010bd69f7627de2d}{flag\+\_\+U}
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -72,7 +71,7 @@ Arbre équilibré
 )}\hypertarget{arbeq_8h_a4ca956dd281715bec4e9aafb5a879d1a}{}\label{arbeq_8h_a4ca956dd281715bec4e9aafb5a879d1a}
 
 
-Construction de l\textquotesingle{}arbre binaire de recherché équilibré 
+Construction de l\textquotesingle{}arbre binaire de recherché équilibré à partir d\textquotesingle{}un fichier. 
 
 Lit le fichier passé en argument et sépare chaque mot pour le stocker dans un arbre binaire de recherche équilibré. Un équilibrage est effectué après chaque insertion si nécéssaire. On considère qu\textquotesingle{}on mot a été trouvé quand on rencontre un des séparateurs suivants \+: \char`\"{},\+:;!?()\char`\"{} ou un espace. 
 \begin{DoxyParams}{Parameters}
@@ -88,7 +87,34 @@ Ouverture du fichier
 
 Initlisation de l\textquotesingle{}arbre de recherche
 
-Parcours du fichier \index{arbeq.\+h@{arbeq.\+h}!get\+Eq@{get\+Eq}}
+Parcours du fichier
+
+Traitement des accents
+
+Pointeur sur le buffer
+
+Compteur pour la boucle \index{arbeq.\+h@{arbeq.\+h}!get\+Average\+Depth@{get\+Average\+Depth}}
+\index{get\+Average\+Depth@{get\+Average\+Depth}!arbeq.\+h@{arbeq.\+h}}
+\subsubsection[{\texorpdfstring{get\+Average\+Depth(\+Search\+Tree st)}{getAverageDepth(SearchTree st)}}]{\setlength{\rightskip}{0pt plus 5cm}double get\+Average\+Depth (
+\begin{DoxyParamCaption}
+\item[{{\bf Search\+Tree}}]{st}
+\end{DoxyParamCaption}
+)}\hypertarget{arbeq_8h_aa164ab0e555fc46135317056f1867688}{}\label{arbeq_8h_aa164ab0e555fc46135317056f1867688}
+
+
+La profondeur moyenne de chaque noeud de l\textquotesingle{}arbre. 
+
+Calcule la profondeur moyenne de chaque noeud en divisant la longeur de cheminement interne avec le nombre de noeuds.
+
+
+\begin{DoxyParams}{Parameters}
+{\em st} & Arbre binaire\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+La profondeur moyenne de chaque noeud de l\textquotesingle{}arbre binaire 
+\end{DoxyReturn}
+\index{arbeq.\+h@{arbeq.\+h}!get\+Eq@{get\+Eq}}
 \index{get\+Eq@{get\+Eq}!arbeq.\+h@{arbeq.\+h}}
 \subsubsection[{\texorpdfstring{get\+Eq(\+Search\+Tree st)}{getEq(SearchTree st)}}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Eq (
 \begin{DoxyParamCaption}
@@ -108,25 +134,6 @@ Renvoie le facteur d\textquotesingle{}équilibrage d\textquotesingle{}un noeud.
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Facteur d\textquotesingle{}équilibrage du noeud 
-\end{DoxyReturn}
-\index{arbeq.\+h@{arbeq.\+h}!get\+Height@{get\+Height}}
-\index{get\+Height@{get\+Height}!arbeq.\+h@{arbeq.\+h}}
-\subsubsection[{\texorpdfstring{get\+Height(\+Search\+Tree st)}{getHeight(SearchTree st)}}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Height (
-\begin{DoxyParamCaption}
-\item[{{\bf Search\+Tree}}]{st}
-\end{DoxyParamCaption}
-)}\hypertarget{arbeq_8h_ad8a028fa4d43a704adc9c50467d85e66}{}\label{arbeq_8h_ad8a028fa4d43a704adc9c50467d85e66}
-
-
-Renvoie la hauteur de l\textquotesingle{}arbre. 
-
-Renvoie la hauteur de l\textquotesingle{}arbre passé en argument. 
-\begin{DoxyParams}{Parameters}
-{\em st} & A\+VL\\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Hauteur de l\textquotesingle{}arbre 
 \end{DoxyReturn}
 \index{arbeq.\+h@{arbeq.\+h}!insavl@{insavl}}
 \index{insavl@{insavl}!arbeq.\+h@{arbeq.\+h}}
@@ -173,6 +180,30 @@ Vérifie si pour chacun des noeuds de l\textquotesingle{}arbre, le facteur d\tex
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Booléen qui vaut true si l\textquotesingle{}arbre est équilibré, false sinon 
+\end{DoxyReturn}
+\index{arbeq.\+h@{arbeq.\+h}!lci@{lci}}
+\index{lci@{lci}!arbeq.\+h@{arbeq.\+h}}
+\subsubsection[{\texorpdfstring{lci(\+Search\+Tree st, int hauteur)}{lci(SearchTree st, int hauteur)}}]{\setlength{\rightskip}{0pt plus 5cm}double lci (
+\begin{DoxyParamCaption}
+\item[{{\bf Search\+Tree}}]{st, }
+\item[{int}]{hauteur}
+\end{DoxyParamCaption}
+)}\hypertarget{arbeq_8h_a7c4d7bd90bc5263c28ab0063b7e85423}{}\label{arbeq_8h_a7c4d7bd90bc5263c28ab0063b7e85423}
+
+
+Longueur de cheminement interne. 
+
+Calcule la longueur de cheminement interne de l\textquotesingle{}arbre passé en argument.
+
+
+\begin{DoxyParams}{Parameters}
+{\em st} & A\+VL \\
+\hline
+{\em hauteur} & La hauteur du noeud courrant\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Longueur de cheminement interne de l\textquotesingle{}arbre 
 \end{DoxyReturn}
 \index{arbeq.\+h@{arbeq.\+h}!rotate\+Left@{rotate\+Left}}
 \index{rotate\+Left@{rotate\+Left}!arbeq.\+h@{arbeq.\+h}}
@@ -262,3 +293,10 @@ Le fils droit de l\textquotesingle{}arbre ne doit pas être vide, et le fils gau
 \begin{DoxyReturn}{Returns}
 Arbre ayant subit une rotation double droite-\/gauche 
 \end{DoxyReturn}
+
+
+\subsection{Variable Documentation}
+\index{arbeq.\+h@{arbeq.\+h}!flag\+\_\+U@{flag\+\_\+U}}
+\index{flag\+\_\+U@{flag\+\_\+U}!arbeq.\+h@{arbeq.\+h}}
+\subsubsection[{\texorpdfstring{flag\+\_\+U}{flag_U}}]{\setlength{\rightskip}{0pt plus 5cm}bool flag\+\_\+U}\hypertarget{arbeq_8h_a79f48d856f2b2dd2010bd69f7627de2d}{}\label{arbeq_8h_a79f48d856f2b2dd2010bd69f7627de2d}
+Flag qui indique si le mode U\+T\+F-\/8 est activé 
