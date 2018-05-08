@@ -1,3 +1,10 @@
+/**
+ * \brief test.c
+ * 
+ * Fichier qui lance un jeu de tests
+ * 
+ */
+
 #include "ensemble.h"
 #include "abr.h"
 #include "arbeq.h"
