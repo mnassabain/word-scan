@@ -1,5 +1,5 @@
 /**
- * \brief test.c
+ * \file test.c
  * 
  * Fichier qui lance un jeu de tests
  * 
