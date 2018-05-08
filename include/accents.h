@@ -36,12 +36,14 @@
 #define O_MAJ_CRX       -167        /** Ô **/
 
 #define U_MIN_GRV       -132        /** ù **/
+#define U_MIN_CRX       -130        /** û **/
 
-#define U_MAX_GRV       -164        /** Ù **/
+#define U_MAJ_GRV       -164        /** Ù **/
+#define U_MAJ_CRX       -162        /** Û **/
 
 #define C_MIN_CDL       -150        /** ç **/
 
-#define C_MAX_CDL       -182        /** Ç **/
+#define C_MAJ_CDL       -182        /** Ç **/
 
 
 

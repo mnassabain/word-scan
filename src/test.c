@@ -85,7 +85,7 @@ void testABR()
     SearchTree stFile = initBinarySearchTree();
     stFile = construction_arbre("texte/foo.txt");
 
-    printf("Affichage de l'arbre créé avec foot.txt\n");
+    printf("Affichage de l'arbre créé avec texte/foo.txt\n");
     printBinarySearchTree(stFile);
     printf("L'arbre contient %d mots differents.\n\n", getNumberString(stFile));
 
@@ -109,7 +109,7 @@ void testABR()
     mots[0] = "foo";
     mots[1] = "bar";
     OrderedSet cooccurences = findCooccurrences(stFile, mots, 2);
-    printf ("Les mots %s et %s apparaissent dans les phrases : ", mots[0], mots[1]);
+    printf ("Les mots '%s' et '%s' apparaissent dans les phrases : ", mots[0], mots[1]);
     printOrderedSet(cooccurences);
     freeOrderedSet(cooccurences);
 
@@ -117,17 +117,17 @@ void testABR()
     mots[1] = "foo";
     mots[2] = "grault";
     cooccurences = findCooccurrences(stFile, mots, 3);
-    printf ("Les mots %s, %s et %s apparaissent dans les phrases : ", mots[0], mots[1], mots[2]);
+    printf ("Les mots '%s', '%s' et '%s' apparaissent dans les phrases : ", mots[0], mots[1], mots[2]);
     printOrderedSet(cooccurences);
     freeOrderedSet(cooccurences);
 
     char *motRecherche = "abaa\0";
     cooccurences = find(stFile, motRecherche);
     if (cooccurences == NULL)
-        printf ("Le mot %s n'est pas dans une phrase.\n", motRecherche);
+        printf ("Le mot '%s' n'est pas dans une phrase.\n", motRecherche);
     else
     {
-        printf("Occurences du mot %s dans les phrases :", motRecherche);
+        printf("Occurences du mot '%s' dans les phrases :", motRecherche);
         printOrderedSet(cooccurences);
         freeOrderedSet(cooccurences);
     }
@@ -177,11 +177,11 @@ void testAVL ()
     strcpy(mot2, "bbbb");
     strcpy(mot3, "cccc");
 
-    printf("Insertion du mot %s\n", mot1);
+    printf("Insertion du mot '%s'\n", mot1);
     stRG = insavl(stRG, mot1, 1);
-    printf("Insertion du mot %s\n", mot2);
+    printf("Insertion du mot '%s'\n", mot2);
     stRG = insavl(stRG, mot2, 1);
-    printf("Insertion du mot %s\n", mot3);
+    printf("Insertion du mot '%s'\n", mot3);
     stRG = insavl(stRG, mot3, 1);
 
     printf("Affichage de l'arbre:\n\n");
@@ -201,11 +201,11 @@ void testAVL ()
     strcpy(mot2, "bbbb");
     strcpy(mot3, "aaaa");
 
-    printf("Insertion du mot %s\n", mot1);
+    printf("Insertion du mot '%s'\n", mot1);
     stRD = insavl(stRD, mot1, 1);
-    printf("Insertion du mot %s\n", mot2);
+    printf("Insertion du mot '%s'\n", mot2);
     stRD = insavl(stRD, mot2, 1);
-    printf("Insertion du mot %s\n", mot3);
+    printf("Insertion du mot '%s'\n", mot3);
     stRD = insavl(stRD, mot3, 1);
 
     printf("Affichage de l'arbre:\n\n");
@@ -225,11 +225,11 @@ void testAVL ()
     strcpy(mot2, "aaaa");
     strcpy(mot3, "bbbb");
 
-    printf("Insertion du mot %s\n", mot1);
+    printf("Insertion du mot '%s'\n", mot1);
     stRGD = insavl(stRGD, mot1, 1);
-    printf("Insertion du mot %s\n", mot2);
+    printf("Insertion du mot '%s'\n", mot2);
     stRGD = insavl(stRGD, mot2, 1);
-    printf("Insertion du mot %s\n", mot3);
+    printf("Insertion du mot '%s'\n", mot3);
     stRGD = insavl(stRGD, mot3, 1);
 
     printf("Affichage de l'arbre:\n\n");
@@ -249,11 +249,11 @@ void testAVL ()
     strcpy(mot2, "cccc");
     strcpy(mot3, "bbbb");
 
-    printf("Insertion du mot %s\n", mot1);
+    printf("Insertion du mot '%s'\n", mot1);
     stRDG = insavl(stRDG, mot1, 1);
-    printf("Insertion du mot %s\n", mot2);
+    printf("Insertion du mot '%s'\n", mot2);
     stRDG = insavl(stRDG, mot2, 1);
-    printf("Insertion du mot %s\n", mot3);
+    printf("Insertion du mot '%s'\n", mot3);
     stRDG = insavl(stRDG, mot3, 1);
 
     printf("Affichage de l'arbre:\n\n");
@@ -297,6 +297,7 @@ void testAccEtSep()
 
     if (dup2(old_stdout, 1) == -1) raler(1, "Erreur dup2");
 
+    printf("Un arbre a été initialisé à partir du fichier texte/accents.txt\n");
     printf("L'affichage de l'arbre a été redirigé vers le fichier gilbert.txt\n");
 
     freeBinarySearchTree(stFile);

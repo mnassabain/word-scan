@@ -95,10 +95,12 @@ char transformer_utf8(int c)
             break;
 
         case U_MIN_GRV:
+        case U_MIN_CRX:
             resultat = 'u';
             break;
 
-        case U_MAX_GRV:
+        case U_MAJ_GRV:
+        case U_MAJ_CRX:
             resultat = 'U';
             break;
 
@@ -106,7 +108,7 @@ char transformer_utf8(int c)
             resultat = 'c';
             break;
 
-        case C_MAX_CDL:
+        case C_MAJ_CDL:
             resultat = 'C';
             break;
 
@@ -182,12 +184,14 @@ int comp(char *mot1, char *mot2)
 
 
 /**
- * \brief Traiter les argument donnée lors l'appel au programme
+ * \brief Traiter les arguments donnée lors l'appel au programme
  *
- * \param argc
- * \param argv
+ * Extrait le nom du fichier et active les flags.
+ * 
+ * \param argc nombre d'arguments
+ * \param argv liste d'arguments
  *
- * \return
+ * \return Le nom du fichier entrée par l'utilisateur
  *
  */
 char * traiter_arguments(int argc, char * const argv[])
@@ -200,7 +204,7 @@ char * traiter_arguments(int argc, char * const argv[])
     }
 
     int opt;
-    while((opt = getopt(argc, argv, "aehputi")) != -1)
+    while((opt = getopt(argc, argv, "aehputni")) != -1)
     {
         switch(opt)
         {
@@ -227,6 +231,10 @@ char * traiter_arguments(int argc, char * const argv[])
                 flag_T = true;
                 break;
 
+            case 'n':
+                flag_N = true;
+                break;
+
             case 'i':
                 flag_I = true;
                 break;
@@ -244,6 +252,7 @@ char * traiter_arguments(int argc, char * const argv[])
     return argv[optind];
 }
 
+
 void menu()
 {
     printf("Choisissez ce que vous voulez faire:\n");
@@ -254,6 +263,7 @@ void menu()
     printf("5. Supprimer l'arbre\n");
     printf("q. Appuyez sur q pour quitter\n");
 }
+
 
 void interactif ()
 {
@@ -316,9 +326,9 @@ void interactif ()
         menu ();
         c = getchar();
         if(c != '\n' && c != EOF)
-          {
-             int d;
-             while((d = getchar()) != '\n' && d != EOF);
+        {
+            int d;
+            while((d = getchar()) != '\n' && d != EOF);
         }
     }
     return;

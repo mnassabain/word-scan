@@ -19,11 +19,11 @@ bool flag_H = false;    // height
 bool flag_P = false;    // avgdepth
 bool flag_U = false;    // support UTF-8
 bool flag_T = false;    // lancement des jeux de test
+bool flag_N = false;    // nombre de noeuds
 bool flag_I = false;    // mode interactif
 
-/* =====    PROTOTYPES    ===== */
 
-
+/* =====    LE MAIN    ===== */
 
 int main(int argc, char * const argv[])
 {
@@ -66,6 +66,12 @@ int main(int argc, char * const argv[])
     {
         int p = getAverageDepth(st);
         printf("La profondeur moyenne des noeuds est: %d\n", p);
+    }
+
+    if (flag_N)
+    {
+        int n = getNumberString(st);
+        printf("Le nombre de noeuds dans l'arbre est %d\n", n);
     }
 
     freeBinarySearchTree(st);

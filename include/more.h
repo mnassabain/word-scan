@@ -33,6 +33,7 @@ extern bool flag_H;    // height
 extern bool flag_P;    // avgdepth
 extern bool flag_U;    // support UTF-8
 extern bool flag_T;    // lancement des jeux de test
+extern bool flag_N;    // nombre de noeuds
 extern bool flag_I;    // mode interactif
 
 
@@ -61,8 +62,10 @@ int comp(char * mot1, char * mot2);
 /** \brief Traiter les arguments données lors l'appel au programme **/
 char * traiter_arguments(int argc, char * const argv[]);
 
+
 /** \brief Lance un mode interactif, qui permet de faire des recherches dans l'arbre **/
 void interactif ();
+
 
 /** \brief Affiche le menu du mode interactif **/
 void menu();

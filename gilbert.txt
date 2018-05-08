@@ -1,0 +1,240 @@
+         \--dictumst: [ 62 ]   
+|  |                        
+\--dictum: [ 10, 22 ]                     
+   |                        
+   |           /--diam: [ 10, 32 ]      
+   |           |            
+   |        /--cursus: [ 44 ]         
+   |        |  |            
+   |        |  \--curabitur: [ 9 ]      
+   |        |               
+   |     /--cras: [ 7 ]            
+   |     |  |               
+   |     |  |  /--convallis: [ 19, 43, 45 ]      
+   |     |  |  |            
+   |     |  \--conubia: [ 65 ]         
+   |     |     |            
+   |     |     \--consequat: [ 7 ]      
+   |     |                  
+   |  /--consectetur: [ 1, 25 ]               
+   |  |  |                  
+   |  |  |     /--congue: [ 7, 38, 57 ]      
+   |  |  |     |            
+   |  |  |  /--condimentum: [ 22, 53 ]         
+   |  |  |  |  |            
+   |  |  |  |  \--commodo: [ 69 ]      
+   |  |  |  |               
+   |  |  \--class: [ 65 ]            
+   |  |     |               
+   |  |     \--blandit: [ 5 ]         
+   |  |        |            
+   |  |        \--bibendum: [ 13, 20, 27, 50 ]      
+   |  |                     
+   \--augue: [ 6, 44, 54, 55 ]                  
+      |                     
+      |     /--auctor: [ 9, 14, 43, 47, 48, 49, 61 ]         
+      |     |               
+      |  /--at: [ 2, 33, 55, 60, 61 ]            
+      |  |  |               
+      |  |  \--arcu: [ 15, 34 ]         
+      |  |     |            
+      |  |     |  /--aptent: [ 65 ]   
+      |  |     |  |         
+      |  |     \--ante: [ 34, 56 ]      
+      |  |                  
+      \--amet: [ 1, 2, 8, 25, 36, 45 ]               
+         |                  
+         |  /--aliquam: [ 5, 22, 24, 42, 43, 45, 51, 68 ]         
+         |  |  |            
+         |  |  \--aenean: [ 26, 37 ]      
+         |  |               
+         \--adipiscing: [ 1 ]            
+            |               
+            |     /--ad: [ 65 ]   
+            |     |         
+            |  /--accumsan: [ 7, 42 ]      
+            |  |            
+            \--ac: [ 4, 7, 24, 31, 52, 55 ]         
+               |            
+               \--a: [ 9, 21, 34, 36, 46, 54, 56, 59 ]      
+                            
+L'affichage de l'arbre a été redirigé vers le fichier result_lorem.txt
+L'arbre contient 159 mots differents
+Profondeur moyenne des noeuds de l'arbre : 6.792453
+[32m################### TESTING: fin tests construction de l'arbre[0m
+
+[32m################### TESTING: Partie 4: AVL[0m
+[32m################### TESTING: rotation gauche[0m
+Insertion du mot 'aaaa'
+Insertion du mot 'bbbb'
+Insertion du mot 'cccc'
+Affichage de l'arbre:
+
+/--cccc: [ 1 ]
+|      
+bbbb: [ 1 ]   
+|      
+\--aaaa: [ 1 ]
+       
+[32m################### TESTING: rotation droite[0m
+Insertion du mot 'cccc'
+Insertion du mot 'bbbb'
+Insertion du mot 'aaaa'
+Affichage de l'arbre:
+
+/--cccc: [ 1 ]
+|      
+bbbb: [ 1 ]   
+|      
+\--aaaa: [ 1 ]
+       
+[32m################### TESTING: rotation double gauche-droite[0m
+Insertion du mot 'cccc'
+Insertion du mot 'aaaa'
+Insertion du mot 'bbbb'
+Affichage de l'arbre:
+
+/--cccc: [ 1 ]
+|      
+bbbb: [ 1 ]   
+|      
+\--aaaa: [ 1 ]
+       
+[32m################### TESTING: rotation double droite-gauche[0m
+Insertion du mot 'aaaa'
+Insertion du mot 'cccc'
+Insertion du mot 'bbbb'
+Affichage de l'arbre:
+
+/--cccc: [ 1 ]
+|      
+bbbb: [ 1 ]   
+|      
+\--aaaa: [ 1 ]
+       
+Test fonctions sur arbre initialisé avec foo.txt
+L'arbre est-il équilibré ? oui
+La hauteur de l'arbre est 3.
+Profondeur moyenne des noeuds de l'arbre : 2.428571
+[32m################### TESTING: fin tests AVL[0m
+
+[32m################### TESTING: Partie BONUS: Accents & séparateurs[0m
+               /--visage: [ 11, 27, 35, 41 ]      
+               |            
+            /--vieux: [ 10, 26, 34 ]         
+            |               
+         /--veux: [ 11, 27, 35, 41 ]            
+         |  |               
+         |  |  /--va: [ 1, 4, 5, 6, 7, 8, 12, 14, 17, 20, 21, 24, 28, 30, 32, 36, 38, 40, 42, 44, 46, 47 ]      
+         |  |  |            
+         |  \--une: [ 9, 21, 25, 33 ]         
+         |     |            
+         |     \--un: [ 9, 10, 13, 25, 26, 29, 33, 34, 37, 43 ]      
+         |                  
+      /--tu: [ 4, 20 ]               
+      |  |                  
+      |  |     /--train: [ 10, 26, 34 ]      
+      |  |     |            
+      |  |  /--toutes: [ 19 ]         
+      |  |  |  |            
+      |  |  |  \--toujours: [ 15, 31, 39, 45 ]      
+      |  |  |               
+      |  \--toucher: [ 1 ]            
+      |     |               
+      |     |  /--ton: [ 11, 27, 35, 41 ]      
+      |     |  |            
+      |     \--tellement: [ 4 ]         
+      |        |            
+      |        \--sur: [ 9, 13, 25, 29, 33, 37, 43 ]      
+      |                     
+   /--separer: [ 2 ]                  
+   |  |                     
+   |  |     /--se: [ 2, 3, 14, 18, 19, 23, 30, 38, 44 ]         
+   |  |     |               
+   |  |  /--saisons: [ 6 ]            
+   |  |  |  |               
+   |  |  |  \--rever: [ 6 ]         
+   |  |  |                  
+   |  \--retrouver: [ 3 ]               
+   |     |                  
+   |     |  /--rechauffer: [ 18 ]         
+   |     |  |               
+   |     \--quitter: [ 7 ]            
+   |        |               
+   |        |        /--que: [ 20 ]
+   |        |        |      
+   |        |     /--prison: [ 7 ]   
+   |        |     |  |      
+   |        |     |  \--pour: [ 22 ]
+   |        |     |         
+   |        |  /--pont: [ 13, 29, 37, 43 ]      
+   |        |  |  |         
+   |        |  |  \--plus: [ 15, 31, 39, 45 ]   
+   |        |  |            
+   |        \--peau: [ 14, 30, 38, 44 ]         
+   |           |            
+   |           |  /--partir: [ 21 ]   
+   |           |  |  |      
+   |           |  |  \--oui: [ 46 ]
+   |           |  |         
+   |           \--ou: [ 9, 10, 11, 16, 25, 26, 27, 32, 33, 34, 35, 40, 41, 46 ]      
+   |              |         
+   |              \--oreiller: [ 9, 25, 33 ]   
+   |                        
+/--on: [ 1, 4, 5, 6, 7, 8, 12, 14, 17, 20, 21, 24, 28, 30, 32, 36, 38, 40, 42, 44, 46, 47 ]                     
+|  |                        
+|  |           /--oh: [ 16, 41 ]      
+|  |           |            
+|  |        /--nos: [ 2 ]         
+|  |        |  |            
+|  |        |  \--nee: [ 27 ]      
+|  |        |               
+|  |     /--ne: [ 11, 35, 41 ]            
+|  |     |  |               
+|  |     |  |  /--murs: [ 7 ]      
+|  |     |  |  |            
+|  |     |  \--murmurer: [ 19 ]         
+|  |     |     |            
+|  |     |     |  /--marches: [ 17 ]   
+|  |     |     |  |         
+|  |     |     \--maison: [ 5 ]      
+|  |     |        |         
+|  |     |        \--les: [ 3, 5 ]   
+|  |     |                  
+|  |  /--le: [ 1, 13, 29, 37, 43 ]               
+|  |  |  |                  
+|  |  |  |  /--la: [ 5, 14, 30, 38, 44 ]         
+|  |  |  |  |               
+|  |  |  \--jeter: [ 5 ]            
+|  |  |     |               
+|  |  |     \--je: [ 11, 27, 35, 41 ]         
+|  |  |        |            
+|  |  |        \--ile: [ 21 ]      
+|  |  |                     
+|  \--hirondelles: [ 3 ]                  
+|     |                     
+|     |     /--haute: [ 31 ]         
+|     |     |               
+|     |  /--haut: [ 15, 39, 45 ]            
+|     |  |                  
+|     \--habit: [ 22 ]               
+|        |                  
+|        |     /--greniere: [ 34 ]      
+|        |     |            
+|        |  /--grenier: [ 10, 26 ]         
+|        |  |  |            
+|        |  |  \--fragile: [ 22 ]      
+|        |  |               
+|        \--fond: [ 10, 26, 34 ]            
+|           |               
+|           \--etoile: [ 9, 25, 33 ]         
+|              |            
+|              \--est: [ 11, 16, 27, 32, 35, 40, 41, 46 ]      
+|                           
+es: [ 4 ]                        
+|                           
+|           /--envoler: [ 15, 31, 39, 45 ]         
+|           |  |            
+|           |  \--encore: [ 23 ]      
+|           |               
+|        /--eglises
