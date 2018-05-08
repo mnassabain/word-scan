@@ -253,6 +253,7 @@ char * traiter_arguments(int argc, char * const argv[])
 }
 
 
+/** \brief Affiche le menu pour le mode interactif **/
 void menu()
 {
     printf("Choisissez ce que vous voulez faire:\n");
@@ -266,6 +267,8 @@ void menu()
     printf("q. Appuyez sur q pour quitter\n");
 }
 
+
+/** \brief Lancer et gérer le mode interactif **/
 void interactif ()
 {
     SearchTree st = initBinarySearchTree();
@@ -394,7 +397,7 @@ void interactif ()
                         mots[nb_mots][MAX_CHAR] = '\0';
                         nb_mots++;
                     }
-                    
+
                     OrderedSet cooccurences = findCooccurrences(st, mots, nb_mots);
                     printf ("Les mots: ");
                     for (i = 0; i < nb_mots; i++){
