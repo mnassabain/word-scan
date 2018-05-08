@@ -475,7 +475,7 @@ void interactif ()
         else
         {
             c++;
-            if (c == 8)
+            if (c == '8')
                 c = 'q';
         }
         // nettoyage de l'entrée standard, on récupère seulement le premier caractère
