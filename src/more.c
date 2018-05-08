@@ -200,7 +200,7 @@ char * traiter_arguments(int argc, char * const argv[])
 
     if (argc != 2 && argc != 3 && argc != 4 && argc != 5 && argc != 6)
     {
-        raler(0, "Usage: %s fichier", prog);
+        raler(0, "Usage: %s [option] file\nTry %s -a for help.", prog, prog);
     }
 
     int opt;
@@ -246,7 +246,7 @@ char * traiter_arguments(int argc, char * const argv[])
 
     if (argc - optind == 0 && (!flag_A && !flag_T &&!flag_I))
     {
-        raler(0, "Usage: %s fichier", prog);
+        raler(0, "Usage: %s [option] file\nTry %s -a for help.", prog, prog);
     }
 
     return argv[optind];
@@ -461,7 +461,20 @@ void interactif ()
     return;
 }
 
+/** \brief Affiche l'aide **/
 void aide()
 {
+    printf("Usage: %s [option] file\n", prog);
+    printf("\tOptions :\n");
+    printf("\t-a : affiche l'aide\n");
+    printf("\t-e : crée l'arbre à partir de 'file' et teste s'il est équilibré\n");
+    printf("\t-h : crée l'arbre à partir de 'file' et affiche sa hauteur\n");
+    printf("\t-n : crée l'arbre à partir de 'file' et affiche le nombre de noeuds\n");
+    printf("\t-p : crée l'arbre à partir de 'file' et affiche la profondeur \
+moyenne des noeuds\n");
+    printf("\t-u : crée l'arbre à partir de 'file' et traite les accents\n");
+    printf("\t-t : lance des jeux de test\n");
+    printf("\t-i : lance un mode interactif qui permet de créer un arbre et \
+effectuer différentes actions sur celui-ci\n");
     return;
 }
