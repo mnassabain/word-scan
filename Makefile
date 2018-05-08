@@ -9,6 +9,8 @@ CPATH = src/
 SOURCES = $(patsubst $(CPATH)%,%,$(wildcard $(CPATH)*.c))
 OBJECTS = $(SOURCES:.c=.o)
 
+TMP = /tmp/projet2018MQ
+
 vpath %.h include
 vpath %.c src
 vpath %.o obj
@@ -23,15 +25,13 @@ all : $(TARGET) $(TESTS)
 
 test:
 	./bin/main -t -u
-	#@mv *.gcda coverage/
 
 coverage:
-	#./bin/main -t -u > /dev/null
-	#@rm gilbert.txt result_lorem.txt
 	./bin/main -a > /dev/null
 	./bin/main -h texte/foo.txt > /dev/null
 	./bin/main -u texte/accents.txt >/dev/null
 	./bin/main 2> /dev/null || exit 0 && exit 1
+	@rm -f /tmp/projet2018$$
 	@mv *.gcda coverage/
 	@gcov coverage/*.gcno
 

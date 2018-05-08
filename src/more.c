@@ -187,7 +187,7 @@ int comp(char *mot1, char *mot2)
  * \brief Traiter les arguments donnée lors l'appel au programme
  *
  * Extrait le nom du fichier et active les flags.
- * 
+ *
  * \param argc nombre d'arguments
  * \param argv liste d'arguments
  *
@@ -260,10 +260,11 @@ void menu()
     printf("2. Afficher l'arbre\n");
     printf("3. Afficher la hauteur de l'arbre\n");
     printf("4. Afficher la profondeur moyenne des noeuds de l'arbre\n");
-    printf("5. Supprimer l'arbre\n");
+    printf("5. Afficher le nombre de mots différents dans l'arbre (noeuds)\n");
+    printf("6. Retrouver les indices des phrases de cooccurences de plusieurs mots\n");
+    printf("7. Supprimer l'arbre\n");
     printf("q. Appuyez sur q pour quitter\n");
 }
-
 
 void interactif ()
 {
@@ -287,8 +288,22 @@ void interactif ()
                 }
                 else
                 {
-                    printf("\nCréation de l'arbre.\n");
-                    st = construction_arbre("texte/foo.txt");
+                    printf("\nEntrez le chemin d'un fichier texte:\n");
+                    char nom[PATH_MAX+1], *pos;
+                    if (fgets(nom, PATH_MAX+1, stdin) != NULL){
+                        pos = strchr(nom, '\n');
+                        if (pos != NULL)
+                        {
+                            *pos = '\0';
+                        }
+                        pos = strchr(nom, ' ');
+                        if (pos != NULL)
+                        {
+                            *pos = '\0';
+                        }
+                    }
+                    printf("Création de l'arbre.\n");
+                    st = construction_arbre(nom);
                     existTree = true;
                 }
                 break;
@@ -306,17 +321,119 @@ void interactif ()
                 break;
 
             case '3':
-                printf("\nHauteur de l'arbre: %d\n", getHeight(st));
+                if (existTree)
+                {
+                    printf("\nHauteur de l'arbre: %d\n", getHeight(st));
+                }
+                else
+                {
+                    printf("\nVous n'avez pas créé d'arbre.\n");
+                }
+
                 break;
 
             case '4':
-                printf("\nProfondeur moyenne des noeuds de l'arbre: %f\n", getAverageDepth(st));
+                if (existTree)
+                {
+                    printf("\nProfondeur moyenne des noeuds de l'arbre: %f\n", getAverageDepth(st));
+                }
+                else
+                {
+                    printf("\nVous n'avez pas créé d'arbre.\n");
+                }
+
                 break;
 
             case '5':
-                printf("\nSuppression de l'arbre");
-                existTree = false;
-                freeBinarySearchTree(st);
+                if (existTree)
+                {
+                    printf("\nNombre de mots différents dans l'arbre (noeuds): %d\n", getNumberString(st));
+                }
+                else
+                {
+                    printf("\nVous n'avez pas créé d'arbre.\n");
+                }
+                break;
+
+            case '6':
+                if (existTree)
+                {
+                    printf("\nEntrez les mots que vous voulez chercher dans l'arbre séparés par un espace:\n");
+                    printf("(Pour des raisons de simplicité seuls %d mots de %d caractères maximum pourront être recherchés dans ce test)\n", MAX_MOTS, MAX_CHAR);
+                    char *pos1, *pos2;
+                    int tailleBuf = MAX_MOTS*(MAX_CHAR+1);
+                    char ** mots = malloc (tailleBuf);
+                    int i;
+                    for (i = 0; i < MAX_MOTS; i++)
+                    {
+                        mots[i] = malloc (MAX_CHAR+1);
+                    }
+                    char buffer[tailleBuf];
+                    int nb_mots = 0;
+                    if (fgets(buffer, tailleBuf, stdin) != NULL)
+                    {
+                        pos2 = buffer;
+                        while ((pos1 = strchr(pos2, ' ')) != NULL)
+                        {
+                            *pos1 = '\0';
+                            strncpy(mots[nb_mots], pos2, MAX_MOTS);
+                            mots[nb_mots][MAX_CHAR] = '\0';
+                            nb_mots++;
+                            pos2 = pos1 + 1 ;
+                            if (nb_mots == (MAX_MOTS - 1))
+                            {
+                                break;
+                            }
+                        }
+                        pos1 = strchr(pos2, '\n');
+                        if (pos1 != NULL)
+                        {
+                            *pos1 = '\0';
+                        }
+                        strncpy(mots[nb_mots], pos2, MAX_MOTS);
+                        mots[nb_mots][MAX_CHAR] = '\0';
+                        nb_mots++;
+                    }
+                    
+                    OrderedSet cooccurences = findCooccurrences(st, mots, nb_mots);
+                    printf ("Les mots: ");
+                    for (i = 0; i < nb_mots; i++){
+                        printf("%s", mots[i]);
+                        if (i != nb_mots - 1)
+                            printf(", ");
+                    }
+                    printf(" apparaissent dans les phrases : ");
+                    if (cooccurences == NULL)
+                        printf("aucune phrase ne contient ces mots.\n");
+                    else
+                    {
+                        printOrderedSet(cooccurences);
+                        freeOrderedSet(cooccurences);
+                    }
+
+                    for (i = 0; i < MAX_MOTS; i++)
+                    {
+                        free(mots[i]);
+                    }
+                    free(mots);
+                }
+                else
+                {
+                    printf("\nVous n'avez pas créé d'arbre.\n");
+                }
+                break;
+
+            case '7':
+                if (existTree)
+                {
+                    printf("\nSuppression de l'arbre.\n");
+                    existTree = false;
+                    freeBinarySearchTree(st);
+                }
+                else
+                {
+                    printf("\nVous n'avez pas créé d'arbre.\n");
+                }
                 break;
 
             default:
@@ -325,11 +442,18 @@ void interactif ()
         printf("\n");
         menu ();
         c = getchar();
+        // nettoyage de l'entrée standard, on récupère seulement le premier caractère
         if(c != '\n' && c != EOF)
         {
             int d;
             while((d = getchar()) != '\n' && d != EOF);
         }
+    }
+    if (existTree)
+    {
+        printf("\nSuppression de l'arbre.\n");
+        existTree = false;
+        freeBinarySearchTree(st);
     }
     return;
 }

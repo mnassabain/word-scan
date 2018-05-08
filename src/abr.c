@@ -246,7 +246,7 @@ void printBinarySearchTree(SearchTree st)
         }
     }
 
-    /** Un tableau qui va stocker les pointeurs qu'on obtient avec 
+    /** Un tableau qui va stocker les pointeurs qu'on obtient avec
      * to_string(ensemble) pour les libérer ensuite. **/
     sets = (String*)malloc((nb_lignes/2) * sizeof(String));
     if (sets == NULL) raler(1, "Erreur malloc");

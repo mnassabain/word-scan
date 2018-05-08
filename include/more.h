@@ -20,6 +20,8 @@
 /* =====    MACROS    ===== */
 
 #define MAX(X, Y) (((X) > (Y)) ? (X) : (Y))
+#define MAX_MOTS 10
+#define MAX_CHAR 50
 
 
 /* =====    VARIABLES GLOBALES    ===== */
