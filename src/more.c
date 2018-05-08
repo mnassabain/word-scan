@@ -275,11 +275,20 @@ void interactif ()
     bool existTree = false;
     printf("Mode interactif lancé.\n");
     menu ();
-    char c = getchar();
-    if(c != '\n' && c != EOF)
-      {
-         int d;
-         while((d = getchar()) != '\n' && d != EOF);
+    char c;
+
+    if (!flag_T)
+    {
+        c = getchar();
+    }
+    else
+    {
+        c = '1';
+    }
+    if(c != '\n' && c != EOF && !flag_T)
+    {
+        int d;
+        while((d = getchar()) != '\n' && d != EOF);
     }
     while(c != 'q')
     {
@@ -291,18 +300,27 @@ void interactif ()
                 }
                 else
                 {
-                    printf("\nEntrez le chemin d'un fichier texte:\n");
-                    char nom[PATH_MAX+1], *pos;
-                    if (fgets(nom, PATH_MAX+1, stdin) != NULL){
-                        pos = strchr(nom, '\n');
-                        if (pos != NULL)
+                    char nom[PATH_MAX + 1];
+                    if (flag_T)
+                    {
+                        strcpy(nom, "./texte/foo.txt");
+                    }
+                    else
+                    {
+                        char *pos;
+                        printf("\nEntrez le chemin d'un fichier texte:\n");
+                        if (fgets(nom, PATH_MAX+1, stdin) != NULL)
                         {
-                            *pos = '\0';
-                        }
-                        pos = strchr(nom, ' ');
-                        if (pos != NULL)
-                        {
-                            *pos = '\0';
+                            pos = strchr(nom, '\n');
+                            if (pos != NULL)
+                            {
+                                *pos = '\0';
+                            }
+                            pos = strchr(nom, ' ');
+                            if (pos != NULL)
+                            {
+                                *pos = '\0';
+                            }
                         }
                     }
                     printf("Création de l'arbre.\n");
@@ -373,7 +391,13 @@ void interactif ()
                     }
                     char buffer[tailleBuf];
                     int nb_mots = 0;
-                    if (fgets(buffer, tailleBuf, stdin) != NULL)
+                    if (flag_T)
+                    {
+                        strcpy(mots[0], "foo");
+                        strcpy(mots[1], "grault");
+                        nb_mots = 2;
+                    }
+                    else if(fgets(buffer, tailleBuf, stdin) != NULL)
                     {
                         pos2 = buffer;
                         while ((pos1 = strchr(pos2, ' ')) != NULL)
@@ -444,9 +468,18 @@ void interactif ()
         }
         printf("\n");
         menu ();
-        c = getchar();
+        if (!flag_T)
+        {
+            c = getchar();
+        }
+        else
+        {
+            c++;
+            if (c == 8)
+                c = 'q';
+        }
         // nettoyage de l'entrée standard, on récupère seulement le premier caractère
-        if(c != '\n' && c != EOF)
+        if(c != '\n' && c != EOF && !flag_T)
         {
             int d;
             while((d = getchar()) != '\n' && d != EOF);

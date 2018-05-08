@@ -35,7 +35,7 @@ int main(int argc, char * const argv[])
         return 0;
     }
 
-    if (flag_T)
+    if (flag_T && !flag_I)
     {
         tests();
         return 0;

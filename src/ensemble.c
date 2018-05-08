@@ -270,12 +270,18 @@ void printOrderedSet(OrderedSet os)
  */
 OrderedSet intersect(OrderedSet os1, OrderedSet os2)
 {
+    if (os1 == NULL || os2 == NULL)
+    {
+        return NULL;
+    }
+    
     OrderedSet intersection = initOrderedSet();
 
     /** Détérminer l'ensemble plus petit pour le parcours linéaire **/
     int i, max_elt;
     OrderedSet tab[] = {os1, os2};
     int tab_src, tab_dest;
+
     if(getNumberElt(os1) < getNumberElt(os2))
     {
         max_elt = getNumberElt(os1);
