@@ -27,16 +27,20 @@ test:
 	./bin/main -t -u
 
 coverage:
-	./bin/main -a > /dev/null
-	./bin/main -h texte/foo.txt > /dev/null
-	./bin/main -e texte/foo.txt > /dev/null
-	./bin/main -p texte/foo.txt > /dev/null
-	./bin/main -n texte/foo.txt > /dev/null
-	./bin/main -u texte/accents.txt >/dev/null
-	./bin/main 2> /dev/null || exit 0 && exit 1
+	@echo "[32m################### TESTING: couverture du code[0m"
+	@./bin/main -a > /dev/null
+	@./bin/main -h texte/foo.txt > /dev/null
+	@./bin/main -e texte/foo.txt > /dev/null
+	@./bin/main -p texte/foo.txt > /dev/null
+	@./bin/main -n texte/foo.txt > /dev/null
+	@./bin/main -u texte/accents.txt >/dev/null
+	@./bin/main 2> /dev/null || exit 0 && exit 1
+	@./bin/main -i -t > /dev/null
 	@rm -f /tmp/projet2018$$
 	@mv *.gcda coverage/
 	@gcov coverage/*.gcno
+	@mv *.gcov coverage/
+	@echo "[32m################### fin test de couverture du code[0m"
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< $(IFLAGS) -o $@
