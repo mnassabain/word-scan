@@ -78,11 +78,29 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Arbre de recherche Documentation</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><a class="anchor" id="Partie1"></a>
-Informations générales</h1>
-<dl class="section author"><dt>Authors</dt><dd>Quentin Christoffel </dd>
+<div class="textblock"><dl class="section author"><dt>Authors</dt><dd>Quentin Christoffel </dd>
 <dd>
-Marco Nassabain </dd></dl>
+Marco Nassabain</dd></dl>
+<h1><a class="anchor" id="Introduction"></a>
+Introduction</h1>
+<p>Ce rapport est une analyse théorique du programme donné pour le projet 2018. Le programme doit prendre en entrée un fichier. Il lit le fichier ligne par ligne et il insère les mots trouvés et leurs occurences dans un arbre binaire de recherche équilibré.</p>
+<p>Le programme est testé sur Turing et compile sans problèmes. Il n'a pas d'erreur de mémoire. Le programme ne traite pas les sauts de ligne comme fin de phrase. En effet, il est capable de différencier les mots des séparateurs et donc traiter un point comme la fin d'une phrase. Le programme gère aussi les lettres en majuscules et les accents. Vous trouverez plus de détails dans les fichiers source. Le Makefile comporte un jeu de tests pour tester le programme.</p>
+<h1><a class="anchor" id="Manuel"></a>
+Manuel d'utilisation</h1>
+<p>Pour lancer le programme il faut appeler le fichier executable avec un argument: le fichier depuis vous voulez lire le texte. <br />
+ ./analyser fichier <br />
+</p>
+<p>Voici une liste des options que vous pouvez utiliser: <br />
+ -a: Affiche une aide pour l'utilisation. <br />
+ -h: Affiche la hauteur de l'arbre binaire de recherche. <br />
+ -p: Affiche la profondeur moyenne des noeuds de l'arbre. <br />
+ -n: Affiche le nombre de noeuds de l'arbre. <br />
+ -e: Teste si l'arbre est bien équilibré. <br />
+ -u: Passage en mode utf-8 pour le traîtement des accents. <br />
+ -i: Lance le programme en mode intéractif. <br />
+ -t: Lance un jeu de tests. (Peut être lancé avec -i pour faire un jeu de testes sur le mode intéractif) <br />
+</p>
+<p>Le programme va lire depuis le fichier et afficher l'arbre binaire équilibré de recherche associé au texte. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

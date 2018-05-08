@@ -1,4 +1,4 @@
-TARGET = main
+TARGET = analyser
 LIBS = -lm -lgcov
 CC = gcc
 CFLAGS = -g -Wall -Werror -Wextra --coverage
@@ -9,7 +9,7 @@ CPATH = src/
 SOURCES = $(patsubst $(CPATH)%,%,$(wildcard $(CPATH)*.c))
 OBJECTS = $(SOURCES:.c=.o)
 
-TMP = /tmp/projet2018MQ
+BIN = bin/analyser
 
 vpath %.h include
 vpath %.c src
@@ -24,18 +24,18 @@ TESTS = test coverage
 all : $(TARGET) $(TESTS)
 
 test:
-	./bin/main -t -u
+	./$(BIN) -t -u
 
 coverage:
 	@echo "[32m################### TESTING: couverture du code[0m"
-	@./bin/main -a > /dev/null
-	@./bin/main -h texte/foo.txt > /dev/null
-	@./bin/main -e texte/foo.txt > /dev/null
-	@./bin/main -p texte/foo.txt > /dev/null
-	@./bin/main -n texte/foo.txt > /dev/null
-	@./bin/main -u texte/accents.txt >/dev/null
-	@./bin/main 2> /dev/null || exit 0 && exit 1
-	@./bin/main -i -t > /dev/null
+	@./$(BIN) -a > /dev/null
+	@./$(BIN) -h texte/foo.txt > /dev/null
+	@./$(BIN) -e texte/foo.txt > /dev/null
+	@./$(BIN) -p texte/foo.txt > /dev/null
+	@./$(BIN) -n texte/foo.txt > /dev/null
+	@./$(BIN) -u texte/accents.txt >/dev/null
+	@./$(BIN) 2> /dev/null || exit 0 && exit 1
+	@./$(BIN) -i -t > /dev/null
 	@rm -f /tmp/projet2018$$
 	@mv *.gcda coverage/
 	@gcov coverage/*.gcno

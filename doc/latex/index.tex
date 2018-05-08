@@ -1,6 +1,25 @@
-\hypertarget{index_Partie1}{}\section{Informations générales}\label{index_Partie1}
 \begin{DoxyAuthor}{Authors}
 Quentin Christoffel 
 
-Marco Nassabain 
+Marco Nassabain
 \end{DoxyAuthor}
+\hypertarget{index_Introduction}{}\section{Introduction}\label{index_Introduction}
+Ce rapport est une analyse théorique du programme donné pour le projet 2018. Le programme doit prendre en entrée un fichier. Il lit le fichier ligne par ligne et il insère les mots trouvés et leurs occurences dans un arbre binaire de recherche équilibré.
+
+Le programme est testé sur Turing et compile sans problèmes. Il n\textquotesingle{}a pas d\textquotesingle{}erreur de mémoire. Le programme ne traite pas les sauts de ligne comme fin de phrase. En effet, il est capable de différencier les mots des séparateurs et donc traiter un point comme la fin d\textquotesingle{}une phrase. Le programme gère aussi les lettres en majuscules et les accents. Vous trouverez plus de détails dans les fichiers source. Le Makefile comporte un jeu de tests pour tester le programme.\hypertarget{index_Manuel}{}\section{Manuel d\textquotesingle{}utilisation}\label{index_Manuel}
+Pour lancer le programme il faut appeler le fichier executable avec un argument\+: le fichier depuis vous voulez lire le texte. ~\newline
+ ./analyser fichier ~\newline
+
+
+Voici une liste des options que vous pouvez utiliser\+: ~\newline
+ -\/a\+: Affiche une aide pour l\textquotesingle{}utilisation. ~\newline
+ -\/h\+: Affiche la hauteur de l\textquotesingle{}arbre binaire de recherche. ~\newline
+ -\/p\+: Affiche la profondeur moyenne des noeuds de l\textquotesingle{}arbre. ~\newline
+ -\/n\+: Affiche le nombre de noeuds de l\textquotesingle{}arbre. ~\newline
+ -\/e\+: Teste si l\textquotesingle{}arbre est bien équilibré. ~\newline
+ -\/u\+: Passage en mode utf-\/8 pour le traîtement des accents. ~\newline
+ -\/i\+: Lance le programme en mode intéractif. ~\newline
+ -\/t\+: Lance un jeu de tests. (Peut être lancé avec -\/i pour faire un jeu de testes sur le mode intéractif) ~\newline
+
+
+Le programme va lire depuis le fichier et afficher l\textquotesingle{}arbre binaire équilibré de recherche associé au texte. 
